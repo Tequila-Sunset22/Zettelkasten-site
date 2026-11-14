@@ -1592,8 +1592,19 @@ document.addEventListener("nav", () => {
   // "hub" pages: their links open notes as whole pages (no columns), and they
   // never open as a column themselves (going to one closes all columns)
   const HUBS = new Set(["index", "content"])
+  // phones and tablets never stack (links open the note, as always), also
+  // when they claim to be a desktop: iPad's "desktop site" says Macintosh but
+  // has touch points; Android tablets may report a fine pointer
+  const ua = navigator.userAgent
+  const TOUCH_DEVICE =
+    /Android|iPhone|iPad|iPod|Mobile|Tablet|Silk|Kindle/i.test(ua) ||
+    (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1) ||
+    !matchMedia("(any-hover: hover)").matches
   const can = () =>
-    d.classList.contains("zk-panels") && innerWidth >= 1100 && matchMedia("(hover: hover) and (pointer: fine)").matches
+    !TOUCH_DEVICE &&
+    d.classList.contains("zk-panels") &&
+    innerWidth >= 1100 &&
+    matchMedia("(hover: hover) and (pointer: fine)").matches
   const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c])
   const baseSlug = () => document.body?.dataset.slug || ""
   const slugOf = (url) => {
@@ -1807,7 +1818,12 @@ document.addEventListener("nav", () => {
     lastFocus = baseSlug()
     d.classList.remove("zk-stacked")
     const want = (new URL(location.href).searchParams.get("stack") || "").split(",").filter(Boolean)
-    if (!want.length || !can()) return
+    if (!want.length) return
+    if (!can()) {
+      // a shared stack link on a phone: open the note that was being read
+      if (TOUCH_DEVICE) location.replace(pageUrl(want[want.length - 1]) + location.hash)
+      return
+    }
     if (!ensureRoot()) return
     stack = want
     for (let i = 0; i < want.length; i++) await addColumn(want[i], i + 1, false)

@@ -1579,9 +1579,9 @@ document.addEventListener("nav", () => {
 // on its own. The stack is in the URL (?stack=slug,slug…), so it can be
 // shared and Back works (Quartz re-renders the page, and the stack is rebuilt
 // from the URL). Ctrl/Cmd/Shift-click and links in the panels navigate as
-// usual, and so do the index's links (it opens notes as whole pages; the
-// stacking starts from there). A link to a note already open in an earlier
-// column goes back to it, closing the columns after it. Links to the index
+// usual, and so do the links of the hub pages, index and ./content (they
+// open notes as whole pages; the stacking starts from there). A link to a note already open in an earlier
+// column goes back to it, closing the columns after it. Links to a hub
 // and the path at the top (~/Maths/…) navigate as usual (closing all columns). Each column gets the
 // same decoration as a page (§12: trails, meta in one line) and its "Más
 // enlaces" at the end.
@@ -1589,6 +1589,9 @@ document.addEventListener("nav", () => {
 ;(() => {
   const d = document.documentElement
   const SPINE = 38 // px
+  // "hub" pages: their links open notes as whole pages (no columns), and they
+  // never open as a column themselves (going to one closes all columns)
+  const HUBS = new Set(["index", "content"])
   const can = () =>
     d.classList.contains("zk-panels") && innerWidth >= 1100 && matchMedia("(hover: hover) and (pointer: fine)").matches
   const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c])
@@ -1782,12 +1785,12 @@ document.addEventListener("nav", () => {
       const url = new URL(a.href, location.href)
       if (url.origin !== location.origin || /\.[a-z0-9]{2,5}$/i.test(url.pathname) || url.pathname.startsWith("/tags/")) return
       const slug = slugOf(url)
-      // the index is never a column: going there closes everything
-      if (slug === "index") return
+      // hub pages are never a column: going there closes everything
+      if (HUBS.has(slug)) return
       const col = a.closest(".zk-col")
       const from = col ? +col.dataset.i : 0
-      // the index opens notes as whole pages; columns start from there
-      if (from === 0 && baseSlug() === "index") return
+      // hubs open notes as whole pages; columns start from there
+      if (from === 0 && HUBS.has(baseSlug())) return
       const here = from === 0 ? baseSlug() : stack[from - 1]
       if (slug === here) return // a link to a heading of the same note
       e.preventDefault()

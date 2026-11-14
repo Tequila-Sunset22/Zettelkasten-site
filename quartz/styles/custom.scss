@@ -1730,3 +1730,32 @@ html.zk-stacked {
   font-size: 0.8rem;
   color: var(--gray);
 }
+
+// opening and closing a column (like Andy Matuschak's notes): it slides in
+// from the right and fades in; closing, it slides back out. Only transform and
+// opacity (composited); off with reduced motion.
+@keyframes zk-col-in {
+  from {
+    transform: translateX(56px);
+    opacity: 0;
+  }
+}
+@keyframes zk-col-out {
+  to {
+    transform: translateX(56px);
+    opacity: 0;
+  }
+}
+.zk-col.is-entering {
+  animation: zk-col-in 0.28s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.zk-col.is-leaving {
+  animation: zk-col-out 0.2s ease-in both;
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .zk-col.is-entering,
+  .zk-col.is-leaving {
+    animation: none;
+  }
+}

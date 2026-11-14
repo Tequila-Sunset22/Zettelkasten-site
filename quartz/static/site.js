@@ -1680,9 +1680,13 @@ document.addEventListener("nav", () => {
       window.__zkDecorate?.(center, baseSlug())
     }
   }
-  async function addColumn(slug, i) {
+  // opening/closing animations: CSS keyframes on transform + opacity only
+  // (composited, no layout, no JS per frame); none with reduced motion
+  const ANIMATE = !matchMedia("(prefers-reduced-motion: reduce)").matches
+  async function addColumn(slug, i, animate = true) {
     const col = document.createElement("section")
-    col.className = "zk-col"
+    col.className = "zk-col" + (animate && ANIMATE ? " is-entering" : "")
+    if (animate && ANIMATE) col.addEventListener("animationend", () => col.classList.remove("is-entering"), { once: true })
     col.dataset.i = String(i)
     col.style.setProperty("--i", i)
     col.innerHTML = `${spine("…", i)}<div class="zk-colbody"><p class="zk-col-loading">cargando…</p></div><button class="zk-col-close" type="button" data-close="${i}" aria-label="Cerrar columna">×</button>`
@@ -1738,12 +1742,21 @@ document.addEventListener("nav", () => {
     if (hash) col.querySelector(".zk-colbody").querySelector(decodeURIComponent(hash))?.scrollIntoView({ block: "start" })
   }
   function closeFrom(i) {
+    const leaving = [...(root?.querySelectorAll(".zk-col") || [])].filter((c) => +c.dataset.i >= i && !c.classList.contains("is-leaving"))
     stack = stack.slice(0, i - 1)
-    root?.querySelectorAll(".zk-col").forEach((c) => +c.dataset.i >= i && c.remove())
     writeUrl(true)
-    if (!stack.length) unstack()
-    else scrollToCol(stack.length)
     announce()
+    const finish = () => {
+      leaving.forEach((c) => c.remove())
+      if (!stack.length) unstack()
+    }
+    if (stack.length) scrollToCol(stack.length) // slides back while they leave
+    if (!ANIMATE || !leaving.length) return finish()
+    leaving.forEach((c) => c.classList.add("is-leaving"))
+    let done = false
+    const once = () => !done && ((done = true), finish())
+    leaving[0].addEventListener("animationend", once, { once: true })
+    setTimeout(once, 320) // in case animationend never fires
   }
 
   // ---- clicks ----
@@ -1794,7 +1807,7 @@ document.addEventListener("nav", () => {
     if (!want.length || !can()) return
     if (!ensureRoot()) return
     stack = want
-    for (let i = 0; i < want.length; i++) await addColumn(want[i], i + 1)
+    for (let i = 0; i < want.length; i++) await addColumn(want[i], i + 1, false)
     scrollToCol(want.length, false)
     announce()
   })

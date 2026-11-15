@@ -1,5 +1,5 @@
 ---
-modified: 2026-11-13T23:34:20Z
+modified: 2026-11-15T04:14:13Z
 title: "Teorema de Lagrange"
 publish: true
 type: zettel

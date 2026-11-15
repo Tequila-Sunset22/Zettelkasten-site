@@ -1,6 +1,6 @@
 ---
-modified: 2026-06-30T18:17:39Z
-title: "Acotación de Limites"
+modified: 2026-11-15T04:17:25Z
+title: "Acotación de Límites"
 publish: true
 type: zettel
 date: "2026-06-30"
@@ -11,13 +11,15 @@ tags:
 cssclasses: 
  - romana
 ---
+Si $f$ tiene límite en $x_{0}$, no puede "explotar" cerca de $x_{0}$. Esto es lo que se usa en el producto y el cociente del álgebra de límites ([[Limite]]).
+
 > [!theorem] **Teorema.** (Acotación de Limites)
 >
 > Supóngase
 > $$
 > \lim_{ x \to x_{0} } f(x) = L
 > $$
-> Entonces existe un intervalo $(x_{0}-c,x_{0}+c)$ y un numero $M$ tal que
+> Entonces existe un intervalo $(x_{0}-c,x_{0}+c)$ y un número $M$ tal que
 > $$
 > \lvert f(x) \rvert \leq M
 > $$
@@ -25,25 +27,39 @@ cssclasses:
 
 > [!proof]- **Proof.** 
 >
-> Existe $\delta>0$ tal que $\lvert f(x)-L \rvert<1$ siempre y cuando $x$ es un punto del dominio de $f$ diferente $x_{0}$ el cual satisface $\lvert x-x_{0} \rvert<\delta$. Si $x_{0}$ no pertenece al dominio de $f$, entonces significa
+> Con $\varepsilon = 1$, existe $\delta>0$ tal que $\lvert f(x)-L \rvert<1$ siempre y cuando $x$ es un punto del dominio de $f$ diferente de $x_{0}$ el cual satisface $\lvert x-x_{0} \rvert<\delta$. Para esos $x$,
 > $$
-> \lvert f(x) \rvert = \lvert f(x)-L+L \rvert \leq \lvert f(x)-L \rvert +\lvert L \rvert < \lvert L \rvert +1
+> \lvert f(x) \rvert = \lvert f(x)-L+L \rvert \leq \lvert f(x)-L \rvert +\lvert L \rvert < \lvert L \rvert +1 \tag{Des. triang.}
 > $$
-> para todo $x \in (x_{0}-\delta,x_{0}+\delta)$ que pertenecen a $\text{Dom}(f)$. 
-> Tomando $M = \lvert L \rvert+1$, si $x_{0} \in\text{dom}(f)$, tenemos
-> $$
-> M = \lvert L \rvert +1+\lvert f(x_{0}) \rvert 
-> $$
-> entonces, $\forall x \in (x_{0}-\delta,x_{0}+\delta)$ en el dominio de $f$
+> Sea $c = \delta$.
+> - Si $x_{0}$ no pertenece al dominio de $f$, tomamos $M = \lvert L \rvert+1$.
+> - Si $x_{0} \in\text{dom}(f)$, falta el punto $x_{0}$, y tomamos $M = \lvert L \rvert +1+\lvert f(x_{0}) \rvert$.
+>
+> En ambos casos, $\forall x \in (x_{0}-\delta,x_{0}+\delta)$ en el dominio de $f$
 > $$
 > \lvert f(x) \rvert \leq M \tag*{$\blacksquare$}
 > $$
 
-> [!theorem] **Teorema.** (Boundedness Away from Zero)
+> [!observation]+ **Observación.**
 >
-> Si $\lim_{ x \to x_{0} } f(x)$ existe y es diferente de $0$, entonces existe un intervalo $(x_{0}-c,x_{0}+c)$ y un número $m>0$ tal que
+> Si $f$ es [[Continuidad|continua]] en $x_{0}$, es el caso $L = f(x_{0})$: es la Acotación Local de [[Continuidad]].
+
+> [!theorem] **Teorema.** (Acotación lejos de cero) (Boundedness Away from Zero)
+>
+> Si $\lim_{ x \to x_{0} } f(x) = L$ existe y es diferente de $0$, entonces existe un intervalo $(x_{0}-c,x_{0}+c)$ y un número $m>0$ tal que
 > $$
 > \lvert f(x) \rvert \geq m >0
 > $$
 > para todo $x\neq x_{0}$ en el intervalo y que pertenece al $\text{dom}(f)$.
 
+> [!proof]- **Proof.**
+>
+> Con $\varepsilon = \frac{\lvert L \rvert}{2} > 0$ existe $\delta > 0$ tq. si $x \in \text{dom}(f)$ y $0 < \lvert x - x_{0} \rvert < \delta$, ent. $\lvert f(x) - L \rvert < \frac{\lvert L \rvert}{2}$. Para esos $x$,
+> $$
+> \lvert L \rvert \leq \lvert L - f(x) \rvert + \lvert f(x) \rvert < \frac{\lvert L \rvert}{2} + \lvert f(x) \rvert \tag{Des. triang.}
+> $$
+> i.e. $\lvert f(x) \rvert > \frac{\lvert L \rvert}{2}$. Tomamos $c = \delta$ y $m = \frac{\lvert L \rvert}{2}$.
+> $$
+> \tag*{$\blacksquare$}
+> $$
+> (Es la misma idea que el Lema de Acotación lejos de cero en [[Limites de Sucesiones]].)

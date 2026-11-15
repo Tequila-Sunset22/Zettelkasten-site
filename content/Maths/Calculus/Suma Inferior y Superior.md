@@ -1,5 +1,5 @@
 ---
-modified: 2026-07-08T17:39:20Z
+modified: 2026-11-15T05:25:50Z
 title: "Suma Inferior y Superior"
 publish: true
 type: zettel
@@ -10,134 +10,104 @@ tags:
 cssclasses: 
  - romana
 ---
-> [!theorem] **Def.** (Suma Inferior y Superior)
+> Es la suma de cada "*área rectangular*" que se forma al multiplicar la longitud del subintervalo $(x_{k+1} - x_{k})$ por algún valor de la función $f(x)$ en el mismo subintervalo, como lo es $\inf \left\{f\right\}$ y $\sup \left\{f\right\}$ para definir los rectángulos más pequeños y más grandes de cada subintervalo.
+
+> [!tip|idea]- **Idea Intuitiva.**
 >
-> Supongamos que $f$ está acotada en $[a,b]$ y que $P = \{ t_{0},\dots, t_{n} \}$ es una partición de $[a,b]$. Sea
+> Son los mismos rectángulos por debajo y por encima de la gráfica que en el caso continuo ([[Integral de Darboux]], con animación), pero como $f$ ya no tiene por qué alcanzar su mínimo y su máximo en cada subintervalo, usamos lo más parecido que siempre existe: el $\inf$ y el $\sup$ ([[Generalizando la Integral]]).
+
+> [!theorem] **Definición.** (Suma Inferior y Superior)
+>
+> Supongamos que $f$ está acotada en $[a,b]$ y que $\mathcal{P} = \{ x_{0},\dots, x_{n} \}$ es una partición de $[a,b]$. Para $k \in \{ 0, \dots, n-1 \}$, sea
 > $$
 > \begin{align}
-> m_{i} &= \text{inf}\{ f(x) : t_{i-1}\leq x\leq t_{i} \}, \\[1em]
-> M_{i} &= \text{sup} \{ f(x) : t_{i-1} \leq x \leq t_{i} \}.
+> m_{k} &= \inf\{ f(x) : x_{k}\leq x\leq x_{k+1} \}, \\[0.5em]
+> M_{k} &= \sup \{ f(x) : x_{k} \leq x \leq x_{k+1} \}.
 > \end{align}
 > $$
-> La **suma inferior** de $f$ respecto a $P$, representada mediante $L(f,P)$ se define como
+> La **suma inferior** de $f$ respecto a $\mathcal{P}$, representada mediante $L(f,\mathcal{P})$ se define como
 > $$
-> L(f,P) = \sum_{i=1}^n m_{i}(t_{i}-t_{i-1}).
+> L(f,\mathcal{P}) = \sum_{k=0}^{n-1} m_{k}(x_{k+1}-x_{k}).
 > $$
-> La **suma superior** de $f$ respecto a $P$, representada mediante $U(f,P)$, se define como
+> La **suma superior** de $f$ respecto a $\mathcal{P}$, representada mediante $U(f,\mathcal{P})$, se define como
 > $$
-> U(f,P) = \sum_{i=1}^n M_{i}(t_{i}-t_{i-1}).
+> U(f,\mathcal{P}) = \sum_{k=0}^{n-1} M_{k}(x_{k+1}-x_{k}).
 > $$
+
+> [!Info]- **Nota!** (Otras notaciones)
+>
+> En otros libros cambian los nombres pero no la idea:
+> - **Spivak** escribe $P = \{ t_{0}, \dots, t_{n} \}$ y numera los subintervalos $[t_{i-1}, t_{i}]$ con $i = 1, \dots, n$, i.e. $L(f,P) = \sum_{i=1}^{n} m_{i}(t_{i} - t_{i-1})$. Es nuestra suma con $i = k+1$. Las figuras de [[Integral de Darboux]] vienen de ahí.
+> - Muchos escriben $L(P)$, $L_{\mathcal{P}}$ o $L(P,f)$ en vez de $L(f,\mathcal{P})$, $s(f,P)$ y $S(f,P)$, o $\underline{S}$ y $\overline{S}$.
+> - A $L$ y $U$ también se les llama **sumas de Darboux**.
 
 > [!observation]+ **Observación**
 >
-> A pesar de la motivación geométrica, estas sumas se han definido de manera precisa, sin invocar ningún concepto de "área".
-> 
-> Además, como comentario, el requisito que $f$ esté acotada en $[a,b]$ es esencial para que los $m_{i}$ y $M_{i}$ estén bien definidos. También, es necesario definir a $m_{i}$ y $M_{i}$ como ínfimos y supremos y no como máximos y mínimos, ya que no se supone que $f$ sea continua.
+> 1. A pesar de la motivación geométrica, estas sumas se han definido de manera precisa, sin invocar ningún concepto de "área".
+> 2. El requisito que $f$ esté acotada en $[a,b]$ es esencial para que los $m_{k}$ y $M_{k}$ estén bien definidos (existen por el Axioma del Supremo, ver [[Supremo e Infimo]]). Usamos ínfimos y supremos y no mínimos y máximos, ya que no se supone que $f$ sea continua.
+> 3. Si $f$ **es** continua, por el [[Teorema de Weierstrass y de Acotación|Teorema de Weierstrass]] $f$ alcanza su mínimo y su máximo en cada $[x_{k}, x_{k+1}]$, así que $m_{k} = \min_{[x_{k},x_{k+1}]} \{ f \}$ y $M_{k} = \max_{[x_{k},x_{k+1}]} \{ f \}$. Así, para $f$ continua, son exactamente las sumas de [[Integral de Darboux]].
 
-- Un resultado evidente es que $L(f,P) \leq U(f,P)$, ya que para cada $i$ se verifica $m_{i}(t_{i}-t_{i-1})\leq M_{i}(t_{i}-t_{i-1})$.
+- Un resultado evidente es que $L(f,\mathcal{P}) \leq U(f,\mathcal{P})$, ya que para cada $k$ se verifica $m_{k}(x_{k+1}-x_{k})\leq M_{k}(x_{k+1}-x_{k})$.
 
-Ahora, recordamos que queremos llegar a $L(f,P_{1})\leq L(f,P_{2})$, dadas $P_{1},P_{2}$. Es útil el siguiente lema referente al comportamiento de $L(f,P)$ y $U(f,P)$, a medida que van introduciéndose más puntos en la partición.
+### Refinamiento
 
-![[Pasted image 20260702093231.png|center]]
+Los resultados del caso continuo ([[Integral de Darboux]]) se conservan con las mismas pruebas.
 
-En la figura, $Q$ representa la partición con *puntos blancos y negros*. Es claro que contiene a $P$, *solo los puntos negros*. Ésto señala que los rectángulos de $Q$ aproximan mejor que la partición $P$.
-
-> [!theorem] **Lema.** 
+> [!theorem] **Lema.** (Refinamiento)
 >
-> Si $Q$ contiene a $P$, entonces
+> Si $\mathcal{P}'$ es un refinamiento de $\mathcal{P}$ (i.e. $\mathcal{P} \subseteq \mathcal{P}'$), entonces
 > $$
-> \begin{align}
-> L(f,P) &\leq L(f,Q) \\
-> U(f,P) &\geq U(f,Q)
-> \end{align} 
-> $$
-
-> [!proof]+ **Proof.** 
->
-> Consideremos primero el caso especial (figura) en donde $Q$ contenga solamente un punto más que $P$:
-> 
-> ![[Pasted image 20260702093950.png|center]]
-> $$
-> \begin{align}
-> P &= \{ t_{0},\dots,t_{n} \}, \\
-> Q &= \{ t_{0}, \dots, t_{k-1}, u, t_{k}, \dots,t_{n} \} 
-> \end{align}
-> $$
-> donde
-> $$
-> a = t_{0} < t_{1} < \dots < t_{k-1} < u < t_{k} < \dots < t_{n} = b.
-> $$
-> Sea
-> $$
-> \begin{align}
-> m' &= \inf \{ f(x) : t_{k-1}\leq x \leq u \}, \\[0.4em]
-> m'' &= \inf \{ f(x): u \leq x \leq t_{k} \}.
-> \end{align}
-> $$
-> Entonces
-> $$
-> \begin{align}
-> L(f,P) &= \sum_{i=1}^n m_{i}(t_{i} - t_{i-1}), \\
-> L(f, Q) &= \sum_{i=1}^{k-1} m_{i}(t_{i}-t_{i-1}) + m'(u-t_{k-1}) + m''(t_{k}-u) + \sum_{i=k+1}^n m_{i}(t_{i}-t_{i-1}).
-> \end{align}
-> $$
-> Para demostrar que $L(f,P)\leq L(f,Q)$ es suficiente, por lo tanto, comprobar que
-> $$
-> m_{k}(t_{k}-t_{k-1})\leq m'(u-t_{k-1}) + m''(t_{k}-u)
-> $$
-> En efecto, el conjunto $\{ f(x): t_{k-1}\leq x \leq t_{k} \}$ contiene a todos los número de $\{ f(x): t_{k-1}\leq x \leq u \}$ y posiblemente a otros más pequeños, de manera que la cota inferior máxima del primer conjunto ha de ser *menor o igual* que la cota inferior máxima del segundo; por lo tanto
-> $$
-> m_{k} \leq m'
-> $$
-> Análogamente,
-> $$
-> m_{k}\leq m''
-> $$
-> Por lo tanto,
-> $$
-> m_{k}(t_{k}-t_{k-1}) = m_{k}(u-t_{k-1}) + m_{k}(t_{k}-u) \leq m'(u-t_{k-1}) + m''(t_{k}-u).
-> $$
-> Esto demuestra en particular que $L(f,P)\leq L(f,Q)$ en este caso particular. La demostración de que $U(f,P) \geq L(f,Q)$ es similar, un ejercicio muy útil.
-> Ahora puede deducirse fácilmente el caso general. La partición $Q$ puede obtenerse a partir de $P$ añadiendo un punto cada vez; en otras palabras, existe una sucesión de particiones
-> $$
-> P = P_{1}, P_{2},\dots, P_{\alpha} = Q
-> $$
-> tales que $P_{j+1}$ contiene exactamente un punto más que $P_{j}$. Luego
-> $$
-> L(f,P) = L(f, P_{1}) \leq L(f,P_{2}) \leq \dots \leq L(f,P_{\alpha}) = L(f,Q),
-> $$
-> y
-> $$
-> U(f,P) = U(f,P_{1}) \geq U(f,P_{2})\geq \dots \geq U(f,P_{\alpha}) = U(f,Q). \tag*{$\blacksquare$}
-> $$
-
-> [!theorem] **Teorema 1.** 
->
-> Sean $P_{1}$ y $P_{2}$ particiones de $[a,b]$, y sea $f$ una función acotada en $[a,b]$.
-> Entonces
-> $$
-> L(f,P_{1}) \leq U(f,P_{2})
+> L(f,\mathcal{P}) \leq L(f,\mathcal{P}') \leq U(f,\mathcal{P}') \leq U(f,\mathcal{P})
 > $$
 
 > [!proof]- **Proof.** 
 >
-> Existe una partición $P$ que contiene tanto a $P_{1}$ como a $P_{2}$ (considérese la partición $P$ formada por $P_{1} \cup P_{2}$). Según el lema anterior, 
+> Es la prueba de la Proposición (Refinamiento) de [[Integral de Darboux]], cambiando $\min$ por $\inf$ y $\max$ por $\sup$: lo único que se usa ahí es que si $A \subseteq B$, ent. $\inf_{A} \{ f \} \geq \inf_{B} \{ f \}$ y $\sup_{A} \{ f \} \leq \sup_{B} \{ f \}$, que también vale para $\inf$ y $\sup$ (todo elemento de $f(A)$ está en $f(B)$, ver [[Supremo e Infimo]]).
 > $$
-> L(f,P_{1}) \leq L(f,P) \leq U(f,P) \leq U(f,P_{2}). \tag*{$\blacksquare$}
+> \tag*{$\blacksquare$}
 > $$
 
-De este teorema, dado que cualquier suma $U(f,P')$ es una cota superior del *conjunto de todas las sumas inferiores* $L(f,P)$, se deduce:
-$$
-\sup \{ L(f,P) : P \text{ una partición de } [a,b] \} \leq U(f,P'),
-$$
-para toda partición $P'$. Esto a su vez significa que $\sup \{ L(f,P) \}$ es una cota inferior del *conjunto de todas las sumas superiores* de $f$. Por consiguiente,
-$$
-\sup \{ L(f,P) \} \leq \inf \{ U(f,P) \}.
-$$
-Y es evidente que para *todas* las particiones $P'$
-$$
-\begin{align}
-L(f,P') \leq \sup \{ L(f,P) \} \leq U(f,P'), \\
-L(f,P') \leq \inf \{ U(f,P) \} \leq U(f,P').
-\end{align}
-$$
+> De hecho, siempre se cumple que $L \leq U$, no importa qué particiones.
+
+> [!theorem] **Teorema 1.** 
+>
+> Sean $\mathcal{P}_{1}$ y $\mathcal{P}_{2}$ particiones de $[a,b]$, y sea $f$ una función acotada en $[a,b]$.
+> Entonces
+> $$
+> L(f,\mathcal{P}_{1}) \leq U(f,\mathcal{P}_{2})
+> $$
+
+> [!proof]- **Proof.** 
+>
+> Sea $\mathcal{P} = \mathcal{P}_{1} \cup \mathcal{P}_{2}$, que es un refinamiento de $\mathcal{P}_{1}$ y de $\mathcal{P}_{2}$ (ver [[Definiendo la Integral]]). Según el lema anterior, 
+> $$
+> L(f,\mathcal{P}_{1}) \leq L(f,\mathcal{P}) \leq U(f,\mathcal{P}) \leq U(f,\mathcal{P}_{2}). \tag*{$\blacksquare$}
+> $$
+
+### Integral inferior y superior
+
+> Cualquier $U$ es una cota superior del conjunto de sumas inferiores, y cualquier $L$ es una cota inferior del conjunto de sumas superiores. Y como son reales acotados, es claro que tenemos $\sup$ e $\inf$.
+
+> [!theorem] **Corolario.** (Integral Inferior y Superior)
+>
+> Sea $f$ acotada en $[a,b]$ y sean
+> $$
+> \mathcal{L} = \{ L(f, \mathcal{P}) \mid \mathcal{P} \text{ es partición de } [a,b] \}, \qquad \mathcal{U} = \{ U(f, \mathcal{P}) \mid \mathcal{P} \text{ es partición de } [a,b] \}
+> $$
+> Entonces existen
+> $$
+> \underline{I} = \sup \mathcal{L} \qquad \text{y} \qquad \overline{I} = \inf \mathcal{U}
+> $$
+> llamadas la **integral inferior** y la **integral superior** de $f$, y para toda partición $\mathcal{P}'$
+> $$
+> L(f,\mathcal{P}') \leq \underline{I} \leq \overline{I} \leq U(f,\mathcal{P}')
+> $$
+
+> [!proof]- **Proof.**
+>
+> Es la prueba de los Lemas 1 y 2 de [[Integral de Darboux]], con el Teorema 1 en lugar de la Proposición 2: cada $U(f,\mathcal{P}')$ es cota superior de $\mathcal{L}$ (no vacío), así que existe $\underline{I} = \sup \mathcal{L} \leq U(f,\mathcal{P}')$; ent. $\underline{I}$ es cota inferior de $\mathcal{U}$, existe $\overline{I} = \inf \mathcal{U}$ y $\underline{I} \leq \overline{I}$.
+> $$
+> \tag*{$\blacksquare$}
+> $$
+
+En el caso continuo siempre $\underline{I} = \overline{I}$ (Lema 4 de [[Integral de Darboux]]); en general no, y cuando sí, decimos que $f$ es integrable: ver [[Integrabilidad]].

@@ -1,6 +1,6 @@
 ---
-modified: 2026-10-20T00:15:55Z
-title: "Función"
+modified: 2026-11-15T04:07:16Z
+title: "Funciones"
 publish: true
 type: zettel
 date: "2026-06-19"
@@ -15,7 +15,7 @@ tags:
 cssclasses: 
  - romana
 ---
-> [!theorem] **Def.** (Function)
+> [!theorem] **Def.** (Función)
 >
 > Una función $f$ de $A$ en $B$, $f:A\to B$, es una relación<sup><a href="#user-content-fn-inline-1" id="user-content-fnref-inline-1" data-footnote-ref class="internal">1</a></sup> que satisface (Totalidad)
 > $$
@@ -38,6 +38,16 @@ Se derivan tres componentes esenciales
 > [!theorem] **Def.** (Partial function)
 >
 > Es simplemente una función que no necesariamente utiliza todos los valores de su dominio.
+
+
+
+> [!theorem] **Notación.** (Conjunto de funciones)
+>
+> Sean $A, B$ cjtos. Se denota al **conjunto de todas las funciones de** $A$ **en** $B$ de diferentes formas como: $B^{A}, \ \mathscr{F}(A,B),   {}^{A}B, \; \operatorname{Func}(A,B)$.
+
+> [!observation]+ **Observación.**
+>
+> Claramente $B^{A} \subseteq \mathcal{P}(A\times B)$.
 
 En la teoría de la computabilidad, la noción intuitiva de un "algoritmo" fue formalizada con 3 definiciones de funciones equivalentes.<sup><a href="#user-content-fn-inline-2" id="user-content-fnref-inline-2" data-footnote-ref class="internal">2</a></sup>
 

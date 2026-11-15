@@ -1,5 +1,5 @@
 ---
-modified: 2026-11-13T23:34:20Z
+modified: 2026-11-15T04:12:09Z
 title: "Sucesiones Convergentes"
 publish: true
 type: zettel
@@ -15,17 +15,6 @@ Queremos formalizar la idea de que una sucesión $\{ a_{n} \}$ "se acerca" a un 
 
 > No importa qué tan cerca de $L$ nos pidan estar, a partir de cierto término la sucesión ya nunca se sale.
 
-> [!theorem] **Definición.** (Sucesión Convergente)
->
-> Sea $\{ a_{n} \}$ una sucesión y sea $L \in \mathbb{R}$. Decimos que $\{ a_{n} \}$ **converge** a $L$ sii
-> $$
-> \forall \varepsilon > 0 \ \exists N \in \mathbb{N} \text{ tal que } \forall n \geq N \ \left( \lvert a_{n} - L \rvert < \varepsilon \right)
-> $$
-> En este caso decimos que $L$ es el **límite** de $\{ a_{n} \}$ y escribimos $\displaystyle \lim_{ n \to \infty } a_{n} = L$, o simplemente $a_{n} \to L$.
->
-> Decimos que $\{ a_{n} \}$ es **convergente** si existe $L \in \mathbb{R}$ tal que $a_{n} \to L$. 
-> Si $L = 0$, decimos que $\{ a_{n} \}$ es **nula**.
-
 > [!tip|idea]+ **Idea Intuitiva.** (El uso de $\varepsilon$)
 >
 > Por propiedades de valor absoluto,
@@ -38,8 +27,18 @@ Queremos formalizar la idea de que una sucesión $\{ a_{n} \}$ "se acerca" a un 
 >
 > *Sucesión:* $a_{n} = 1 + \frac{2(-1)^{n}}{n}$, con $L = 1$.
 > 
-> Obsérvece que $N$ depende de $\varepsilon$, y a veces se escribe $N = N(\varepsilon)$.
+> Obsérvese que $N$ depende de $\varepsilon$, y a veces se escribe $N = N(\varepsilon)$.
+
+> [!theorem] **Definición.** (Sucesión Convergente)
 >
+> Sea $\{ a_{n} \}$ una sucesión y sea $L \in \mathbb{R}$. Decimos que $\{ a_{n} \}$ **converge** a $L$ sii
+> $$
+> \forall \varepsilon > 0 \ \exists N \in \mathbb{N} \text{ tal que } \forall n \geq N \ \left( \lvert a_{n} - L \rvert < \varepsilon \right)
+> $$
+> En este caso decimos que $L$ es el **límite** de $\{ a_{n} \}$ y escribimos $\displaystyle \lim_{ n \to \infty } a_{n} = L$, o simplemente $a_{n} \to L$.
+>
+> Decimos que $\{ a_{n} \}$ es **convergente** si existe $L \in \mathbb{R}$ tal que $a_{n} \to L$. 
+> Si $L = 0$, decimos que $\{ a_{n} \}$ es **nula**.
 
 > [!observation]+ **Observación.**
 >
@@ -49,8 +48,8 @@ Queremos formalizar la idea de que una sucesión $\{ a_{n} \}$ "se acerca" a un 
 >
 > > [!proof]- **Proof.** (2)
 > >
-> > $(\implies)$ Sea $\varepsilon > 0$, por def. existe $N$ tq. $\forall n \geq N$ $a_{n} \in (L-\varepsilon,L+\varepsilon)$. Ent. los únicos términos que pueden quedar fuera son $a_{1},\dots,a_{N-1}$, que son finitos.
-> > $(\impliedby)$ Sea $\varepsilon > 0$ y sea $F = \{ n \in \mathbb{N} \mid a_{n} \notin (L-\varepsilon,L+\varepsilon) \}$, que por hip. es finito. Si $F = \varnothing$ tomamos $N = 1$; si no, tomamos $N = \max F + 1$. En ambos casos, si $n \geq N$, ent. $n \notin F$, i.e. $\lvert a_{n} - L \rvert < \varepsilon$.
+> > $(\implies)$ Sea $\varepsilon > 0$, por def. existe $N$ tq. $\forall n \geq N$ $a_{n} \in (L-\varepsilon,L+\varepsilon)$. Ent. los únicos términos que pueden quedar fuera son $a_{0},\dots,a_{N-1}$, que son finitos.
+> > $(\impliedby)$ Sea $\varepsilon > 0$ y sea $F = \{ n \in \mathbb{N} \mid a_{n} \notin (L-\varepsilon,L+\varepsilon) \}$, que por hip. es finito. Si $F = \varnothing$ tomamos $N = 0$; si no, tomamos $N = \max F + 1$. En ambos casos, si $n \geq N$, ent. $n \notin F$, i.e. $\lvert a_{n} - L \rvert < \varepsilon$.
 > > $$
 > > \tag*{$\blacksquare$}
 > > $$
@@ -83,7 +82,7 @@ Para probar que $a_{n} \to L$ con la definición, el trabajo casi siempre es el 
 >
 > Sea $c \in \mathbb{R}$ y $a_{n} = c$ para todo $n$. Ent. $a_{n} \to c$.
 >
-> **Proof.** Sea $\varepsilon > 0$. Tomamos $N = 1$. Ent. $\forall n \geq 1$, $\lvert a_{n} - c \rvert = \lvert c - c \rvert = 0 < \varepsilon$.
+> **Proof.** Sea $\varepsilon > 0$. Tomamos $N = 0$. Ent. $\forall n \geq 0$, $\lvert a_{n} - c \rvert = \lvert c - c \rvert = 0 < \varepsilon$.
 > $$
 > \tag*{$\blacksquare$}
 > $$
@@ -197,7 +196,7 @@ La definición dice "**el** límite", pero eso hay que demostrarlo: una sucesió
 > \therefore \ L = M \tag*{$\blacksquare$}
 > $$
 
-### Convergente implica acotada
+### Convergentes y acotadas
 
 Recordemos que $\{ a_{n} \}$ está **acotada** sii $\exists k \in \mathbb{R}^{+}$ tq. $\forall n \in \mathbb{N} \ \lvert a_{n} \rvert \leq k$ (ver [[Sucesiones Acotadas]]).
 
@@ -215,9 +214,9 @@ Recordemos que $\{ a_{n} \}$ está **acotada** sii $\exists k \in \mathbb{R}^{+}
 > $$
 > Sea
 > $$
-> k = \max \{ \lvert a_{1} \rvert, \dots, \lvert a_{N-1} \rvert, 1 + \lvert L \rvert \}
+> k = \max \{ \lvert a_{0} \rvert, \dots, \lvert a_{N-1} \rvert, 1 + \lvert L \rvert \}
 > $$
-> que existe por ser un cjto. finito, y $k \geq 1 + \lvert L \rvert > 0$.
+> que existe por ser un cjto. finito (si $N = 0$, es solo $\{ 1 + \lvert L \rvert \}$), y $k \geq 1 + \lvert L \rvert > 0$.
 > - Si $n < N$, ent. $\lvert a_{n} \rvert \leq k$ por def. de máximo.
 > - Si $n \geq N$, ent. $\lvert a_{n} \rvert < 1 + \lvert L \rvert \leq k$.
 > $$
@@ -228,7 +227,18 @@ Recordemos que $\{ a_{n} \}$ está **acotada** sii $\exists k \in \mathbb{R}^{+}
 >
 > Si $\{ a_{n} \}$ **no** está acotada, ent. $\{ a_{n} \}$ no converge.
 
-El recíproco de la proposición es falso: estar acotada es **necesario** pero **no suficiente** para converger. El contraejemplo clásico es $\{ (-1)^{n} \}$, que está acotada ($k = 1$) pero no converge. Sin embargo, verémos que si además pedimos como hipótesis que sea monótona, sí converge (ver [[Criterios de Convergencia de Sucesiones]] y [[Sucesiones Monotonas]]).
+> [!proof]- **Proof.**
+>
+> Es la contrapositiva de la Proposición: si convergiera, estaría acotada.
+> $$
+> \tag*{$\blacksquare$}
+> $$
+
+El recíproco de la proposición es falso: estar acotada es **necesario** pero **no suficiente** para converger. El contraejemplo clásico es $\{ (-1)^{n} \}$, que está acotada ($k = 1$) pero no converge (Ejemplo 6 de [[Sucesiones Divergentes]]). Sin embargo, veremos que si además pedimos como hipótesis que sea monótona, sí converge (Criterios 4 y 5 de [[Criterios de Convergencia de Sucesiones]], ver [[Sucesiones Monotonas]]).
+
+---
+
+El álgebra de límites, las propiedades de orden, el sándwich, los límites importantes ($r^{n}$, $\sqrt[n]{c}$, $\frac{\log n}{n}$, ...) y la relación con funciones continuas están en [[Limites de Sucesiones]]. La convergencia de subsucesiones está en [[Subsucesiones]].
 
 <section data-footnotes class="footnotes"><h2 class="sr-only" id="footnote-label">Notas</h2>
 <ol>

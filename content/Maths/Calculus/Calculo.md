@@ -1,5 +1,5 @@
 ---
-modified: 2026-11-12T02:12:36Z
+modified: 2026-11-15T05:26:27Z
 title: "Calculus"
 publish: true
 type: moc
@@ -30,15 +30,15 @@ La estructura de la discusión es:
 
 ---
 ## [[Sucesiones]]
-- [[Subsucesiones]]
-- [[Sucesiones Monotonas]]
 - [[Sucesiones Acotadas]]
+- [[Sucesiones Monotonas]]
 - [[Sucesiones Convergentes]]
 - [[Sucesiones Divergentes]]
+- [[Limites de Sucesiones]]
+- [[Subsucesiones]]
 - [[Criterios de Convergencia de Sucesiones]]
-- [[Sucesiones de Cauchy]]
 - [[Teorema del Bolzano-Weierstrass]]
-- [[Sucesiones Repaso]]
+- [[Sucesiones de Cauchy]]
 
 *Creditos: Dr. Rodrigo Perusquía Cortés*
 
@@ -57,13 +57,16 @@ La estructura de la discusión es:
 
 ## Limite y Continuidad
 
-- [[Limite]]
+- [[Limite]] *(unicidad, álgebra, orden, sándwich, valor absoluto, máx/mín, composición)*
+	- [[Acotacion de Limites]]
 - [[Limites Laterales]]
 - [[Limites en el Infinito]]
 - [[Limites Infinitos]]
-- [[Limite al infinito]]
 - [[Continuidad]]
-- [[Regla de L'Hopital]]
+	- [[propiedades de funciones continuas]]
+	- [[continuidad en un conjunto]]
+	- [[Continuidad en un punto arbitrario]]
+- [[Ejemplos de Limites]]
 
 Los Teoremas Fuertes de Continuidad:
 - [[Teorema del Valor Intermedio]]
@@ -73,34 +76,26 @@ Algunas más otras consecuencias:
 - [[Continuidad Uniforme]]
 
 ---
-- [[Acotacion de Limites]]
-- [[Algebra de limites]]
-- [[Propiedades de Orden de limites]]
-	- Valor Absoluto
-	- Max/Min
-	- Teorema del sandwich
-- [[Limite de funciones compuestas]]
-	- [[Continuidad en un punto arbitrario]]
-
----
 ## Derivadas
 - [[Diferenciacion]]
 - [[Teorema del Valor Medio]]
 	- [[Teorema de Rolle]]
+- [[Regla de L'Hopital]]
 - [[Antiderivada]]
 
 
 ---
 ## Integrales
 
-- [[Definiendo la Integral]]
-	- [[Suma Inferior y Superior]]
-	- [[Integral de Darboux]]
-	- [[Integrabilidad]]
+- [[Definiendo la Integral]] (qué pedimos, particiones, refinamiento)
+- [[Integral de Darboux]] (caso particular: $f$ continua)
 - [[Teorema Fundamental de Cálculo]]
-- [[Integral de Reimann]]
-	- [[Generalizando la Integral]]
-	- [[Mas propiedades de la integral]]
+- [[Generalizando la Integral]] ($f$ acotada)
+	- [[Suma Inferior y Superior]]
+	- [[Integrabilidad]] (criterio $\varepsilon$, ejemplos, discontinuidades)
+	- [[Mas propiedades de la integral|Propiedades de la Integral]]
+- [[Sumas de Riemann]]
+	- [[Integral de Reimann|Integral de Riemann]]
 	
 #### Resultados:
 - [[Derivadas e Integrales Comunes]]

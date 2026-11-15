@@ -1,5 +1,5 @@
 ---
-modified: 2026-11-13T23:34:20Z
+modified: 2026-11-15T04:14:13Z
 title: "Fracciones Parciales"
 publish: true
 type: zettel
@@ -15,6 +15,10 @@ A veces encontramos integrales con cocientes de polinomios, es decir, $\int \fra
 
 Sean $f,g \in \mathbb{R}[x]$ polinomios. Denotamos $\operatorname{gr}(f)$ al grado del polinomio $f$. Los casos de aquí en adelante son para cocientes $\displaystyle \frac{f(x)}{g(x)}$ en donde $\operatorname{gr}(g) > \operatorname{gr}(f)$.
 
+> [!tip|idea]- **Idea Intuitiva.** (Caso 1)
+>
+> Si logramos rescribir $\displaystyle \frac{f(x)}{g(x)}$ como una comb. lineal de fracciones con denominadores lineales, podemos integrar de manera muy sencilla funciones de la forma $A\displaystyle \int  \frac{1}{x-x_{0}} \, dx$, los cuales son igual a $\displaystyle \sum_{i=1}^{n} A_{i}\log \lvert x-x_{i} \rvert + C$
+
 > [!theorem] **Caso 1.**
 >
 > Sean el denominador $g(x) \in  \mathbb{R}[x]$ con $\operatorname{gr}(g(x)) = n$ de forma que puede expresarse como el producto de factores lineales, i.e, $g(x) = (x - x_{1}) (x-x_{2}) \cdots(x-x_{n})$, entonces podemos encontrar $A_{1},\dots,A_{n}$ tales que
@@ -23,9 +27,9 @@ Sean $f,g \in \mathbb{R}[x]$ polinomios. Denotamos $\operatorname{gr}(f)$ al gra
 > $$
 > sea una comb. lineal igual a nuestro cociente $\displaystyle \frac{f(x)}{g(x)}$.
 
-> [!tip|idea]- **Idea Intuitiva.** (Caso 1)
+> [!tip|idea]- **Idea Intuitiva.** (Caso 2)
 >
-> De esta forma, al rescribir $\displaystyle \frac{f(x)}{g(x)}$ como tal comb. lineal, podemos integrar de manera muy sencilla funciones de la forma $A\displaystyle \int  \frac{1}{x-x_{0}} \, dx$, los cuales son igual a $\displaystyle \sum_{i=1}^{n} A_{i}\log \left(x-x_{i}\right)$
+> Similar al caso anterior, solo que ya no solo tendremos denominadores lineales en nuestra comb. lineal. Así que tendremos que usar otros metodos de integración mas allá de $\log \left(x\right)$.
 
 > [!theorem] **Caso 2.**
 >
@@ -34,10 +38,6 @@ Sean $f,g \in \mathbb{R}[x]$ polinomios. Denotamos $\operatorname{gr}(f)$ al gra
 > \frac{f(x)}{g(x)} = \frac{A_{1}}{x-x_{1}} + \sum_{i=1}^{k} \frac{A_{i+1}}{(x-x_{2})^{i}} + \cdots
 > $$
 > En donde, para los terminos de la forma $(x-x_{0})^{k}$ se extiendan como sumas.
-
-> [!tip|idea]- **Idea Intuitiva.** (Caso 2)
->
-> Similar al caso anterior, solo que ya no solo tendremos denominadores lineales en nuestra comb. lineal. Así que tendremos que usar otros metodos de integración mas allá de $\log \left(x\right)$.
 
 > [!theorem] **Caso 3.**
 >

@@ -1,5 +1,5 @@
 ---
-modified: 2026-11-13T23:34:20Z
+modified: 2026-11-15T05:05:25Z
 title: "Memorial de Integrales y Derivadas"
 publish: true
 type: zettel
@@ -11,7 +11,7 @@ tags:
 cssclasses:
   - romana
 ---
-Integración directa, dontaremos por $\displaystyle \int f(x) \, dx$ a **la** antiderivada (en su conceptro más general).
+Integración directa, denotaremos por $\displaystyle \int f(x) \, dx$ a **la** antiderivada (en su concepto más general).
 
 ## Derivadas
 
@@ -52,17 +52,17 @@ Funciones Hiperbólicas:
 - $\displaystyle \frac{d}{dx} \tanh(x) = \operatorname{sech}^{2}(x)$
 
 Inversas:
-- $\displaystyle \frac{d}{dx} \sinh^{-1}(x) = \frac{1}{\sqrt{x^{2}-1}}$
+- $\displaystyle \frac{d}{dx} \sinh^{-1}(x) = \frac{1}{\sqrt{x^{2}+1}}$
 - $\displaystyle \frac{d}{dx} \cosh^{-1}(x) = \frac{1}{\sqrt{x^{2}-1}}$ con $x > 1$
 - $\displaystyle \frac{d}{dx} \tanh^{-1}(x) = \frac{1}{1-x^{2}}$ con $\left| x \right| < 1$
 
 ## Integrales
 
-#### Propiedades Báscias
+#### Propiedades Básicas
 
 - Linealidad: $\displaystyle \int \left[ \alpha f(x)  + \beta g(x) \right] \, dx = \alpha \int f(x) \, dx + \beta \int g(x) \, dx$
 - Integración por Partes: $\displaystyle \int u \, dv = uv - \int v \, du$
-- Sustición o Cambio de Variable: $\displaystyle \int f(g(x))g'(x) \, dx = \int f(u) \, du$ con $u = g(x)$
+- Sustitución o Cambio de Variable: $\displaystyle \int f(g(x))g'(x) \, dx = \int f(u) \, du$ con $u = g(x)$
 - TFC 1: $\displaystyle \frac{d}{dx}\int_{a}^{x} f(t) \, dt = f(x)$
 - TFC 2: $\displaystyle \int_{a}^{b} f(x) \, dx = F(b) - F(a)$ donde $F'(x) = f(x)$
 - TVM (integrales): $\exists c \in  (a,b)$ tal que $\displaystyle \int_{a}^{b} f(x) \, dx = f(c)(b-a)$, si $f$ es continua
@@ -70,8 +70,8 @@ Inversas:
 #### Integrales Comunes
 
 - $\displaystyle \int dx = x + C$
-- $\displaystyle \int x^{m} \, dx = \frac{x^{m+1}}{m+1} + C$ con $n \neq -1$
-- $\displaystyle \int \frac{1}{x^{m}} \, dx = \frac{1}{(-m + 1)x^{m-1}} + C$ para $m>1$, y $\displaystyle \int \frac{1}{x} \, dx = \log \left(x\right) + C$
+- $\displaystyle \int x^{m} \, dx = \frac{x^{m+1}}{m+1} + C$ con $m \neq -1$
+- $\displaystyle \int \frac{1}{x^{m}} \, dx = \frac{1}{(-m + 1)x^{m-1}} + C$ para $m>1$, y $\displaystyle \int \frac{1}{x} \, dx = \log \left|x\right| + C$
 - $\displaystyle \int e^{x} \, dx = e^{x} + C$
 - $\displaystyle \int a^{x} \, dx = \frac{a^{x}}{\log \left(a\right)} + C$ con $a>0, a\neq 1$
 - $\displaystyle \int \log \left(x\right) \, dx = x \log \left(x\right)- x + C$
@@ -80,7 +80,7 @@ Inversas:
 
 - $\displaystyle \int \sin(x) \, dx = -\cos(x) + C$
 - $\displaystyle \int \cos(x) \, dx = \sin(x) + C$
-- $\displaystyle \int \tan(x) \, dx = \log \left|\sec(x)\right| + C = - \log \left(\cos(x)\right) + C$
+- $\displaystyle \int \tan(x) \, dx = \log \left|\sec(x)\right| + C = - \log \left|\cos(x)\right| + C$
 - $\displaystyle \int \cot(x) \, dx = \log \left|\sin(x)\right| + C$
 - $\displaystyle \int \sec(x) \, dx = \log \left|\sec(x) + \tan(x)\right| + C$
 - $\displaystyle \int \csc(x) \, dx = \log \left|\csc(x) - \cot(x)\right| + C = - \log \left|\csc(x) + \cot(x)\right| + C$
@@ -104,7 +104,7 @@ Funciones Hiperbólicas
 #### Formas Racionales e Irracionales Especiales (Generadoras de Inversas)
 
 - $\displaystyle \int \frac{1}{x^{2}+a^{2}} \, dx = \frac{1}{a}\tan^{-1}\left(\frac{x}{a}\right)+C$
-- $\displaystyle \int \frac{1}{\sqrt{ 1+x^{2} }} \, dx = \sin^{-1}(x)+C$
+- $\displaystyle \int \frac{1}{\sqrt{ 1-x^{2} }} \, dx = \sin^{-1}(x)+C$
 - $\displaystyle \int \frac{1}{\sqrt{a^{2} -x^{2}}} \, dx = \sin^{-1}\left(\frac{x}{a}\right)+C$ con $a > 0$
 - $\displaystyle \int \frac{1}{x\sqrt{x^{2}-a^{2}}} \, dx  = \frac{1}{a}\sec^{-1}\left(\frac{\left| x \right|}{a}\right) + C$ con $a > 0$
 - $\displaystyle \int \frac{1}{a^{2}-x^{2}} \, dx = \frac{1}{2a}\log \left(\left| \frac{a + x}{a-x} \right|\right) + C$

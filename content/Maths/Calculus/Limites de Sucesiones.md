@@ -1,5 +1,5 @@
 ---
-modified: 2026-11-13T23:34:20Z
+modified: 2026-11-15T04:18:18Z
 title: "Límites de Sucesiones"
 publish: true
 type: zettel
@@ -132,11 +132,7 @@ En [[Sucesiones Convergentes]] y [[Sucesiones Divergentes]] probamos cada límit
 > $$
 > > [!observation]+ **Observación.**
 > >
-> > El mismo truco muestra que si $p(n)$ y $q(n)$ son polinomios de grados $r$ y $s$, con coeficientes principales $\alpha$ y $\beta$:
-> > - si $r = s$, ent. $\frac{p(n)}{q(n)} \to \frac{\alpha}{\beta}$;
-> > - si $r < s$, ent. $\frac{p(n)}{q(n)} \to 0$ (al dividir entre $n^{s}$, el numerador tiende a $0$).
-> >
-> > (Siempre que $q(n) \neq 0$ para todo $n$.)
+> > El mismo truco da el caso general (cociente de dos polinomios en $n$ según sus grados): es el primer teorema de [[Criterios de Convergencia de Sucesiones]].
 
 ### Valor absoluto
 
@@ -237,7 +233,7 @@ Este corolario **no** es álgebra de límites: $\{ a_{n} \}$ puede no converger.
 >
 > $\{ \sin(n) \}$ y $\{ (-1)^{n} \}$ no convergen, pero están acotadas por $1$, y $\frac{1}{n} \to 0$. Por el corolario, ambos productos tienden a $0$.
 
-### Dos límites importantes
+### Límites importantes
 
 > [!theorem] **Proposición.** (Potencias)
 >
@@ -266,7 +262,7 @@ Este corolario **no** es álgebra de límites: $\{ a_{n} \}$ puede no converger.
 >
 > Completando los casos de $\{ r^{n} \}$:
 > - $r = 1$: constante, converge a $1$.
-> - $r = -1$: diverge oscilando (Ejemplo 6 de [[Sucesiones Convergentes]]).
+> - $r = -1$: diverge oscilando (Ejemplo 6 de [[Sucesiones Divergentes]]).
 > - $r > 1$: $r^{n} \to \infty$ (Ejemplo 5 abajo).
 > - $r < -1$: diverge oscilando, pues $\lvert r^{n} \rvert = \lvert r \rvert^{n} \to \infty$ y el signo alterna.
 
@@ -293,9 +289,59 @@ Este corolario **no** es álgebra de límites: $\{ a_{n} \}$ puede no converger.
 >
 > $12 + \frac{1}{n} \geq 0$ y por álgebra de límites $12 + \frac{1}{n} \to 12$. Por la proposición, $\sqrt{ 12 + \frac{1}{n} } \to \sqrt{ 12 }$.
 
+> [!theorem] **Proposición.** (Algunas sucesiones nulas)
+>
+> 1. $\displaystyle \frac{n!}{n^{n}} \to 0$
+> 2. $\displaystyle \frac{1}{n^{r}} \to 0$ para todo $r \in \mathbb{Q}^{+}$
+> 3. $\displaystyle \frac{\log(n)}{n} \to 0$
+
+> [!proof]- **Proof.**
+>
+> 1. Para $n \geq 1$,
+> $$
+> 0 < \frac{n!}{n^{n}} = \frac{1}{n} \cdot \underbrace{\frac{2}{n} \cdots \frac{n}{n}}_{\text{cada factor } \leq 1} \leq \frac{1}{n}
+> $$
+> y por Sándwich $\frac{n!}{n^{n}} \to 0$.
+> 2. Primero $r = \frac{1}{q}$ con $q \in \mathbb{N}^{+}$. Sea $\varepsilon > 0$. Por la Prop. Arquimediana existe $N$ tq. $N > \frac{1}{\varepsilon^{q}}$. Como $x \mapsto x^{1/q}$ es estrictamente creciente, $\forall n \geq N$,
+> $$
+> n^{1/q} \geq N^{1/q} > \frac{1}{\varepsilon} \implies \left\lvert \frac{1}{n^{1/q}} - 0 \right\rvert < \varepsilon
+> $$
+> Si $r = \frac{p}{q}$ con $p, q \in \mathbb{N}^{+}$, ent. $\frac{1}{n^{r}} = \left( \frac{1}{n^{1/q}} \right)^{p} \to 0^{p} = 0$ (Obs. (2) de álgebra de límites).
+> 3. Para $x \geq 1$, como $\frac{1}{t} \leq 1$ si $t \geq 1$,
+> $$
+> \log(x) = \int_{1}^{x} \frac{1}{t} \, dt \leq \int_{1}^{x} 1 \, dt = x - 1 < x
+> $$
+> (ver [[Funcion Logaritmo]]). Con $x = \sqrt{ n }$ y $\log(n) = \log(\sqrt{ n } \cdot \sqrt{ n }) = 2\log(\sqrt{ n })$, para $n \geq 1$,
+> $$
+> 0 \leq \frac{\log(n)}{n} = \frac{2\log(\sqrt{ n })}{n} < \frac{2\sqrt{ n }}{n} = \frac{2}{\sqrt{ n }}
+> $$
+> Por (2) con $r = \frac{1}{2}$ y álgebra de límites, $\frac{2}{\sqrt{ n }} \to 0$, y por Sándwich $\frac{\log(n)}{n} \to 0$.
+> $$
+> \tag*{$\blacksquare$}
+> $$
+
+> [!theorem] **Proposición.** (Raíz $n$-ésima)
+>
+> Si $c > 0$, ent. $\sqrt[n]{ c } \to 1$.
+
+> [!proof]- **Proof.**
+>
+> $\sqrt[n]{ c }$ existe por el [[Teorema de Existencia de Raices]].
+>
+> *Caso 1:* $c \geq 1$. Ent. $\sqrt[n]{ c } \geq 1$ (si fuera $< 1$, tendríamos $c = (\sqrt[n]{ c })^{n} < 1$). Sea $h_{n} = \sqrt[n]{ c } - 1 \geq 0$. Por la [[Desigualdad de Bernoulli]],
+> $$
+> c = (1 + h_{n})^{n} \geq 1 + nh_{n} \implies 0 \leq h_{n} \leq \frac{c - 1}{n}
+> $$
+> Por Sándwich $h_{n} \to 0$, i.e. $\sqrt[n]{ c } = 1 + h_{n} \to 1$.
+>
+> *Caso 2:* $0 < c < 1$. Ent. $\frac{1}{c} > 1$ y por el Caso 1 $\sqrt[n]{ 1/c } = \frac{1}{\sqrt[n]{ c }} \to 1$. Por álgebra de límites (cociente), $\sqrt[n]{ c } = \dfrac{1}{1/\sqrt[n]{ c }} \to \frac{1}{1} = 1$.
+> $$
+> \tag*{$\blacksquare$}
+> $$
+
 ### Propiedades de $\pm\infty$
 
-Recordemos que $a_{n} \to \infty$ sii $\forall M \in \mathbb{R} \ \exists N \ \forall n \geq N \ (a_{n} > M)$ (ver [[Sucesiones Convergentes]]).
+Recordemos que $a_{n} \to \infty$ sii $\forall M \in \mathbb{R} \ \exists N \ \forall n \geq N \ (a_{n} > M)$ (ver [[Sucesiones Divergentes]]).
 
 > [!theorem] **Teorema.** (Álgebra con $\infty$)
 >
@@ -321,20 +367,70 @@ Recordemos que $a_{n} \to \infty$ sii $\forall M \in \mathbb{R} \ \exists N \ \f
 > \tag*{$\blacksquare$}
 > $$
 
+> [!theorem] **Proposición.** ($c \cdot \infty$)
+>
+> Si $\displaystyle \lim_{n \to \infty} x_{n} = c \neq 0$ y $\lim_{n \to \infty} y_{n} = \infty$ entonces,
+> $$
+> \lim_{n \to \infty} x_{n}y_{n} = \begin{cases}
+>   \infty & \text{ si } c>0\\
+>   -\infty & \text{ si } c<0
+> \end{cases}
+> $$
+> Generaliza (3) del teorema: ahí $x_{n} = c$ es constante.
+
+> [!proof]- **Proof.**
+>
+> Supongamos que $c>0$. Sea $M \in \mathbb{R}$; basta el caso $M > 0$ (si $x_{n}y_{n} > 1$, ent. $x_{n}y_{n} > M$ para todo $M \leq 0$). Sean $0 < \varepsilon < c$ y $\displaystyle M' = \frac{M}{c-\varepsilon} > 0$. Entonces existe $N \in \mathbb{N}$ tal que $x_{n} > c-\varepsilon > 0$ y $y_{n} > M'$ para $n \geq N$. Por tanto:
+> $$
+> x_{n}y_{n} > (c - \varepsilon)M' = M
+> $$
+> Si $c < 0$, ent. $-x_{n} \to -c > 0$ y por lo anterior $(-x_{n})y_{n} \to \infty$, i.e. $x_{n}y_{n} \to -\infty$ (Obs. (2) de [[Sucesiones Divergentes]]).
+> $$
+> \tag*{$\blacksquare$}
+> $$
+
+> [!theorem] **Tarea.**
+>
+> Supongamos que $\lim y_{n} = \infty$ y que $\{ x_{n} \}$ es una sucesión, entonces,
+> $$
+> \lim x_{n} = \begin{cases}
+>   \infty & \text{ si } x_{n} \geq ky_{n} \quad \forall n\geq N_{0} \text{ y algún } k>0 \\[0.5em]
+>   -\infty & \text{ si } x_{n} \leq -k y_{n} \quad \forall n \geq N_{0} \text{ y algún } k>0
+> \end{cases}
+> $$
+
+> [!proof]- **Proof.**
+>
+> Por (3) del teorema, $ky_{n} \to \infty$.
+> - Si $x_{n} \geq ky_{n}$ para $n \geq N_{0}$, por (5) Comparación $x_{n} \to \infty$.
+> - Si $x_{n} \leq -ky_{n}$ para $n \geq N_{0}$, ent. $-x_{n} \geq ky_{n}$, así que $-x_{n} \to \infty$, i.e. $x_{n} \to -\infty$.
+> $$
+> \tag*{$\blacksquare$}
+> $$
+
 > [!theorem] **Proposición.** (Recíprocos)
 >
-> 1. Si $a_{n} \to \infty$ y $a_{n} \neq 0$ para todo $n$, ent. $\frac{1}{a_{n}} \to 0$.
+> 1. Si $a_{n} \neq 0$ para todo $n$, ent. $\lvert a_{n} \rvert \to \infty \iff \frac{1}{a_{n}} \to 0$. En particular, si $a_{n} \to \infty$ o $a_{n} \to -\infty$, ent. $\frac{1}{a_{n}} \to 0$.
 > 2. Si $e_{n} > 0$ para todo $n$ y $e_{n} \to 0$, ent. $\frac{1}{e_{n}} \to \infty$.
 
 > [!proof]- **Proof.**
 >
-> 1. Sea $\varepsilon > 0$. Existe $N$ tq. $\forall n \geq N$ $a_{n} > \frac{1}{\varepsilon} > 0$, ent. $0 < \frac{1}{a_{n}} < \varepsilon$.
+> 1. Se basa en que $\lvert a_{n} \rvert > M \iff \frac{1}{\lvert a_{n} \rvert} < \varepsilon$, donde $M > 0$ y $\varepsilon = \frac{1}{M}$.
+>
+> ($\implies$) Sea $\varepsilon > 0$. Existe $N$ tq. $\forall n \geq N$ $\lvert a_{n} \rvert > \frac{1}{\varepsilon} > 0$, ent. $\left\lvert \frac{1}{a_{n}} - 0 \right\rvert = \frac{1}{\lvert a_{n} \rvert} < \varepsilon$.
+>
+> ($\impliedby$) Sea $M \in \mathbb{R}$. Si $M \leq 0$, ent. $\lvert a_{n} \rvert > 0 \geq M$ para todo $n$. Si $M > 0$, existe $N$ tq. $\forall n \geq N$ $\frac{1}{\lvert a_{n} \rvert} < \frac{1}{M}$, ent. $\lvert a_{n} \rvert > M$.
+>
+> Si $a_{n} \to \infty$, como $\lvert a_{n} \rvert \geq a_{n}$, por Comparación $\lvert a_{n} \rvert \to \infty$. Si $a_{n} \to -\infty$, lo mismo con $\lvert a_{n} \rvert \geq -a_{n}$.
 > 2. Sea $M \in \mathbb{R}$. Si $M \leq 0$, ent. $\frac{1}{e_{n}} > 0 \geq M$ para todo $n$. Si $M > 0$, existe $N$ tq. $\forall n \geq N$ $e_{n} = \lvert e_{n} - 0 \rvert < \frac{1}{M}$, ent. $\frac{1}{e_{n}} > M$.
 > $$
 > \tag*{$\blacksquare$}
 > $$
 
-En (2) es indispensable que $e_{n} > 0$: con $e_{n} = \frac{(-1)^{n}}{n} \to 0$, $\frac{1}{e_{n}} = (-1)^{n}n$ oscila.
+> [!observation]+ **Observación.**
+>
+> 1. En (1), $\frac{1}{a_{n}} \to 0$ **no** implica $a_{n} \to \pm\infty$, solo $\lvert a_{n} \rvert \to \infty$: con $a_{n} = (-1)^{n}n$, $\frac{1}{a_{n}} \to 0$ pero $\{ a_{n} \}$ oscila (Obs. (3) de [[Sucesiones Divergentes]]).
+> 2. En (2) es indispensable que $e_{n} > 0$: con $e_{n} = \frac{(-1)^{n}}{n} \to 0$, $\frac{1}{e_{n}} = (-1)^{n}n$ oscila.
 
 > [!example]- **Ejemplo 5.** ($c^{n} \to \infty$ si $c > 1$)
 >
@@ -352,11 +448,27 @@ En (2) es indispensable que $e_{n} > 0$: con $e_{n} = \frac{(-1)^{n}}{n} \to 0$,
 > $$
 > y $n - 1 \to \infty$ por (4) (con $f_{n} = -1$). Por Comparación, $\frac{n^{2}+1}{n+1} \to \infty$.
 
+> [!example]- **Ejemplo 7.** (Por recíprocos)
+>
+> Las siguientes sucesiones son positivas y sus recíprocas son nulas, así que por Recíprocos (2) tienden a $\infty$:
+> - $\lvert x \rvert^{n}$ con $\lvert x \rvert > 1$: su recíproca es $\left( \frac{1}{\lvert x \rvert} \right)^{n} \to 0$ por Potencias. En particular $\{ x^{n} \}$ diverge.
+> - $\displaystyle \frac{n}{\log(n)}$ (para $n \geq 2$): su recíproca $\frac{\log(n)}{n} \to 0$.
+> - $\displaystyle \frac{n^{n}}{n!}$: su recíproca $\frac{n!}{n^{n}} \to 0$.
+> - $n^{r}$ con $r \in \mathbb{Q}^{+}$: su recíproca $\frac{1}{n^{r}} \to 0$.
+
+> [!example]- **Ejemplo 8.** ($\frac{n^{n}}{\log(n)} \to \infty$)
+>
+> Para $n \geq 2$, $0 < \log(n) < n$ (ver la prueba de "Algunas sucesiones nulas"), ent.
+> $$
+> \frac{n^{n}}{\log(n)} > \frac{n^{n}}{n} = n^{n-1} \geq n
+> $$
+> y por Comparación $\frac{n^{n}}{\log(n)} \to \infty$.
+
 ### Formas indeterminadas
 
 El teorema de "álgebra con $\infty$" **no** dice nada de $\infty - \infty$, $0 \cdot \infty$, $\frac{\infty}{\infty}$ o $\frac{0}{0}$. No es un olvido: en esos casos el resultado depende de las sucesiones concretas.
 
-> [!example]- **Ejemplo 7.** (Todo puede pasar)
+> [!example]- **Ejemplo 9.** (Todo puede pasar)
 >
 > **$\infty - \infty$.** En los tres casos $a_{n} \to \infty$ y $b_{n} \to \infty$:
 > - $a_{n} = n + c$, $b_{n} = n$: $a_{n} - b_{n} = c \to c$, cualquier real.
@@ -366,3 +478,73 @@ El teorema de "álgebra con $\infty$" **no** dice nada de $\infty - \infty$, $0 
 > **$0 \cdot \infty$.** Con $\frac{c}{n} \to 0$ y $n \to \infty$, $\frac{c}{n} \cdot n = c$; pero con $\frac{1}{n} \to 0$ y $n^{2} \to \infty$, $\frac{1}{n} \cdot n^{2} = n \to \infty$.
 >
 > Por eso, ante una forma indeterminada hay que **reescribir** la sucesión (racionalizar, factorizar, dividir entre la mayor potencia) antes de aplicar los teoremas, como en el Ejemplo 4 de [[Sucesiones Convergentes]] ($\sqrt{ n+1 } - \sqrt{ n } \to 0$) o el Ejemplo 1 de esta nota.
+
+### Sucesiones y funciones
+
+Si tenemos una función $f:I\to \mathbb{R}$ y una sucesión $\{ x_{n} \}$ de puntos de $I$ que converge a $x_{0}$, obtenemos una nueva sucesión $\{ y_{n} \} = \{ f(x_{n}) \}$. Si $f$ es [[Continuidad|continua]], esta converge a $f(x_{0})$. Este teorema es el puente entre sucesiones y funciones que usan los [[Teorema del Valor Intermedio|teoremas fuertes de continuidad]].
+
+> [!theorem] **Teorema.** (Continuidad por Sucesiones)
+>
+> Sea $f:I\to \mathbb{R}$ continua en $x_{0} \in I$. Si $\{ x_{n} \}$ es una sucesión de puntos de $I$ que converge a $x_{0}$, entonces
+> $$
+> \lim_{n \to \infty} f(x_{n}) = f(x_{0})
+> $$
+
+> [!proof]- **Proof.**
+>
+> Sea $\varepsilon > 0$. Como $f$ es continua en $x_{0}$, existe $\delta >0$ tal que si $x \in I$ y $\left| x-x_{0} \right|<\delta$, ent. $\left| f(x) - f(x_{0}) \right|<\varepsilon$.
+> Como la sucesión $\{ x_{n} \}$ converge a $x_{0}$, usando $\delta$ en lugar de $\varepsilon$ en la def. de convergencia, existe $N \in  \mathbb{N}$ tal que si $n\geq N$ entonces $\left| x_{n} - x_{0} \right| < \delta$, lo que implica que
+> $$
+> \left| f(x_{n})-f(x_{0}) \right| < \varepsilon  \quad \text{ si } n \geq N \tag*{$\blacksquare$}
+> $$
+
+> [!example]- **Ejemplo 10.**
+>
+> 1. Si $\lim_{n \to \infty} x_{n} = \alpha$, entonces $\lim_{n \to \infty} \sin(x_{n}) = \sin(\alpha)$.
+> 2. Si $\alpha$ y los $x_{n}$ no son de la forma $(2k +1) \frac{\pi}{2}$, ent. $\lim_{n \to \infty} \tan(x_{n}) = \tan(\alpha)$ y $\lim_{n \to \infty} \sec(x_{n}) = \sec(\alpha)$.
+> 3. Si $\alpha$ y los $x_{n}$ no son de la forma $k\pi$, ent. $\lim \csc(x_{n}) = \csc(\alpha)$ y $\lim \cot(x_{n}) = \cot(\alpha)$.
+> 4. Si $x_{n} > 0$ para todo $n$ y $\alpha > 0$, entonces $\lim \log \left(x_{n}\right) = \log \left(\alpha\right)$ y $\lim \frac{1}{\sqrt{x_{n}}} = \frac{1}{\sqrt{\alpha}}$.
+
+Un caso particular, con una prueba directa:
+
+> [!theorem] **Proposición.**
+>
+> Sea $\{ x_{n} \}$ una sucesión nula, entonces $\displaystyle \lim_{n \to \infty} e^{x_{n}} = 1$.
+
+> [!proof]- **Proof.**
+>
+> (También sale del teorema, pues $\exp$ es continua y $e^{0} = 1$.)
+>
+> Sea $\varepsilon >0$ y tomemos $\varepsilon' = \log \left(1+\varepsilon \right) \implies \varepsilon' > 0$.
+> Como $\{ x_{n} \}$ es una sucesión nula, existe $N \in \mathbb{N}$ tal que si $n \geq N$ ent. $\left| x_{n} \right| < \varepsilon'$. Entonces, como $\exp$ es creciente,
+> $$
+> e^{\left| x_{n} \right|} < e^{\varepsilon'} = e^{\log \left(1 + \varepsilon \right)} = 1 + \varepsilon \implies e^{\left| x_{n} \right|} - 1 < \varepsilon
+> $$
+> Sea $n \geq N$, así:
+> Caso 1. Sup. $x_{n} \geq 0$,
+> Ent. $e^{x_{n}} \geq 1 \implies \left| e^{x_{n}}-1 \right| = e^{\left| x_{n} \right|}-1 <\varepsilon$
+> Caso 2. Sup. $x_{n}<0$,
+> Ent. $\displaystyle e^{x_{n}}<1 \implies \left| e^{x_{n}}-1 \right|= 1 - e^{-\left| x_{n} \right|} = 1 - \frac{1}{e^{\left| x_{n} \right|}}$. Con $t = e^{\lvert x_{n} \rvert} > 0$ se tiene $1 - \frac{1}{t} \leq t - 1$, pues $(t-1) - \left( 1 - \frac{1}{t} \right) = \frac{(t-1)^{2}}{t} \geq 0$. Entonces,
+> $$
+> \left| e^{x_{n}} - 1 \right| \leq e^{\left| x_{n} \right|} - 1 < \varepsilon \quad \text{ si } n\geq N \tag*{$\blacksquare$}
+> $$
+
+Lo mismo pasa con [[Limites en el Infinito|límites al infinito]] de funciones y sucesiones que tienden a $\infty$:
+
+> [!theorem] **Teorema.**
+>
+> Sea $f: (a,\infty) \to \mathbb{R}$ tal que $\lim_{x \to \infty} f(x) = \alpha$, $\alpha \in \mathbb{R}$. Si $\{ x_{n} \}$ es una sucesión de puntos de $(a,\infty)$ que diverge a $\infty$, entonces $\displaystyle \lim f(x_{n}) = \alpha$.
+
+> [!proof]- **Proof.**
+>
+> Tomemos $\varepsilon >0$. Por hip. existe $M > a$ tal que si $x > M$ ent. $\left| f(x) - \alpha \right| < \varepsilon$.
+> A su vez, como $x_{n} \to \infty$, existe $N \in \mathbb{N}$ tal que $x_{n} > M$ para $n \geq N$. Ent.
+> $$
+> \left| f(x_{n}) - \alpha \right| < \varepsilon \quad \text{ si } n \geq N \tag*{$\blacksquare$}
+> $$
+
+> [!example]- **Ejemplo 11.**
+>
+> - $\displaystyle \lim_{n \to \infty} \left(1 + \frac{y}{n}  \right)^{n} = e^{y} \quad \forall  y \in \mathbb{R}$: con $f(x) = \left( 1 + \frac{y}{x} \right)^{x} = e^{x\log\left( 1 + \frac{y}{x} \right)}$ en $(\lvert y \rvert, \infty)$, por [[Regla de L'Hopital]] $x\log\left( 1 + \frac{y}{x} \right) \to y$, ent. $f(x) \to e^{y}$; y $n \to \infty$.
+> - $\displaystyle \lim \frac{1}{e^{n^{2}}} = 0$: $\lim_{x \to \infty} e^{-x} = 0$ y $n^{2} \to \infty$ (Ejemplo 10 de [[Sucesiones Divergentes]]).
+> - $\displaystyle \lim \tan^{-1}(x^{n}) = \frac{\pi}{2}$ para $x > 1$: $x^{n} \to \infty$ (Ejemplo 5) y $\lim_{t \to \infty} \tan^{-1}(t) = \frac{\pi}{2}$. (Si $\lvert x \rvert < 1$, ent. $x^{n} \to 0$ y $\tan^{-1}(x^{n}) \to 0$.)

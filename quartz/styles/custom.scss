@@ -1161,7 +1161,10 @@ html.zk-panels:not(:has(body[data-slug="index"])) .zk-bar {
     text-transform: none;
     letter-spacing: 0;
     color: var(--secondary);
-    padding: 3px 11px 3px 10px;
+    // CMU Typewriter sits higher in its line box than Departure Mono: 2px
+    // moved from bottom to top puts its baseline on the buttons' baseline
+    // (measured: 15.75px vs 17.75px from the bar's top), same bar height
+    padding: 5px 11px 1px 10px;
 
     &:hover {
       color: color-mix(in srgb, var(--secondary) 70%, var(--dark));

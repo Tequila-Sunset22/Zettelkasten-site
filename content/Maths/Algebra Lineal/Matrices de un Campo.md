@@ -1,5 +1,5 @@
 ---
-modified: 2026-11-13T23:34:20Z
+modified: 2026-11-15T19:03:03Z
 publish: true
 type: zettel
 date: "2026-08-25"

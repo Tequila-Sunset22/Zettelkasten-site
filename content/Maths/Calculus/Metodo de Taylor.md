@@ -1,5 +1,5 @@
 ---
-modified: 2026-11-13T23:34:20Z
+modified: 2026-11-15T19:03:03Z
 title: "Método de Taylor"
 publish: true
 type: zettel
@@ -26,7 +26,10 @@ cssclasses:
 
 Sea $M$ una cota de $\left| R_{n+1}(x) \right|$ en $[a,b]$, ent.
 $$
-\implies \left| \int_{a}^{b} f(x) \, dx - \int_{a}^{b} P_{n}(x) \, dx \right| \leq \int_{a}^{b} \left| f(x) - P_{n}(x) \right| \, dx = \int_{a}^{b} \left| R_{n+1}(x) \right| \, dx \leq  M (b-a)
+\begin{align}
+& \implies \left| \int_{a}^{b} f(x) \, dx - \int_{a}^{b} P_{n}(x) \, dx \right| \leq \int_{a}^{b} \left| f(x) - P_{n}(x) \right| \, dx \\[0.5em]
+&= \int_{a}^{b} \left| R_{n+1}(x) \right| \, dx \leq  M (b-a)
+\end{align}
 $$
 
 Mientras más chica sea $M$, mejor será la siguiente aproximación. Así,
@@ -48,9 +51,11 @@ $$
 > Por el T.V.M. de integrales me deshago de la integral: existe $v \in [u,0]$ tal que $\displaystyle \int_{u}^{0} \frac{(u-t)^{n}}{n!}e^{t} \, dt = \frac{(u-v)^{n}}{n!}e^{v} (0 - u)$, ent.
 > $$
 > \begin{align}
->  &= 1 + u + \frac{u^{2}}{2} + \dots + \frac{u^{n}}{n!} + \left[ \frac{(u-v)^{n}}{n!}e^{v}  \right](u) \quad \text{ para } v \in [u,0] \\[0.5em]
-> &= 1 + (-x^{2}) +  \frac{(-x^{2})^{2}}{2!} + \frac{(-x^{2})^{3}}{3!} + \dots + \frac{(-x^{2})^{n}}{n!} + \left[ \frac{(-x^{2} - v)^{n}}{n!} e^{v}  \right](-x^{2}) \tag{sust. $u$} \\[0.5em]
-> &= 1 - x^{2} + \frac{x^{4}}{2!} - \frac{x^{6}}{3!} + \dots + (-1)^{n}\frac{x^{2n}}{n!} - \left[ \frac{(-x^{2} - v)^{n}}{n!}e^{v}  \right] x^{2}
+> &= 1 + u + \frac{u^{2}}{2} + \dots + \frac{u^{n}}{n!} + \left[ \frac{(u-v)^{n}}{n!}e^{v}  \right](u) \\[0.5em]
+> &= 1 + (-x^{2}) +  \frac{(-x^{2})^{2}}{2!} + \frac{(-x^{2})^{3}}{3!} + \dots + \frac{(-x^{2})^{n}}{n!} \\[0.5em]
+> &\quad + \left[ \frac{(-x^{2} - v)^{n}}{n!} e^{v}  \right](-x^{2}) \tag{sust. $u$} \\[0.5em]
+> &= 1 - x^{2} + \frac{x^{4}}{2!} - \frac{x^{6}}{3!} + \dots + (-1)^{n}\frac{x^{2n}}{n!} \\[0.5em]
+> &\quad - \left[ \frac{(-x^{2} - v)^{n}}{n!}e^{v}  \right] x^{2}
 > \end{align}
 > $$
 > Si quisiera que $\left| R_{n+1}(x) \right| < 0.01$ tomo

@@ -1,5 +1,5 @@
 ---
-modified: 2026-11-13T23:34:20Z
+modified: 2026-11-15T20:21:33Z
 title: "Sólidos de Revolución"
 publish: true
 type: zettel
@@ -37,6 +37,14 @@ con $z_{k} \in [x_{k}, x_{k+1}]$, lo cual es una Suma de Riemann para $\pi f^{2}
 
 Así, la propuesta inicial no era correcta: el volumen no depende de $f$, sino de $f^{2}$, pues cada disco tiene volumen $\pi r^{2}h$ con $r = f(z)$.
 
+> [!tip|idea]+ **Idea Intuitiva.**
+>
+> Cada rectángulo de la suma de Riemann, al girar alrededor del eje $x$, barre un disco (un cilindro muy delgado) de radio $f(z_{k})$ y grosor $x_{k+1}-x_{k}$. Los discos apilados aproximan el sólido, y al refinar su volumen total tiende al volumen del sólido.
+>
+> <img src="/videos/discos.avif" alt="center" width="720" loading="lazy">
+>
+> *Sólido:* la esfera de radio $2$ (el ejemplo de abajo), con $n = 6$ y $12$ discos: $V_{n} = 33.98,\ 33.63 \to \frac{4}{3}\pi(2)^{3} \approx 33.51$.
+
 > [!theorem] **Definición.** (Volumen de un Sólido de Revolución)
 >
 > El volumen del sólido de revolución generado a partir de $f:[a,b] \to \mathbb{R}$ es
@@ -47,7 +55,7 @@ Así, la propuesta inicial no era correcta: el volumen no depende de $f$, sino d
 > [!example]- Ejemplo.
 >
 > $\square$ Calcula el volumen de una esfera de radio $r$.
-> Recordando la función de una media luna positiva (de cuando sacamos el área del círculo), $f(x)= \sqrt{r^{2} - x^{2}}$. Ent. el volumen es,
+> Recordando la función de una media luna positiva (de cuando sacamos el área del círculo en [[Aplicaciones de la Integral]]), $f(x)= \sqrt{r^{2} - x^{2}}$. Ent. el volumen es,
 > $$
 > \begin{align}
 >   V &= \pi \int_{-r}^{r} (r^{2}-x^{2}) \, dx \\[0.5em]
@@ -62,7 +70,7 @@ Así, la propuesta inicial no era correcta: el volumen no depende de $f$, sino d
 
 > [!example]- Ejemplo. 
 >
-> $\square$ Calcula el área de un cono de altura $h$, generatriz $l$ y radio $r$.
+> $\square$ Calcula el área lateral (sin la base) de un cono de altura $h$, generatriz $l$ y radio $r$.
 >
 > El área de un sector de radio $p$ es
 > $$
@@ -79,7 +87,7 @@ Así, la propuesta inicial no era correcta: el volumen no depende de $f$, sino d
 
 > [!example]- Ejemplo. 
 >
-> Calcula el área de un cono truncado con un corte perpendicular respecto a la altura.
+> Calcula el área lateral de un cono truncado con un corte perpendicular respecto a la altura.
 > 
 > Claramente, el área está dada por: $A = A_{C} - A' = \pi r_{1} l - \pi r_{2} l'$, donde $A_{C}$ es el área del cono completo, y $A'$ es el área del cono que buscamos cortar.
 >
@@ -117,7 +125,7 @@ $$
 \sum_{k=0}^{n-1} \pi (f(x_{k+1}) + f(x_{k})) \sqrt{(x_{k+1} - x_{k})^{2} + (f(x_{k+1}) - f(x_{k}))^{2}}
 $$
 $$
-= \sum_{k=0}^{n-1} \pi (f(x_{k+1}) + f(x_{k})) (x_{k+1} - x_{k}) \sqrt{ 1 + \frac{(f(x_{k+1}) - f(x_{k}))^{2}}{(x_{k+1} - x_{k})^{2}}} \tag{factor. $(x_{k+1}-x_{k})^{2}$}
+= \sum_{k=0}^{n-1} \pi (f(x_{k+1}) + f(x_{k})) (x_{k+1} - x_{k}) \sqrt{ 1 + \frac{(f(x_{k+1}) - f(x_{k}))^{2}}{(x_{k+1} - x_{k})^{2}}} \tag{factor.}
 $$
 donde $(x_{k+1}-x_{k})$ sale de la raíz sin v.a. pues $x_{k+1} > x_{k}$.
 Suponiendo que $f$ es derivable tenemos, por T.V.M. en $[x_{k}, x_{k+1}]$, que existe $c_{k}$ tal que $\displaystyle f'(c_{k}) = \frac{f(x_{k+1})-f(x_{k})}{x_{k+1}-x_{k}}$, ent.
@@ -150,13 +158,48 @@ Un área es necesariamente positiva, por lo que añadimos v.a. a $f(x)$.
 > Así, observamos que la fórmula del área de una superficie de revolución generaliza de alguna manera el concepto de área de un cilindro recto con base circular.
 > En efecto, si $f(x) = r$ constante, entonces $f'(x) = 0$ y $\displaystyle 2\pi \int_{a}^{b} r \, dx = 2\pi r (b-a) = 2\pi r h$.
 
+> [!theorem] **Corolario.** (Área de una superficie de revolución sobre el eje Y)
+>
+> Sea $f:[a,b]\to \mathbb{R}$ con $f'$ continua y $a \geq 0$ (o $b \leq 0$, para que la curva no cruce el eje $Y$). El área de la superficie que se genera al girar la gráfica de $f$ alrededor del eje $Y$ es
+> $$
+> 2\pi \int_{a}^{b} \left| x \right| \sqrt{1 + f'(x)^{2}} \, dx
+> $$
+
+> [!proof]- **Proof.**
+>
+> Es la misma construcción que sobre el eje $X$, cambiando el papel de los radios: al girar alrededor del eje $Y$, el punto $(x_{k}, f(x_{k}))$ describe una circunferencia de radio $\left| x_{k} \right|$ (su distancia al eje $Y$). El cono truncado entre $(x_{k}, f(x_{k}))$ y $(x_{k+1}, f(x_{k+1}))$ tiene área $\pi (\left| x_{k} \right| + \left| x_{k+1} \right|)\sqrt{(x_{k+1}-x_{k})^{2} + (f(x_{k+1}) - f(x_{k}))^{2}}$, y con T.V.M., T.V.I. y continuidad uniforme, igual que arriba, la suma converge a la integral. $\blacksquare$
+
+> [!observation]+ **Observación.**
+>
+> Cuando rotamos sobre el eje $Y$ podemos resolver de dos formas: expresando todo en términos de la función inversa $x(y)$ (si existe), o simplemente tomando $\left| x \right|$ en lugar de $\left| f(x) \right|$ en el formulazo:
+> $$
+> 2\pi \int_{y_{1}}^{y_{2}} \left| x(y) \right| \sqrt{1 + x'(y)^{2}} \, dy = S = 2\pi \int_{a}^{b} \left| x \right| \sqrt{1  + f'(x)^{2}} \, dx
+> $$
+
+> [!example]- Ejemplo. (Disco parabólico)
+>
+> Un disco para satélite tiene la forma de $y = ax^{2}$ girada alrededor del eje $Y$, con $10$ ft de diámetro y $2$ ft de profundidad. El borde está en $x = 5$ a altura $2$, así que $2 = 25a$ y $a = \frac{2}{25}$. Con $f'(x) = 2ax$ y $x \geq 0$,
+> $$
+> \begin{align}
+> & S = 2\pi\int_{0}^{5} x\sqrt{1 + 4a^{2}x^{2}} \, dx \\[0.5em]
+> &= \frac{\pi}{4a^{2}}\int_{1}^{1+100a^{2}} \sqrt{u} \, du \tag{$u = 1 + 4a^{2}x^{2}$} \\[0.5em]
+> &= \frac{\pi}{6a^{2}}\left[ (1+100a^{2})^{\frac{3}{2}} - 1 \right] = \frac{5\pi\left( 41\sqrt{41} - 125 \right)}{24} \approx 90.01 \text{ ft}^{2}
+> \end{align}
+> $$
+
 
 ### Método de los casquillos
 
 
-> [!tip|idea]- **Idea Intuitiva.**
+> [!tip|idea]+ **Idea Intuitiva.**
 >
 > Ya sabemos cómo calcular volúmenes de cilindros, ¿no? Bueno, como es habitual, el proceso es aproximar el volumen de otra cosa que no conocemos por medio de volúmenes que ya conocemos, como un pan de muerto agujerado o una piedra taladrada, por medio de volúmenes de cilindros agujerados.
+>
+> Una franja de la región, al girar alrededor del eje $Y$, barre un casquillo (cilindro agujerado). Si lo cortamos y lo desenrollamos, es casi una placa de **largo** $2\pi x'$ (la circunferencia), **alto** $f(x')$ y **grosor** $x_{2}-x_{1}$:
+>
+> <img src="/videos/casquillos.avif" alt="center" width="720" loading="lazy">
+>
+> *Región:* bajo $f(x) = 0.5 + 4(x-0.4)(1.6-x)$ en $[0.4, 1.6]$, girada alrededor del eje $Y$ (el pan de muerto agujerado, en gris).
 
 Sea $f:[a,b]\to \mathbb{R}^{+}$ continua con $a\geq 0$, cuya gráfica es como sigue.
 

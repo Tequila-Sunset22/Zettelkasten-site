@@ -1,9 +1,9 @@
 ---
-modified: 2026-11-15T04:06:33Z
+modified: 2026-11-15T19:47:08Z
 title: "Sucesiones"
 publish: true
 type: zettel
-status: 
+status: evergreen
 links: 
 tags: [calculus]
 date: "2026-05-01"

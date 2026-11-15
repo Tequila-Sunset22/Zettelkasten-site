@@ -1,5 +1,5 @@
 ---
-modified: 2026-11-13T23:34:20Z
+modified: 2026-11-15T18:17:55Z
 title: "Funciones Uniparamétricas"
 publish: true
 type: zettel
@@ -13,7 +13,9 @@ cssclasses:
 ---
 ### Longitud de una curva
 
-Una función uniparamétrica es $f: I \subseteq \mathbb{R}\to \mathbb{R}^{2}$ (con $I$ un intervalo)
+> [!theorem] **Definición.** (Función uniparamétrica)
+>
+> Una **función uniparamétrica** (o curva parametrizada) es $f: I \subseteq \mathbb{R}\to \mathbb{R}^{2}$ continua, con $I$ un intervalo. La **curva** es su imagen $f(I)$. Aquí trabajaremos con $I = [a,b]$.
 
 > [!example]- Ejemplos. 
 >
@@ -36,14 +38,6 @@ Una función uniparamétrica es $f: I \subseteq \mathbb{R}\to \mathbb{R}^{2}$ (c
 > Veremos la integral elíptica! (una bien fea)
 
 
-
-En $\mathbb{R}^{2}$, vamos a trabajar con $f:[a,b]\subseteq \mathbb{R} \to \mathbb{R}^{2}$ continuas, donde $f([a,b]) =\text{curva}$.
-
-- Ejemplos:
-$\square$ Dada $F:[a,b]\to \mathbb{R}$ continua, la curva generada por su gráfica, 
-$f(x)= (x,F(x))$.
-$\square$ $\rho_{r}: [0,2\pi] \to \mathbb{R}^{2}$, $\rho_{r}(\theta) = (r\cos(\theta),r\sin(\theta))$
-$\square \ \Gamma:[0,2\pi]\to \mathbb{R}^{2}$, $\Gamma(\theta) = (a\cos(\theta), b\sin(\theta))$
 
 Empezaremos a ver una forma de calcular longitudes.
 
@@ -68,6 +62,14 @@ $$
 $$
 en donde $c_{k} \in [x_{k}, x_{k+1}]$. Lo anterior es una [[Sumas de Riemann|suma de Riemann]] para $\sqrt{1 + f'(x)^{2}}$ (que es integrable si $f'$ es continua).
 
+
+> [!tip|idea]+ **Idea Intuitiva.**
+>
+> Aproximamos la curva con una poligonal (segmentos rectos entre puntos de la gráfica) y medimos cada segmento con Pitágoras: sus catetos son $x_{k+1}-x_{k}$ y $f(x_{k+1})-f(x_{k})$. Al refinar, la poligonal se pega a la curva y su longitud crece hacia la longitud de la curva.
+>
+> <img src="/videos/longitud-arco.avif" alt="center" width="720" loading="lazy">
+>
+> *Curva:* $y = x^{2}$ en $[0,1]$ (el ejemplo de abajo); con $n = 1, 2, 4, 8$ segmentos, $L_{n} = 1.4142,\ 1.4604,\ 1.4743,\ 1.4778 \to 1.4789$.
 
 > [!theorem] **Definición.** (Longitud de una Gráfica de una función)
 >
@@ -104,7 +106,7 @@ Lo que está dentro de la suma: a medida que la partición sea más pequeña el 
 
 > [!theorem] **Definición.** (Longitud de una curva)
 >
-> Sea $\gamma: [a,b] \to \mathbb{R}^{2}$, la longitud de una curva $t \mapsto (f(t), g(t))$ para $t\in [a,b]$ con $f$ y $g$ de derivada continua es
+> Sea $\gamma = (f,g): [a,b] \to \mathbb{R}^{2}$, con $f$ y $g$ de derivada continua. La longitud de la curva $t \mapsto (f(t), g(t))$ para $t\in [a,b]$ es
 > $$
 > \ell_{\gamma}[a,b] := \int_{a}^{b} \sqrt{f'(t)^{2} + g'(t)^{2}} \, dt
 > $$
@@ -141,6 +143,34 @@ Lo que está dentro de la suma: a medida que la partición sea más pequeña el 
 > \ell_{\gamma}[0,2\pi] = \int_{0}^{2\pi} \sqrt{a^{2}\sin(t)^{2} + b^{2}\cos(t)^{2}} \, dt
 > $$
 > Esta la veremos en el tema de [[Metodos numericos de Integracion|métodos numéricos]].
+
+#### Longitud en coordenadas polares
+
+> [!theorem] **Corolario.** (Longitud de una curva polar)
+>
+> Sea $\rho = f(\theta)$, $\theta \in [\theta_{1},\theta_{2}]$, con $f$ de derivada continua. La longitud de la curva $\mathscr{C}$ que describe es
+> $$
+> \ell_{\mathscr{C}} = \int_{\theta_{1}}^{\theta_{2}} \sqrt{f'(\theta)^{2} + f(\theta)^{2}} \, d\theta
+> $$
+
+> [!proof]- **Proof.**
+>
+> La curva se parametriza por $\gamma(\theta) = (f(\theta)\cos(\theta), f(\theta)\sin(\theta))$ (ver [[Aplicaciones de la Integral|coordenadas polares]]). Derivando (Leibniz),
+> $$
+> \gamma_{1}'(\theta) = f'(\theta)\cos(\theta) - f(\theta)\sin(\theta), \qquad \gamma_{2}'(\theta) = f'(\theta)\sin(\theta) + f(\theta)\cos(\theta)
+> $$
+> Al elevar al cuadrado y sumar, los términos cruzados $\mp 2f(\theta)f'(\theta)\cos(\theta)\sin(\theta)$ se cancelan:
+> $$
+> \gamma_{1}'^{2} + \gamma_{2}'^{2} = f'^{2}(\cos^{2} + \sin^{2}) + f^{2}(\sin^{2} + \cos^{2}) = f'(\theta)^{2} + f(\theta)^{2}
+> $$
+> y por la definición de longitud de una curva se tiene el resultado. $\blacksquare$
+
+> [!example]- Ejemplo. (Espiral logarítmica)
+>
+> Sea $\rho = e^{-\theta}$ con $\theta \in [0,2\pi]$. Como $\rho' = -e^{-\theta}$,
+> $$
+> \ell_{\mathscr{C}} = \int_{0}^{2\pi} \sqrt{(e^{-\theta})^{2} + (-e^{-\theta})^{2}} \, d\theta = \int_{0}^{2\pi} \sqrt{2}\,e^{-\theta} \, d\theta = \sqrt{2}\left(1 - e^{-2\pi}\right)
+> $$
 
 
 

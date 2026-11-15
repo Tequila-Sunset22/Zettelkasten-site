@@ -1,5 +1,5 @@
 ---
-modified: 2026-11-15T14:36:08Z
+modified: 2026-11-15T20:26:09Z
 title: "Integral de Riemann"
 publish: true
 type: zettel
@@ -27,7 +27,10 @@ Como previo ver: [[Sumas de Riemann]]
 
 > [!observation]+ **Observación.**
 >
-> Es la misma estructura que un [[Limite|límite]] $\varepsilon$-$\delta$, con $\Delta \mathcal{P}$ en el papel de $\lvert x - a \rvert$. A veces se escribe $\displaystyle S = \lim_{\Delta \mathcal{P} \to 0} \sum_{k=0}^{n-1} f(z_{k})(x_{k+1} - x_{k})$.
+> Es la misma estructura que un [[Limite|límite]] $\varepsilon$-$\delta$, con $\Delta \mathcal{P}$ en el papel de $\lvert x - a \rvert$. Similarmente, se escribe:
+> $$
+> \displaystyle S = \lim_{\Delta \mathcal{P} \to 0} \sum_{k=0}^{n-1} f(z_{k})(x_{k+1} - x_{k})
+> $$
 
 Para comparar con Darboux, necesitamos que en una función integrable **toda** partición fina (no solo alguna) tenga $U - L$ chico.
 

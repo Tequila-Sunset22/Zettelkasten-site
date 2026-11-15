@@ -1,5 +1,5 @@
 ---
-modified: 2026-11-13T23:34:20Z
+modified: 2026-11-15T18:08:04Z
 title: "Método de Simpson"
 publish: true
 type: zettel
@@ -63,19 +63,27 @@ $$
 Así, $\displaystyle A' = \frac{\bar{f}(x_{0})+ \bar{f}(x_{2}) - 2\bar{f}(x_{1})}{2\left(\frac{b-a}{2n}  \right)^{2}}$.
 Por otro lado, 
 $$
-\displaystyle \int_{x_{0}}^{x_{2}} \bar{f}(x) \, dx = \int_{x_{0}}^{x_{2}} \left( A'(x-x_{1})^{2} + B' (x-x_{1}) + C' \right) dx = \left[\frac{A'(x-x_{1})^{3}}{3} + \frac{B'(x-x_{1})^{2}}{2} + C'x \right]_{x_{0}}^{x_{2}}
+\begin{align}
+& \displaystyle \int_{x_{0}}^{x_{2}} \bar{f}(x) \, dx \\[0.5em]
+&= \int_{x_{0}}^{x_{2}} \left( A'(x-x_{1})^{2} + B' (x-x_{1}) + C' \right) dx \\[0.5em]
+&= \left[\frac{A'(x-x_{1})^{3}}{3} + \frac{B'(x-x_{1})^{2}}{2} + C'x \right]_{x_{0}}^{x_{2}}
+\end{align}
 $$
 
 Lo cual es igual a
 $$
 \begin{align}
-&= \frac{A'(x_{2}-x_{1})^{3}}{3} + \frac{B'(x_{2}-x_{1})^{2}}{2} + C'x_{2} - \left[ \frac{A'(x_{0}-x_{1})^{3}}{3} + \frac{B'(x_{0}-x_{1})^{2}}{2} + C'x_{0}  \right] && \text{T.F.C.} \\[0.5em]
- &= \frac{A'(x_{2}-x_{1})^{3}}{3} + \frac{B'(x_{2}-x_{1})^{2}}{2} + C'x_{2} + \frac{A'(x_{1}-x_{0})^{3}}{3} - \frac{B'(x_{1}-x_{0})^{2}}{2} - C'x_{0} && (x_{0}-x_{1})^{3} = -(x_{1}-x_{0})^{3} \\[0.5em]
-  &= \frac{2A'(x_{2}-x_{1})^{3}}{3} + C'(x_{2}-x_{0}) = \frac{2A'\left(\frac{b-a}{2n}  \right)^{3}}{3} + C'\left(\frac{b-a}{n}  \right) && x_{2}-x_{1} = x_{1}-x_{0} \\[0.5em]
-   &= \frac{2}{3}\left[ \frac{\bar{f}(x_{0}) + \bar{f}(x_{2}) - 2\bar{f}(x_{1})}{2 \left(\frac{b-a}{2n}  \right)^{2}}  \right] \left(\frac{b-a}{2n}  \right)^{3} + \bar{f}(x_{1})\left(\frac{b-a}{n}  \right) && \text{sust. } A', C' \\[0.5em]
-    &= \left(\frac{b-a}{2n}  \right) \left[ \frac{\bar{f}(x_{0}) + \bar{f}(x_{2}) - 2\bar{f}(x_{1})}{3} + 2\bar{f}(x_{1})  \right] && \text{factor. } \tfrac{b-a}{2n} \\[0.5em]
-     &= \left(\frac{b-a}{2n}  \right) \left[ \frac{\bar{f}(x_{0}) + \bar{f}(x_{2}) + 4\bar{f}(x_{1})}{3}  \right] && \text{común denom.} \\[0.5em]
-      &= \left(\frac{b-a}{2n}  \right) \left(\frac{1}{3}  \right) \left( f(x_{0}) + 4 f(x_{1}) + f(x_{2})  \right) && \bar{f}(x_{i}) = f(x_{i})
+&= \frac{A'(x_{2}-x_{1})^{3}}{3} + \frac{B'(x_{2}-x_{1})^{2}}{2} + C'x_{2} \\[0.5em]
+&\quad - \left[ \frac{A'(x_{0}-x_{1})^{3}}{3} + \frac{B'(x_{0}-x_{1})^{2}}{2} + C'x_{0}  \right] \tag{T.F.C.} \\[0.5em]
+&= \frac{A'(x_{2}-x_{1})^{3}}{3} + \frac{B'(x_{2}-x_{1})^{2}}{2} + C'x_{2} \\[0.5em]
+&\quad + \frac{A'(x_{1}-x_{0})^{3}}{3} - \frac{B'(x_{1}-x_{0})^{2}}{2} - C'x_{0} \tag{$(x_{0}-x_{1})^{3} = -(x_{1}-x_{0})^{3}$} \\[0.5em]
+&= \frac{2A'(x_{2}-x_{1})^{3}}{3} + C'(x_{2}-x_{0}) \tag{$x_{2}-x_{1} = x_{1}-x_{0}$} \\[0.5em]
+&= \frac{2A'\left(\frac{b-a}{2n}  \right)^{3}}{3} + C'\left(\frac{b-a}{n}  \right) \\[0.5em]
+&= \frac{2}{3}\left[ \frac{\bar{f}(x_{0}) + \bar{f}(x_{2}) - 2\bar{f}(x_{1})}{2 \left(\frac{b-a}{2n}  \right)^{2}}  \right] \left(\frac{b-a}{2n}  \right)^{3} \\[0.5em]
+&\quad + \bar{f}(x_{1})\left(\frac{b-a}{n}  \right) \tag{sust. $A'$, $C'$} \\[0.5em]
+&= \left(\frac{b-a}{2n}  \right) \left[ \frac{\bar{f}(x_{0}) + \bar{f}(x_{2}) - 2\bar{f}(x_{1})}{3} + 2\bar{f}(x_{1})  \right] \tag{factor.} \\[0.5em]
+&= \left(\frac{b-a}{2n}  \right) \left[ \frac{\bar{f}(x_{0}) + \bar{f}(x_{2}) + 4\bar{f}(x_{1})}{3}  \right] \tag{común denom.} \\[0.5em]
+&= \left(\frac{b-a}{2n}  \right) \left(\frac{1}{3}  \right) \left( f(x_{0}) + 4 f(x_{1}) + f(x_{2})  \right) \tag{$\bar{f}(x_{i}) = f(x_{i})$}
 \end{align}
 $$
 

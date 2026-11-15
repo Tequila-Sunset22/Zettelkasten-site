@@ -1,5 +1,5 @@
 ---
-modified: 2026-11-15T14:45:59Z
+modified: 2026-11-15T19:03:03Z
 title: "Integral de Darboux"
 publish: true
 type: zettel
@@ -138,7 +138,10 @@ Generalizamos la *Proposición 2* con este *Lema*:
 >
 > Dada $f:[a,b] \to \mathbb{R}$ continua. Definimos los conjuntos de todas las sumas inferiores y superiores como:
 > $$
-> \mathcal{L} = \{ L(f,\mathcal{P}) \mid \mathcal{P} \text{ es partición de } [a,b] \}, \qquad \mathcal{U} = \{ U(f,\mathcal{P}) \mid \mathcal{P} \text{ es partición de } [a,b] \}
+> \begin{gather}
+> \mathcal{L} = \{ L(f,\mathcal{P}) \mid \mathcal{P} \text{ es partición de } [a,b] \} \\[0.5em]
+> \mathcal{U} = \{ U(f,\mathcal{P}) \mid \mathcal{P} \text{ es partición de } [a,b] \}
+> \end{gather}
 > $$
 > Entonces, para cualquier partición $\mathcal{P}_2$ fija, el número real $U(f,\mathcal{P}_2)$ es una cota superior para el conjunto $\mathcal{L}$, y para cualquier partición $\mathcal{P}_1$ fija, el número real $L(f,\mathcal{P}_1)$ es una cota inferior para el conjunto $\mathcal{U}$.
 

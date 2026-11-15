@@ -1,5 +1,5 @@
 ---
-modified: 2026-11-15T05:26:09Z
+modified: 2026-11-15T18:06:57Z
 title: "Integrabilidad"
 publish: true
 type: zettel
@@ -21,7 +21,12 @@ En el caso continuo ([[Integral de Darboux]]) la integral inferior y la superior
 >
 > Una función $f$ acotada en $[a,b]$ es **integrable** en $[a,b]$ si
 > $$
-> \underline{I} = \sup \{ L(f,\mathcal{P}): \mathcal{P} \text{ es partición de } [a,b] \} = \inf \{ U(f,\mathcal{P}): \mathcal{P} \text{ es partición de } [a,b] \} = \overline{I}.
+> \begin{align}
+> & \underline{I} \\[0.5em]
+> &= \sup \{ L(f,\mathcal{P}): \mathcal{P} \text{ es partición de } [a,b] \} \\[0.5em]
+> &= \inf \{ U(f,\mathcal{P}): \mathcal{P} \text{ es partición de } [a,b] \} \\[0.5em]
+> &= \overline{I}.
+> \end{align}
 > $$
 > En este caso, a este número común se le denomina la **integral** (de Darboux) de $f$ en $[a,b]$ y se denota
 > $$
@@ -336,8 +341,10 @@ El teorema anterior aporta "toda la información necesaria" para el uso de las i
 > Como $[y,z] \subseteq [a,b]$, $\displaystyle \underset{[y,z]}{\sup }\{ f \} - \underset{[y,z]}{\inf }\{ f \} \leq D$ (en un cjto. más chico el $\sup$ baja y el $\inf$ sube). De esta manera:
 > $$
 > \begin{align}
-> U(f,\mathcal{P}) - L(f,\mathcal{P}) &= [U(f,\mathcal{P}_{1}) - L(f,\mathcal{P}_{1})] + [U(f,\mathcal{P}_{2}) - L(f,\mathcal{P}_{2})] + (z-y)\cdot \left[\underset{[y,z]}{\sup} \{ f \}-\underset{[y,z]}{\inf} \{ f \}\right] \\[0.5em]
-> &< \frac{\varepsilon}{3} + \frac{\varepsilon}{3} + (z-y)D < \frac{\varepsilon}{3} + \frac{\varepsilon}{3} + \frac{\varepsilon}{3D} D = \varepsilon
+> & U(f,\mathcal{P}) - L(f,\mathcal{P}) \\[0.5em]
+> &= [U(f,\mathcal{P}_{1}) - L(f,\mathcal{P}_{1})] + [U(f,\mathcal{P}_{2}) - L(f,\mathcal{P}_{2})] + (z-y)\cdot \left[\underset{[y,z]}{\sup} \{ f \}-\underset{[y,z]}{\inf} \{ f \}\right] \\[0.5em]
+> & < \frac{\varepsilon}{3} + \frac{\varepsilon}{3} + (z-y)D < \frac{\varepsilon}{3} + \frac{\varepsilon}{3} + \frac{\varepsilon}{3D} D \\[0.5em]
+> &= \varepsilon
 > \end{align}
 > $$
 > Por el Teorema 2, $f$ es integrable. (Si $c = a$ o $c = b$, se hace lo mismo con un solo lado.)

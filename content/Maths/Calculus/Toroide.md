@@ -1,5 +1,5 @@
 ---
-modified: 2026-11-13T23:34:20Z
+modified: 2026-11-15T20:20:59Z
 title: "Toro"
 publish: true
 type: zettel
@@ -36,6 +36,11 @@ cssclasses:
 > $$
 > A = 2\pi \bar{x} \ell = 2\pi a (2\pi r) = 4\pi^{2} a r \tag*{$\blacksquare$}
 > $$
+
+> [!proof]- **Proof.** (Otra forma, con Pappus)
+>
+> 1. El disco $(x-a)^{2}+y^{2} \leq r^{2}$ tiene área $\pi r^{2}$ y, por simetría, centroide en su centro: $\bar{x} = a$. Por el Segundo [[Teorema de Pappus]] (volúmenes), $V = 2\pi\bar{x}A = 2\pi a\cdot \pi r^{2} = 2\pi^{2}ar^{2}$.
+> 2. Igual que arriba, con el primero (superficies). $\blacksquare$
 
 > [!observation]+ **Observación.**
 >

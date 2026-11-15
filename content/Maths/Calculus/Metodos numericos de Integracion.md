@@ -1,5 +1,5 @@
 ---
-modified: 2026-11-13T23:34:20Z
+modified: 2026-11-15T18:06:57Z
 title: "Métodos numéricos"
 publish: true
 type: zettel
@@ -20,26 +20,27 @@ $$
 $$
 
 Veamos un ejemplo de integrales elípticas.
-El perímetro de una Elipse está dado por $\displaystyle \int_{0}^{2\pi} \sqrt{a^{2}\cos^{2}(x) + b^{2}\sin^{2}(x)} \, dx$ (ver [[Funciones Uniparametricas]])
+El perímetro de una Elipse está dado por $\displaystyle \int_{0}^{2\pi} \sqrt{a^{2}\cos^{2}(x) + b^{2}\sin^{2}(x)} \, dx$ (en [[Funciones Uniparametricas]] aparece con $\sin$ y $\cos$ intercambiados; con $x \mapsto \frac{\pi}{2} - x$ es la misma integral, pues el integrando tiene periodo $\pi$)
 Suponiendo que $a>b$,
 $$
 \begin{align}
-  \int_{0}^{2\pi}  \sqrt{a^{2}\cos^{2}(x) + b^{2}- b^{2}\cos^{2}(x)}\, dx &= \int_{0}^{2\pi} \sqrt{b^{2} + (a^{2} - b^{2})\cos^{2}(x)} \, dx \tag{$\sin^{2} = 1 - \cos^{2}$}
+& \int_{0}^{2\pi}  \sqrt{a^{2}\cos^{2}(x) + b^{2}- b^{2}\cos^{2}(x)}\, dx \\[0.5em]
+&= \int_{0}^{2\pi} \sqrt{b^{2} + (a^{2} - b^{2})\cos^{2}(x)} \, dx \tag{$\sin^{2} = 1 - \cos^{2}$}
 \end{align}
 $$
 Entonces tenemos que aproximar, podemos hacerlo de las siguientes formas:
 
 - Sumas inferiores, sumas superiores (Sumas de Darboux). Esta aproximación no siempre es la mejor.
 $$
-\sum_{i=1}^{n} \min_{[x_{i-1},x_{i}]} f \cdot (x_{i}-x_{i-1}) \quad \text{ y } \quad \sum_{i=1}^{n} \max_{[x_{i-1},x_{i}]} f \cdot (x_{i}-x_{i-1})
+\sum_{k=0}^{n-1} \min_{[x_{k},x_{k+1}]} f \cdot (x_{k+1}-x_{k}) \quad \text{ y } \quad \sum_{k=0}^{n-1} \max_{[x_{k},x_{k+1}]} f \cdot (x_{k+1}-x_{k})
 $$
 (con $f$ continua; en general se usan $\inf$ y $\sup$, ver [[Suma Inferior y Superior]]).
 
 - [[Sumas de Riemann]], la generalización de las anteriores.
 $$
-\sum_{i=1}^{n} f(y_{i})(x_{i}-x_{i-1}) \quad y_{i} \in  [x_{i-1}, x_{i}]
+R(f,\mathcal{P},z) = \sum_{k=0}^{n-1} f(z_{k})(x_{k+1}-x_{k}) \quad z_{k} \in  [x_{k}, x_{k+1}]
 $$
-    - A partir de sumas de Riemann vemos: Aproximación por puntos medios.
+A partir de sumas de Riemann vemos: Aproximación por puntos medios.
 
 
 ### Aproximación por puntos medios

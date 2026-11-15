@@ -1,5 +1,5 @@
 ---
-modified: 2026-11-13T23:34:20Z
+modified: 2026-11-15T17:23:16Z
 title: "Método de los Trapecios"
 publish: true
 type: zettel

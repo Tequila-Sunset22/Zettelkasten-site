@@ -1,5 +1,5 @@
 ---
-modified: 2026-11-15T05:26:27Z
+modified: 2026-11-15T20:21:38Z
 title: "Calculus"
 publish: true
 type: moc
@@ -87,7 +87,7 @@ Algunas más otras consecuencias:
 ---
 ## Integrales
 
-- [[Definiendo la Integral]] (qué pedimos, particiones, refinamiento)
+- [[Definiendo la Integral]] (particiones, refinamiento)
 - [[Integral de Darboux]] (caso particular: $f$ continua)
 - [[Teorema Fundamental de Cálculo]]
 - [[Generalizando la Integral]] ($f$ acotada)
@@ -98,7 +98,7 @@ Algunas más otras consecuencias:
 	- [[Integral de Reimann|Integral de Riemann]]
 	
 #### Resultados:
-- [[Derivadas e Integrales Comunes]]
+- [[Fomulasos de Derivadas y Antiderivadas]]
 
 ---
 ## Metodos de Integración
@@ -118,9 +118,11 @@ Algunas más otras consecuencias:
 ## [[Aplicaciones de la Integral]]
 - [[Funciones Uniparametricas]]
 - [[Solidos de Revolución]]
+	- [[Volumen por Secciones Transversales]]
 - [[Centros de Masa para Físicos]]
 - [[Teorema de Pappus]]
 - [[Centros de Masa para Actuarios]]
+- [[Trabajo]]
 - [[Metodos numericos de Integracion]]
 	- [[Metodo de los Trapecios]]
 	- [[Metodo de Simpson]]
@@ -128,20 +130,18 @@ Algunas más otras consecuencias:
 
 #### Resultados:
 - [[Tarea III Calculo II]]
-- [[Encontrando Centroides]]
 - [[Trompeta de Toricelli]]
-- [[Revoluciones sobre el eje Y]]
 - [[Toroide]]
 
 ---
 
 ## Función Logaritmo y Exponencial
-- [[Funcion Logaritmo]]
-- [[Funcion Exponencial]]
-- [[definicion chida logaritmo yexp]]
+- [[Funcion Logaritmo]] (definición como integral, propiedades, límites, crecimiento)
+- [[Funcion Exponencial]] (inversa de $\log$, el número $e$, potencias $a^{x}$, aproximación de $e$)
 - ##### [[Funciones Hiperbolicas]]
-	- [[Identidades de Funciones Hiperbólicas]]
-	- [[Derivadas de Funciones Hiperbólicas]]
+	- [[Funciones Hiperbolicas#Identidades|Identidades de Funciones Hiperbólicas]]
+	- [[Funciones Hiperbolicas#Derivadas|Derivadas de Funciones Hiperbólicas]]
+	- [[Funciones Hiperbolicas#Funciones Inversas Hiperbólicas|Inversas Hiperbólicas]]
 
 ---
 ## Aproximación de Funciones

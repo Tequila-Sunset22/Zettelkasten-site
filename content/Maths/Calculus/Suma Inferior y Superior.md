@@ -1,5 +1,5 @@
 ---
-modified: 2026-11-15T05:25:50Z
+modified: 2026-11-15T19:03:03Z
 title: "Suma Inferior y Superior"
 publish: true
 type: zettel
@@ -92,7 +92,10 @@ Los resultados del caso continuo ([[Integral de Darboux]]) se conservan con las 
 >
 > Sea $f$ acotada en $[a,b]$ y sean
 > $$
-> \mathcal{L} = \{ L(f, \mathcal{P}) \mid \mathcal{P} \text{ es partición de } [a,b] \}, \qquad \mathcal{U} = \{ U(f, \mathcal{P}) \mid \mathcal{P} \text{ es partición de } [a,b] \}
+> \begin{gather}
+> \mathcal{L} = \{ L(f, \mathcal{P}) \mid \mathcal{P} \text{ es partición de } [a,b] \} \\[0.5em]
+> \mathcal{U} = \{ U(f, \mathcal{P}) \mid \mathcal{P} \text{ es partición de } [a,b] \}
+> \end{gather}
 > $$
 > Entonces existen
 > $$

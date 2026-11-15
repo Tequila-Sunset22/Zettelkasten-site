@@ -1,8 +1,8 @@
 ---
-modified: 2026-11-09T14:45:18Z
+modified: 2026-11-15T19:47:46Z
 publish: true
 type: atomic-note
-status: done
+status: seed
 links:
   - "[[Geometria Euclidiana]]"
 tags:

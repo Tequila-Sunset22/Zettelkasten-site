@@ -1,5 +1,5 @@
 ---
-modified: 2026-11-13T23:34:20Z
+modified: 2026-11-15T17:19:11Z
 title: "Integración por Partes"
 publish: true
 type: zettel
@@ -11,18 +11,18 @@ tags:
 cssclasses:
  - romana
 ---
-Es una consecuencia que surge a partir de la regla de Leibniz:
+Es una consecuencia de la regla de Leibniz. Sean $u, v: [a,b] \to \mathbb{R}$ derivables con derivada continua (para que todas las integrales existan):
 
 $$
 \begin{align}
   (uv)' (x) &=   u'(x)v(x )  +u(x) v'(x) \\[0.5em]
   \implies  u(x) v'(x) &=  (u(x)v(x))' - u'(x)v(x) \\[0.5em]
-  \implies  \int_{a}^{b} u(x)v'(x) \, dx  &=  \int_{a}^{b} (u(x)v(x))' \, dx  - \int_{a}^{b} u'(x)v(x) \, dx \\[0.5em]
-  \implies \int_{a}^{b} u(x)v(x) \, dx  &=   u(x)v(x ) \bigg|_{a}^{b} - \int_{a}^{b} u'(x)v(x) \, dx  
+  \implies  \int_{a}^{b} u(x)v'(x) \, dx  &=  \int_{a}^{b} (u(x)v(x))' \, dx  - \int_{a}^{b} u'(x)v(x) \, dx \tag{integrando} \\[0.5em]
+  \implies \int_{a}^{b} u(x)v'(x) \, dx  &=   u(x)v(x ) \bigg|_{a}^{b} - \int_{a}^{b} u'(x)v(x) \, dx  
 \end{align}
 $$
 
-Así, brevemente, 
+Así, brevemente (con $du = u'(x)\,dx$ y $dv = v'(x)\,dx$),
 $$
 \int u \, dv = uv - \int v \, du
 $$
@@ -38,7 +38,7 @@ $$
 >
 > 2. $\displaystyle \int x\sin(x) \, dx = -x\cos(x) - \int (-\cos(x)) \, dx = -x \cos(x) + \int \cos(x) \, dx = -x\cos(x) + \sin(x) + c$
 >
-> **Obs.** $\displaystyle  \int x\sin(x) \, dx = \frac{x^{2}}{2}\sin(x) - \int \frac{x^{2}}{2}\cos(x) \, dx$ es más díficil que la integral original.
+> **Obs.** Si elegimos al revés ($u = \sin(x)$, $dv = x\,dx$), $\displaystyle  \int x\sin(x) \, dx = \frac{x^{2}}{2}\sin(x) - \int \frac{x^{2}}{2}\cos(x) \, dx$ es más difícil que la integral original.
 >
 > 3. $\displaystyle \int x^{2} \cos(x) \, dx = x^{2}\sin(x) - \int 2x\sin(x) \, dx = x^{2}\sin(x) - 2 \int x\sin(x) \, dx = x^{2}\sin(x) - 2 \left[-x\cos(x) + \sin(x)  \right] = x^{2}\sin(x) + 2x\cos(x) - 2\sin(x) + c$
 > 
@@ -46,13 +46,15 @@ $$
 >
 > 4. $\displaystyle \int \log \left(x\right) \, dx = x\log \left(x\right) - \int x \left(\frac{1}{x}  \right) \, dx= x \log \left(x\right) - x + c$
 > 
-> La siguiente integral es un tipo espcial llamada **Integral Cíclica**.
+> La siguiente integral es un tipo especial llamada **Integral Cíclica**.
 >
 > 5. $\displaystyle \int e^{x}\cos(x) \, dx = e^{x} \cos(x) + \int e^{x}\sin(x) \, dx = e^{x}\cos(x) + \left[e^{x} \sin(x) - \int e^{x}\cos(x) \, dx  \right]$
 > De esta forma
 > $$
 > \begin{align}
 > \int e^{x}\cos(x) \, dx &= e^{x} \cos(x) + e^{x}\sin(x) - \int e^{x}\cos(x) \, dx \\[0.5em]
-> \implies  2 \int e^{x}\cos(x) \, dx &= e^{x}\cos(x) + e^{x}\sin(x) + c
+> \implies  2 \int e^{x}\cos(x) \, dx &= e^{x}\cos(x) + e^{x}\sin(x) + c \\[0.5em]
+> \implies  \int e^{x}\cos(x) \, dx &= \frac{e^{x}(\cos(x) + \sin(x))}{2} + c
 > \end{align}
 > $$
+> La idea: después de dos partes reaparece la integral original, y la despejamos como si fuera una incógnita.

@@ -1,9 +1,9 @@
 ---
-modified: 2026-11-15T14:18:14Z
+modified: 2026-11-15T19:48:09Z
 publish: true
 type: zettel
 date: "2026-09-01"
-status: seed
+status: budding
 aliases:
 tags:
  - calculus

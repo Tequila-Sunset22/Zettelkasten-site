@@ -19,6 +19,21 @@ try {
     .slice(0, 10)
 } catch {}
 
+// same for the icons: browsers keep favicons in their own cache and barely
+// re-check them, so a new icon only shows up under a new URL
+const fileVersion = (...parts: string[]) => {
+  try {
+    return createHash("sha256")
+      .update(readFileSync(join(process.cwd(), "quartz", "static", ...parts)))
+      .digest("hex")
+      .slice(0, 10)
+  } catch {
+    return "0"
+  }
+}
+const iconVersion = fileVersion("icon.png")
+const touchIconVersion = fileVersion("apple-touch-icon.png")
+
 const ZK_LAYOUT = '(function(){var d=document.documentElement;window.__zkLayout=function(){var o=window.__zkLayoutOpts||{},sw=o.sw||screen.width||innerWidth;d.style.setProperty("--zk-sw",sw+"px");if(sw<1024){d.classList.remove("zk-panels");return}var rem=Math.min(22,Math.max(16,sw*.0055+12.5)),note=Math.round(Math.min(44*rem,sw-64));d.style.setProperty("--zk-note",note+"px");d.classList.add("zk-panels")};__zkLayout()})()'
 
 export default (() => {
@@ -112,8 +127,11 @@ export default (() => {
           </>
         )}
 
-        <link rel="icon" href={iconPath} />
-        <link rel="apple-touch-icon" href={joinSegments(baseDir, "static/apple-touch-icon.png")} />
+        <link rel="icon" type="image/png" href={`${iconPath}?v=${iconVersion}`} />
+        <link
+          rel="apple-touch-icon"
+          href={`${joinSegments(baseDir, "static/apple-touch-icon.png")}?v=${touchIconVersion}`}
+        />
         <meta name="description" content={description} />
         <meta name="generator" content="Quartz" />
 

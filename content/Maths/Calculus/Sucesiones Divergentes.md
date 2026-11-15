@@ -1,5 +1,5 @@
 ---
-modified: 2026-11-15T04:47:33Z
+modified: 2026-11-15T15:35:50Z
 title: "Sucesiones Divergentes"
 publish: true
 type: zettel
@@ -17,7 +17,7 @@ cssclasses:
 >
 > <img src="/videos/divergencia-oscila.avif" alt="center" width="720" loading="lazy">
 >
-> *Sucesión:* $a_{n} = (-1)^{n}$, con $\varepsilon = 1$: muevas $L$ a donde lo muevas, siempre quedan términos fuera.
+> *Sucesión:* $a_{n} = \sin(n)$, con $\varepsilon = 0.5$. Para cada candidato $L$, la línea $N$ avanza y siempre hay un término después de $N$ fuera de la banda (en rojo, todos los de afuera): es $\forall L \ \exists \varepsilon \ \forall N \ \exists n \geq N \ (\lvert a_{n} - L \rvert \geq \varepsilon)$.
 
 > [!theorem] **Definición.** (Sucesión Divergente)
 >
@@ -61,7 +61,7 @@ No todas las divergentes son iguales: $\{ (-1)^{n} \}$ diverge porque *oscila*, 
 >
 > <img src="/videos/divergencia-infinito.avif" alt="center" width="720" loading="lazy">
 >
-> *Sucesión:* $a_{n} = 0.45n + 0.9(-1)^{n}$: al subir el techo, $N$ se recorre a la derecha.
+> *Sucesión:* $a_{n} = \sqrt{ n }$ (Ejemplo 9): al subir el techo $M$, el $N$ (cualquier $N > M^{2}$) se recorre a la derecha.
 
 > [!theorem] **Definición.** (Divergencia a $\pm\infty$)
 >

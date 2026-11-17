@@ -1,5 +1,5 @@
 ---
-modified: 2026-11-11T17:25:33Z
+modified: 2026-11-17T15:36:31Z
 title: "Algebra"
 publish: true
 type: moc
@@ -59,6 +59,11 @@ La estrucutura de la discusión es la siguiente:
 - [[Inverso Multiplicativo Modular]]
 - [[Teorema de Wilson]]
 - [[Resolviendo Congruencias]]
+
+
+---
+
+### [[Polinomios]]
 
 
 ---

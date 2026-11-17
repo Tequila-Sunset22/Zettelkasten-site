@@ -895,6 +895,26 @@ body[data-slug="index"] .sidebar.left {
   }
 }
 
+// Between 800px and the monitor layout (phone sideways, iPad upright) Quartz
+// uses its tablet grid: a 320px left column, empty on the index, which
+// pushed the text to the right (and under the presence board). There the
+// index is one column; the hidden search box leaves the grid (its overlay is
+// fixed anyway).
+@media (min-width: 800px) {
+  html:not(.zk-panels) body[data-slug="index"] {
+    .page > #quartz-body {
+      grid-template-columns: minmax(0, 1fr);
+      grid-template-areas: "grid-header" "grid-center" "grid-sidebar-right" "grid-footer";
+    }
+    .sidebar.left {
+      position: absolute;
+      width: 0;
+      height: 0;
+      padding: 0;
+    }
+  }
+}
+
 // ---------------------------------------------------------------------------
 // Path (~/Maths/...) in the page's top-left corner, like aarnphm.xyz. Desktop
 // on every page; on phones only on the index (elsewhere the phone header

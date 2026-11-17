@@ -179,7 +179,16 @@
         best.forEach((v) => adj[v].forEach((w) => v < w && keep.has(w) && edges.push([keep.get(v), keep.get(w)])))
         const titles = best.map((v) => idx[slugs[v]].title || slugs[v])
         const keySlugs = best.map((v) => slugs[v])
-        return { slugs: keySlugs, titles, edges, pos: cachedLayout(keySlugs, edges) }
+        // pos: for screens wider than tall; tall(): for phones held upright
+        // (computed on first use: most visitors never need it)
+        let tall = null
+        return {
+          slugs: keySlugs,
+          titles,
+          edges,
+          pos: cachedLayout(keySlugs, edges),
+          tall: () => (tall ??= cachedLayout(keySlugs, edges, TALL)),
+        }
       })
     return graphPromise
   }
@@ -187,14 +196,19 @@
   // The layout costs ~50 ms (more on slow PCs) of main thread: keep the last
   // one in localStorage, keyed by the graph itself (it changes only when notes
   // or links do).
-  function cachedLayout(slugs, edges) {
-    const key = "zk-constellation-v1"
+  // A phone held upright got the square layout stretched ×2 vertically and
+  // squeezed sideways: the clusters came out as thin ovals ("collapsed").
+  // Screens taller than wide (h > 1.2 w) get their own layout, computed in a
+  // box TALL times taller than wide, so it fills the screen without stretching.
+  const TALL = 2
+  function cachedLayout(slugs, edges, A = 1) {
+    const key = A === 1 ? "zk-constellation-v1" : "zk-constellation-tall-v1"
     const sig = slugs.length + ":" + edges.length + ":" + hash(slugs.join("|") + edges.join("|"))
     try {
       const c = JSON.parse(localStorage.getItem(key) || "null")
       if (c && c.sig === sig) return c.pos
     } catch {}
-    const pos = layoutFR(slugs.length, edges)
+    const pos = layoutFR(slugs.length, edges, A)
     try {
       localStorage.setItem(key, JSON.stringify({ sig, pos: pos.map(([x, y]) => [+x.toFixed(4), +y.toFixed(4)]) }))
     } catch {}
@@ -208,14 +222,17 @@
 
   // Fruchterman–Reingold with a cooling cap on each step (stable, deterministic:
   // starts from a phyllotaxis spiral, no randomness). Returns positions in [0,1]².
-  function layoutFR(n, edges) {
+  // A = height / width of the box it is laid out in: gravity pulls harder
+  // sideways than vertically, so the graph grows tall (A = 1: the original).
+  function layoutFR(n, edges, A = 1) {
     const x = new Float64Array(n), y = new Float64Array(n), dx = new Float64Array(n), dy = new Float64Array(n)
     for (let i = 0; i < n; i++) {
       const r = 0.45 * Math.sqrt((i + 0.5) / n), a = i * 2.399963
       x[i] = 0.5 + r * Math.cos(a)
-      y[i] = 0.5 + r * Math.sin(a)
+      y[i] = A * (0.5 + r * Math.sin(a))
     }
-    const k = 0.9 * Math.sqrt(1 / n), k2 = k * k, ITER = 320
+    const k = 0.9 * Math.sqrt(A / n), k2 = k * k, ITER = 320
+    const gx = 0.6 * k * Math.sqrt(A), gy = (0.6 * k) / Math.sqrt(A)
     for (let it = 0; it < ITER; it++) {
       dx.fill(0), dy.fill(0)
       for (let i = 0; i < n; i++)
@@ -229,7 +246,7 @@
       }
       const temp = 0.06 * (1 - it / ITER) + 0.0005
       for (let i = 0; i < n; i++) {
-        dx[i] += (0.5 - x[i]) * 0.6 * k, dy[i] += (0.5 - y[i]) * 0.6 * k // weak gravity
+        dx[i] += (0.5 - x[i]) * gx, dy[i] += (0.5 * A - y[i]) * gy // weak gravity
         const l = Math.hypot(dx[i], dy[i]) || 1, s = Math.min(l, temp) / l
         x[i] += dx[i] * s, y[i] += dy[i] * s
       }
@@ -292,7 +309,7 @@
       if (!st.g) return
       const { w, h } = st, padX = Math.max(24, w * 0.04), padY = 28, n = st.g.pos.length
       st.pos = new Float32Array(2 * n)
-      st.g.pos.forEach(([x, y], i) => {
+      ;(h > 1.2 * w ? st.g.tall() : st.g.pos).forEach(([x, y], i) => {
         st.pos[2 * i] = padX + x * (w - 2 * padX)
         st.pos[2 * i + 1] = padY + y * (h - 2 * padY)
       })

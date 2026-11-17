@@ -1,5 +1,5 @@
 ---
-modified: 2026-11-03T15:13:07Z
+modified: 2026-11-17T15:40:54Z
 title: "Probabilidad"
 publish: true
 type: moc
@@ -41,9 +41,17 @@ El *análisis combinatorio* juega un papel importante en el juego de la probabil
 - [[Independencia de Variables Aleatorias]]
 
 A continuación, a cualquier v.a. se le puede calcular las siguientes cantidades númericas, las cuales revelan características de la v.a. o de su distribución.
+
 - [[Esperanza]]
 - [[Varianza]]
+- [[Momentos]]
+- [[Cuantiles]]
+- [[Moda]]
+- [[Funcion Generadora de Probabilidad]]
 - [[Funcion Generadora de Momentos]]
+
+- [[Falacias]]
+falacia del apostador
 
 #### [[Distribuciones de Probabilidad]]
 Distribuciones Discretas:
@@ -56,9 +64,14 @@ Distribuciones Discretas:
 - [[Distribucion de Poisson]]
 
 Distribuciones Continuas:
-- [[Distribución Uniforme Continua]]
-- [[Distribución Exponencial]]
-- [[]]
+- [[Distribucion Uniforme Continua]]
+- [[Distribucion Exponencial]]
+- [[Distribucion Beta]]
+- [[Distribucion Weibull]]
+- [[Distribucion Normal]]
+- [[Distribucion ji-cuadrada]]
+- [[Distribucion t]]
+- [[Distribucion F]]
 
 **Profesor:** Daniel Cervantes Filoteo
 

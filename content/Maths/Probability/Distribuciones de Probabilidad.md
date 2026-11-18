@@ -1,5 +1,5 @@
 ---
-modified: 2026-11-18T16:47:12Z
+modified: 2026-11-18T16:59:22Z
 title: "Distribuciones de Probabilidad"
 publish: true
 type: zettel
@@ -16,6 +16,10 @@ Muchos experimentos distintos producen v.a.s con la **misma** distribución: el 
 > Una familia paramétrica es una fórmula para $f$ con perillas.
 
 Se escribe $X \sim \operatorname{Bin}(n,p)$, donde $\sim$ se lee "se distribuye como" o "tiene distribución". Recordemos que lo único que importa de una v.a. para su distribución es $P_{X}$ (ver [[Variable Aleatoria]]): dos v.a.s con la misma distribución son intercambiables para cualquier cálculo de probabilidades, aunque vengan de experimentos completamente distintos.
+
+> [!example]- **Ejemplo 1.** (Misma distribución, distintas v.a.s)
+>
+> Sea $X$ uniforme en $\{ -1, 0, 1 \}$. Ent. $X^{3}$ y $-X$ tienen la misma distribución que $X$ (cada una toma $-1, 0, 1$ con proba. $\frac{1}{3}$), pero no son la misma v.a.: $-X \neq X$ cuando $X = 1$. "Tener la misma distribución" es mucho más débil que "ser iguales".
 
 > [!Info]- **Nota!**
 >
@@ -42,7 +46,7 @@ Las familias no son independientes entre sí: casi todas se obtienen de otras su
 <ol>
 <li id="user-content-fn-inline-1">
 
-Luis Rincón, *Introducción a la probabilidad*, cap. 3 (pp. 204–289). <a href="#user-content-fnref-inline-1" data-footnote-backref class="data-footnote-backref internal">↩</a>
+Luis Rincón, *Introducción a la probabilidad*, cap. 3 (pp. 204–289) y Ej. 272. <a href="#user-content-fnref-inline-1" data-footnote-backref class="data-footnote-backref internal">↩</a>
 
 </li>
 </ol>

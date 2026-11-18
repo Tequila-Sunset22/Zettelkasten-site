@@ -1,5 +1,5 @@
 ---
-modified: 2026-11-18T03:32:08Z
+modified: 2026-11-18T16:58:57Z
 title: "Distribución Hipergeométrica"
 publish: true
 type: zettel
@@ -44,6 +44,8 @@ Sup. que tenemos $N$ objetos dentro de una caja, de los cuales $K$ son de un pri
 > Sea $X \sim \operatorname{Hipergeo}(N,K,n)$
 > 1. $\displaystyle \operatorname{E} (X) = n \frac{K}{N}$
 > 2. $\displaystyle \operatorname{Var} (X) = n \frac{K}{N}\frac{N-K}{N}\frac{N-n}{N-1}$
+> 3. Con $n = 1$ es $\operatorname{Ber}(\frac{K}{N})$.
+> 4. ([[Moda]]) La moda es $\left\lfloor \frac{(n+1)(K+1)}{N+2} \right\rfloor$ (dos modas si ese número es entero).
 
 > [!proof]- **Proof.**
 >
@@ -60,16 +62,42 @@ Sup. que tenemos $N$ objetos dentro de una caja, de los cuales $K$ son de un pri
 > \end{align}
 > $$
 > El último paso es factorizar $np$ y simplificar $1 + (n-1)\frac{K-1}{N-1} - np = (1-p)\frac{N-n}{N-1}$. $\blacksquare$
+> 3. $f(1) = \frac{K}{N}$ y $f(0) = \frac{N-K}{N}$. $\blacksquare$
+> 4. Simplificando coeficientes binomiales, $\frac{f(x+1)}{f(x)} = \frac{(K-x)(n-x)}{(x+1)(N-K-n+x+1)}$, y $f(x+1) \geq f(x)$ sii $x + 1 \leq \frac{(n+1)(K+1)}{N+2}$ (despejando); se concluye como en la [[Distribucion Binomial|binomial]]. $\blacksquare$
+
+> [!example]- **Ejemplo 2.** (Control de calidad)
+>
+> Un lote de $100$ artículos tiene $10$ defectuosos. Un comprador revisa $5$ al azar y compra si encuentra menos de $2$ defectuosos. Con $X \sim \operatorname{Hipergeo}(100, 10, 5)$,
+> $$
+> P(\text{compra}) = f(0) + f(1) = \frac{\binom{90}{5} + \binom{10}{1}\binom{90}{4}}{\binom{100}{5}} \approx 0.923.
+> $$
+
+La media coincide con la de una binomial y la varianza casi: cuando la caja es enorme, sacar sin reemplazo es casi lo mismo que con reemplazo.
+
+> [!theorem] **Proposición.** (Aproximación binomial)
+>
+> Sea $X_{N} \sim \operatorname{Hipergeo}(N, K_{N}, n)$ con $n$ fijo y $\frac{K_{N}}{N} \to p \in (0,1)$ cuando $N \to \infty$. Ent. para $x = 0, \dots, n$,
+> $$
+> \lim_{ N \to \infty } P(X_{N} = x) = \binom{n}{x}p^{x}(1-p)^{n-x}.
+> $$
+
+> [!proof]- **Proof.**
+>
+> Escribiendo los coeficientes binomiales como productos,
+> $$
+> P(X_{N} = x) = \binom{n}{x}\frac{K_{N}(K_{N}-1)\cdots(K_{N}-x+1)\cdot(N-K_{N})\cdots(N-K_{N}-n+x+1)}{N(N-1)\cdots(N-n+1)}.
+> $$
+> Hay $n$ factores arriba y $n$ abajo. Emparejándolos, cada $\frac{K_{N} - j}{N - j} \to p$ y cada $\frac{N - K_{N} - j}{N - x - j} \to 1 - p$ (el $n$ es fijo y $N \to \infty$), así que el producto tiende a $p^{x}(1-p)^{n-x}$. $\blacksquare$
 
 > [!observation]+ **Observación.** (Comparada con la binomial)
 >
-> La media es la de una $\operatorname{Bin}(n, \frac{K}{N})$, pero la varianza tiene el factor $\frac{N-n}{N-1} < 1$ (**corrección por población finita**): sin reemplazo hay menos variación, porque cada objeto sacado cambia la caja. Si $N$ es mucho más grande que $n$, el factor es casi $1$ y la hipergeométrica se puede aproximar por la binomial: sacar sin reemplazo de una caja enorme es casi lo mismo que con reemplazo.
+> La media es la de una $\operatorname{Bin}(n, \frac{K}{N})$, pero la varianza tiene el factor $\frac{N-n}{N-1} < 1$ (**corrección por población finita**): sin reemplazo hay menos variación, porque cada objeto sacado cambia la caja. Si $N$ es mucho más grande que $n$, el factor es casi $1$, en línea con la Proposición.
 
 <section data-footnotes class="footnotes"><h2 class="sr-only" id="footnote-label">Notas</h2>
 <ol>
 <li id="user-content-fn-inline-1">
 
-Luis Rincón, *Introducción a la probabilidad*, cap. 3, §3.6 (pp. 234–237). <a href="#user-content-fnref-inline-1" data-footnote-backref class="data-footnote-backref internal">↩</a>
+Luis Rincón, *Introducción a la probabilidad*, cap. 3, §3.6 (pp. 234–237) y Ejs. 335–341. <a href="#user-content-fnref-inline-1" data-footnote-backref class="data-footnote-backref internal">↩</a>
 
 </li>
 </ol>

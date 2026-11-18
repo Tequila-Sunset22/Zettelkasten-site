@@ -1,5 +1,5 @@
 ---
-modified: 2026-11-18T16:48:25Z
+modified: 2026-11-18T16:59:22Z
 title: "Probabilidad"
 publish: true
 type: moc
@@ -54,8 +54,7 @@ A continuación, a cualquier v.a. se le puede calcular las siguientes cantidades
 - [[Funcion Generadora de Probabilidad]] (inversión, momentos factoriales, sumas indep.)
 - [[Funcion Generadora de Momentos]] (momentos derivando, sumas indep., caracterización)
 
-- [[Falacias]]
-falacia del apostador
+- [[Falacias]] (del apostador, condicional al revés, Monty Hall, cumpleaños, San Petersburgo)
 
 #### [[Distribuciones de Probabilidad]] (mapa de relaciones)
 Distribuciones Discretas:
@@ -64,12 +63,13 @@ Distribuciones Discretas:
 - [[Distribucion Binomial]] (suma de Bernoullis, f.g.m., suma de binomiales)
 - [[Distribucion Geometrica]] (pérdida de memoria)
 - [[Distribucion Binomial Negativa]] (suma de geométricas, $F$ con la binomial)
-- [[Distribucion Hipergeometrica]] (Vandermonde, corrección por población finita)
-- [[Distribucion de Poisson]] (suma, límite de la binomial)
+- [[Distribucion Hipergeometrica]] (Vandermonde, población finita, límite binomial)
+- [[Distribucion de Poisson]] (suma, límite de la binomial, adelgazamiento)
 
 Distribuciones Continuas:
 - [[Distribucion Uniforme Continua]] (propiedades, transformación lineal)
-- [[Distribucion Exponencial]] (pérdida de memoria, parte entera geométrica)
+	- [[Metodo de Monte Carlo]] (estimar $\pi$, error $\sigma/\sqrt{ n }$, integrales)
+- [[Distribucion Exponencial]] (pérdida de memoria, parte entera geométrica, coche en venta)
 - [[Distribucion Gamma]] (Erlang, sumas, relación con Poisson)
 	- [[Funcion Gamma]] ($\Gamma(n+1) = n!$, $\Gamma(\frac{1}{2}) = \sqrt{ \pi }$)
 - [[Distribucion Beta]] (forma según $a$ y $b$, cociente de gammas)

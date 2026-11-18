@@ -1,5 +1,5 @@
 ---
-modified: 2026-11-18T03:30:30Z
+modified: 2026-11-18T16:57:55Z
 title: "Distribución de Bernoulli"
 publish: true
 type: zettel
@@ -44,12 +44,14 @@ y sean $p$ y $1-p$ las probabilidades de éxito y fracaso, respectivamente.
 > 1. $\operatorname{E}(X^{n}) = p$ para todo $n \geq 1$; en particular $\operatorname{E}(X) = p$.
 > 2. $\operatorname{Var}(X) = p(1-p)$
 > 3. $M(t) = 1 - p + pe^{t}$ y $G(t) = 1 - p + pt$.
+> 4. Si $X_{1}, \dots, X_{n}$ son indep. $\operatorname{Ber}(p)$, ent. $X_{1}\cdots X_{n} \sim \operatorname{Ber}(p^{n})$, y $X(1-X) = 0$.
 
 > [!proof]- **Proof.**
 >
 > 1. $X^{n} = X$ porque $0^{n} = 0$ y $1^{n} = 1$, y $\operatorname{E}(X) = 0\cdot(1-p) + 1\cdot p$. $\blacksquare$
 > 2. $\operatorname{Var}(X) = \operatorname{E}(X^{2}) - \operatorname{E}^{2}(X) = p - p^{2}$. $\blacksquare$
 > 3. $\operatorname{E}(e^{tX}) = (1-p)e^{0} + pe^{t}$, y lo mismo con $t^{X}$. $\blacksquare$
+> 4. El producto vale $1$ sii todos valen $1$, i.e. es la indicadora de la intersección ($\mathbb{1}_{A}\mathbb{1}_{B} = \mathbb{1}_{A \cap B}$), que por independencia tiene proba. $p^{n}$. Y $X(1-X)$ es $0$ porque uno de los dos factores es $0$. $\blacksquare$
 
 > [!observation]+ **Observación.**
 >
@@ -61,7 +63,7 @@ Es un caso particular de la [[Distribucion Binomial|binomial]]: $\operatorname{B
 <ol>
 <li id="user-content-fn-inline-1">
 
-Luis Rincón, *Introducción a la probabilidad*, cap. 3, §3.2 (pp. 208–212). <a href="#user-content-fnref-inline-1" data-footnote-backref class="data-footnote-backref internal">↩</a>
+Luis Rincón, *Introducción a la probabilidad*, cap. 3, §3.2 (pp. 208–212) y Ejs. 283–292. <a href="#user-content-fnref-inline-1" data-footnote-backref class="data-footnote-backref internal">↩</a>
 
 </li>
 </ol>

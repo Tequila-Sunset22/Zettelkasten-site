@@ -1,5 +1,5 @@
 ---
-modified: 2026-11-18T16:47:12Z
+modified: 2026-11-18T16:58:57Z
 title: "Distribución Uniforme Continua"
 publish: true
 type: zettel
@@ -55,7 +55,10 @@ $$
 > $$
 > 2. $\operatorname{E}(X) = \frac{a+b}{2}$ (el punto medio) y $\operatorname{Var}(X) = \frac{(b-a)^{2}}{12}$.
 > 3. Si $a \leq c < d \leq b$, $P(c < X < d) = \frac{d - c}{b - a}$: solo importa la longitud.
-> 4. Si $\alpha > 0$ y $\beta \in \mathbb{R}$, $\alpha X + \beta \sim \operatorname{Unif}(\alpha a + \beta, \alpha b + \beta)$.
+> 4. Si $\alpha > 0$ y $\beta \in \mathbb{R}$, $\alpha X + \beta \sim \operatorname{Unif}(\alpha a + \beta, \alpha b + \beta)$. En particular, si $U \sim \operatorname{Unif}(0,1)$, $a + (b-a)U \sim \operatorname{Unif}(a,b)$.
+> 5. $\operatorname{E}(X^{n}) = \dfrac{b^{n+1} - a^{n+1}}{(n+1)(b-a)}$ y $M(t) = \dfrac{e^{bt} - e^{at}}{t(b-a)}$ para $t \neq 0$.
+> 6. ([[Cuantiles]]) $c_{p} = a + p(b - a)$.
+> 7. Dados $\mu$ y $\sigma^{2} > 0$, la única uniforme con esa media y varianza es $\operatorname{Unif}(\mu - \sqrt{ 3 }\sigma, \mu + \sqrt{ 3 }\sigma)$.
 
 > [!proof]- **Proof.**
 >
@@ -66,6 +69,9 @@ $$
 > $$
 > 3. $F(d) - F(c)$. $\blacksquare$
 > 4. Por [[Cambio de Variable Aleatoria|cambio de v.a.]], $f_{\alpha X + \beta}(y) = \frac{1}{\alpha}f_{X}\left( \frac{y-\beta}{\alpha} \right)$, que vale $\frac{1}{\alpha(b-a)}$ en $(\alpha a + \beta, \alpha b + \beta)$ y $0$ fuera. $\blacksquare$
+> 5. $\frac{1}{b-a}\int_{a}^{b} x^{n}\,dx$ y $\frac{1}{b-a}\int_{a}^{b} e^{tx}\,dx$. $\blacksquare$
+> 6. Despejando $\frac{c_{p} - a}{b-a} = p$ (Corolario de [[Cuantiles]]). $\blacksquare$
+> 7. Con 2, $\frac{a+b}{2} = \mu$ y $\frac{b - a}{2\sqrt{ 3 }} = \sigma$: la semiamplitud es $\sqrt{ 3 }\sigma$. $\blacksquare$
 
 > [!example]- **Ejemplo 1.**
 >
@@ -81,11 +87,13 @@ $$
 > $$
 > (O directo con 3: $\frac{0.5 - 0.3}{0.25} = 0.8$.)
 
+Con puntos uniformes se pueden aproximar probabilidades, áreas e integrales por simulación: [[Metodo de Monte Carlo]].
+
 <section data-footnotes class="footnotes"><h2 class="sr-only" id="footnote-label">Notas</h2>
 <ol>
 <li id="user-content-fn-inline-1">
 
-Luis Rincón, *Introducción a la probabilidad*, cap. 3, §3.8 (pp. 248–252). <a href="#user-content-fnref-inline-1" data-footnote-backref class="data-footnote-backref internal">↩</a>
+Luis Rincón, *Introducción a la probabilidad*, cap. 3, §3.8 (pp. 248–252) y Ejs. 356–370. <a href="#user-content-fnref-inline-1" data-footnote-backref class="data-footnote-backref internal">↩</a>
 
 </li>
 </ol>

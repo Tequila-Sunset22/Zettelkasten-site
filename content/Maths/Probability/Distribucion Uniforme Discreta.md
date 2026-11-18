@@ -1,5 +1,5 @@
 ---
-modified: 2026-11-18T03:33:21Z
+modified: 2026-11-18T16:57:55Z
 title: "Distribución Uniforme Discreta"
 publish: true
 type: zettel
@@ -32,6 +32,7 @@ Es el modelo de "todos los resultados son igual de probables" con un número fin
 > 2. $\displaystyle \operatorname{E} (X) = \frac{n+1}{2}$
 > 3. $\displaystyle \operatorname{E} (X^{2}) = \frac{(n+1)(2n+1)}{6}$
 > 4. $\displaystyle \operatorname{Var} (X) = \frac{n^{2}-1}{12}$
+> 5. $G(t) = \dfrac{t(1-t^{n})}{n(1-t)}$ y $M(t) = \dfrac{e^{t}(1-e^{nt})}{n(1-e^{t})}$ ($t \neq 0$, resp. $t \neq 1$).
 
 > [!proof]- **Proof.**
 >
@@ -47,6 +48,7 @@ Es el modelo de "todos los resultados son igual de probables" con un número fin
 > &= \frac{(n+1)(n-1)}{12} \tag*{$\blacksquare$}
 > \end{align}
 > $$
+> 5. Son sumas geométricas finitas: $\frac{1}{n}\sum_{k=1}^{n} t^{k} = \frac{t}{n}\cdot\frac{1-t^{n}}{1-t}$, y $M(t) = G(e^{t})$. $\blacksquare$
 
 > [!example]- **Ejemplo 1.** (Dado)
 >
@@ -60,7 +62,7 @@ Es el modelo de "todos los resultados son igual de probables" con un número fin
 <ol>
 <li id="user-content-fn-inline-1">
 
-Luis Rincón, *Introducción a la probabilidad*, cap. 3, §3.1 (pp. 204–207). <a href="#user-content-fnref-inline-1" data-footnote-backref class="data-footnote-backref internal">↩</a>
+Luis Rincón, *Introducción a la probabilidad*, cap. 3, §3.1 (pp. 204–207) y Ejs. 271–278. <a href="#user-content-fnref-inline-1" data-footnote-backref class="data-footnote-backref internal">↩</a>
 
 </li>
 </ol>

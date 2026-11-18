@@ -1,5 +1,5 @@
 ---
-modified: 2026-11-18T03:31:24Z
+modified: 2026-11-18T16:57:55Z
 title: "Distribución Binomial"
 publish: true
 type: zettel
@@ -39,7 +39,7 @@ y las diferentes formas en que los $x$ éxitos pueden distribuirse en los $n$ en
 
 > [!example]- **Ejemplo 1.**
 >
-> En $10$ volados justos, $P(X = 5) = \binom{10}{5}\frac{1}{2^{10}} = \frac{252}{1024} \approx 0.246$: el resultado más probable sale menos de una de cada cuatro veces.
+> En $10$ volados justos, $P(X = 5) = \binom{10}{5}\frac{1}{2^{10}} = \frac{252}{1024} \approx 0.246$: el resultado más probable sale menos de una de cada cuatro veces. (Que $5$ es la moda lo dice la Propiedad 6: $\lfloor 11 \cdot \frac{1}{2} \rfloor = 5$. Con $9$ volados, $(n+1)p = 5$ es entero y hay dos modas, $4$ y $5$.)
 
 La construcción dice exactamente que una binomial es una suma de Bernoullis, y esa es la forma más cómoda de trabajar con ella:
 
@@ -62,6 +62,8 @@ La construcción dice exactamente que una binomial es una suma de Bernoullis, y 
 > 2. $\operatorname{Var} (X) = np(1-p)$
 > 3. $M(t) = (1 - p + pe^{t})^{n}$
 > 4. Si $Y \sim \operatorname{Bin}(m, p)$ es indep. de $X$, ent. $X + Y \sim \operatorname{Bin}(n + m, p)$.
+> 5. $n - X \sim \operatorname{Bin}(n, 1-p)$ (contar fracasos en vez de éxitos).
+> 6. ([[Moda]]) $\frac{f(x+1)}{f(x)} = \frac{p}{1-p}\cdot\frac{n-x}{x+1}$, así que la moda es $\lfloor (n+1)p \rfloor$; si $(n+1)p$ es entero, hay dos modas, $(n+1)p - 1$ y $(n+1)p$.
 
 > [!proof]- **Proof.**
 >
@@ -70,6 +72,8 @@ La construcción dice exactamente que una binomial es una suma de Bernoullis, y 
 > 2. Las $X_{i}$ son indep., así que las varianzas se suman ([[Varianza]]): $np(1-p)$. $\blacksquare$
 > 3. Producto de f.g.m. de indep.: $(1-p+pe^{t})^{n}$. $\blacksquare$
 > 4. $X + Y$ es suma de $n + m$ Bernoullis indep. con el mismo $p$. $\blacksquare$
+> 5. $f_{n-X}(y) = f_{X}(n-y) = \binom{n}{n-y}p^{n-y}(1-p)^{y} = \binom{n}{y}(1-p)^{y}p^{n-y}$. $\blacksquare$
+> 6. El cociente sale de $\binom{n}{x+1} = \binom{n}{x}\frac{n-x}{x+1}$. Ent. $f(x+1) \geq f(x)$ sii $p(n-x) \geq (1-p)(x+1)$ sii $x \leq (n+1)p - 1$: $f$ crece mientras $x + 1 \leq (n+1)p$ y luego decrece, así que el máximo está en el mayor entero $\leq (n+1)p$, con empate si $(n+1)p$ es entero. $\blacksquare$
 
 > [!observation]+ **Observación.**
 >
@@ -81,7 +85,7 @@ Cuando $n$ es grande y $p$ chico, la binomial se parece a una [[Distribucion de 
 <ol>
 <li id="user-content-fn-inline-1">
 
-Luis Rincón, *Introducción a la probabilidad*, cap. 3, §3.3 (pp. 213–220). <a href="#user-content-fnref-inline-1" data-footnote-backref class="data-footnote-backref internal">↩</a>
+Luis Rincón, *Introducción a la probabilidad*, cap. 3, §3.3 (pp. 213–220) y Ejs. 293–302. <a href="#user-content-fnref-inline-1" data-footnote-backref class="data-footnote-backref internal">↩</a>
 
 </li>
 </ol>

@@ -1,5 +1,5 @@
 ---
-modified: 2026-11-18T03:31:24Z
+modified: 2026-11-18T16:58:57Z
 title: "Distribución Binomial Negativa"
 publish: true
 type: zettel
@@ -57,15 +57,28 @@ Igual que la binomial es una suma de Bernoullis, esperar $r$ éxitos es esperar 
 > 1. $\displaystyle \operatorname{E} (X) = r \frac{q}{p}$
 > 2. $\displaystyle \operatorname{Var} (X) = r \frac{q}{p^{2}}$
 > 3. $P(X \leq x) = P(Y \geq r)$ con $Y \sim \operatorname{Bin}(r + x, p)$.
+> 4. $G(t) = \left( \dfrac{p}{1 - qt} \right)^{r}$ y $M(t) = \left( \dfrac{p}{1 - qe^{t}} \right)^{r}$ para $t < -\ln q$.
+> 5. Si $W \sim \operatorname{BinNeg}(s, p)$ es indep. de $X$, ent. $X + W \sim \operatorname{BinNeg}(r + s, p)$.
+> 6. ([[Moda]]) $\frac{f(x+1)}{f(x)} = q\,\frac{x + r}{x+1}$, así que la moda es $\left\lfloor \frac{(r-1)q}{p} \right\rfloor$ (dos modas si ese número es entero y positivo).
 
 > [!proof]- **Proof.**
 >
 > 1. y 2. Por la Proposición y las Propiedades de la geométrica: la media se suma siempre, y la varianza se suma por independencia. $\blacksquare$
 > 3. A lo más $x$ fracasos antes del $r$-ésimo éxito sii en los primeros $r + x$ ensayos hubo al menos $r$ éxitos, y el núm. de éxitos en $r + x$ ensayos es $\operatorname{Bin}(r+x, p)$. $\blacksquare$
+> 4. Está en la prueba de la Proposición; $M(t) = G(e^{t})$. $\blacksquare$
+> 5. Producto de f.g.p.: $\left( \frac{p}{1-qt} \right)^{r}\left( \frac{p}{1-qt} \right)^{s}$, y caracterización. (O: son $r + s$ geométricas indep.) $\blacksquare$
+> 6. El cociente sale de $\binom{r+x}{x+1} = \binom{r+x-1}{x}\frac{r+x}{x+1}$. $f(x+1) \geq f(x)$ sii $q(x+r) \geq x+1$ sii $x + 1 \leq \frac{(r-1)q}{p}$, y se concluye como en la [[Distribucion Binomial|binomial]]. Con $r = 1$ la moda es $0$, como en la geométrica. $\blacksquare$
 
 > [!example]- **Ejemplo 1.**
 >
 > Un jugador encesta con proba. $0.4$. ¿Cuál es la proba. de que falle a lo más $2$ tiros antes de su tercer enceste? Por 3, con $Y \sim \operatorname{Bin}(5, 0.4)$: $P(Y \geq 3) \approx 0.317$. En promedio falla $3\cdot\frac{0.6}{0.4} = 4.5$ tiros.
+
+> [!example]- **Ejemplo 2.** (Muestreo)
+>
+> Se buscan $20$ personas con cierta característica que tiene el $1\%$ de la población, preguntando al azar. El núm. total de personas consultadas es $Y = X + 20$ con $X \sim \operatorname{BinNeg}(20, 0.01)$, y en promedio
+> $$
+> \operatorname{E}(Y) = 20 + 20\cdot\frac{0.99}{0.01} = \frac{20}{0.01} = 2000.
+> $$
 
 > [!observation]+ **Observación.**
 >
@@ -75,7 +88,7 @@ Igual que la binomial es una suma de Bernoullis, esperar $r$ éxitos es esperar 
 <ol>
 <li id="user-content-fn-inline-1">
 
-Luis Rincón, *Introducción a la probabilidad*, cap. 3, §3.5 (pp. 227–233). <a href="#user-content-fnref-inline-1" data-footnote-backref class="data-footnote-backref internal">↩</a>
+Luis Rincón, *Introducción a la probabilidad*, cap. 3, §3.5 (pp. 227–233) y Ejs. 322–332. <a href="#user-content-fnref-inline-1" data-footnote-backref class="data-footnote-backref internal">↩</a>
 
 </li>
 </ol>

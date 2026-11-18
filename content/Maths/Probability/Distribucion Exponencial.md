@@ -1,5 +1,5 @@
 ---
-modified: 2026-11-18T03:32:53Z
+modified: 2026-11-18T16:58:57Z
 title: "Distribución Exponencial"
 publish: true
 type: zettel
@@ -45,6 +45,8 @@ Es el modelo del tiempo de espera hasta que ocurre un evento que llega "sin avis
 > 2. $\displaystyle \operatorname{E} (X) = \frac{1}{\lambda}$
 > 3. $\displaystyle \operatorname{Var} (X) = \frac{1}{\lambda^{2}}$
 > 4. $M(t) = \dfrac{\lambda}{\lambda - t}$ para $t < \lambda$.
+> 5. $\operatorname{E}(X^{n}) = \dfrac{n!}{\lambda^{n}}$.
+> 6. Si $c > 0$, $cX \sim \operatorname{Exp}(\frac{\lambda}{c})$.
 
 > [!proof]- **Proof.**
 >
@@ -68,6 +70,8 @@ Es el modelo del tiempo de espera hasta que ocurre un evento que llega "sin avis
 > $$
 > Ent. $\operatorname{Var}(X) = \frac{2}{\lambda^{2}} - \frac{1}{\lambda^{2}} = \frac{1}{\lambda^{2}}$. $\blacksquare$
 > 4. $\int_{0}^{\infty} e^{tx}\lambda e^{-\lambda x}\,dx = \frac{\lambda}{\lambda - t}$ si $t < \lambda$. $\blacksquare$
+> 5. Es el caso $\alpha = 1$ de los momentos de la [[Distribucion Gamma|gamma]], o $\frac{\lambda}{\lambda - t} = \sum_{n} \frac{t^{n}}{\lambda^{n}}$ y los coeficientes son $\frac{\operatorname{E}(X^{n})}{n!}$ ([[Funcion Generadora de Momentos]]). $\blacksquare$
+> 6. $P(cX > x) = P(X > \frac{x}{c}) = e^{-\frac{\lambda}{c}x}$. $\blacksquare$
 
 > [!example]- **Ejemplo 1.**
 >
@@ -112,13 +116,20 @@ Si una pieza con vida exponencial ya funcionó $s$ horas, la proba. de que dure 
 >
 > Un foco con vida $\operatorname{Exp}(\frac{1}{1000})$ (horas) ya lleva $2000$ horas prendido. La proba. de que dure otras $500$ es $e^{-0.5} \approx 0.607$, la misma que para uno nuevo. (Un foco de verdad sí se desgasta; para eso está la [[Distribucion Weibull|Weibull]].)
 
+> [!example]- **Ejemplo 3.** (Coche en venta)
+>
+> Alguien vende su coche y acepta la primera oferta que pase de \$50 000. Las ofertas son indep. $\operatorname{Exp}$ con media \$45 000, i.e. $\lambda = \frac{1}{45\,000}$.
+> 1. Cada oferta pasa de \$50 000 con proba. $p = e^{-50/45} \approx 0.329$, así que el núm. de ofertas hasta vender es $1 + \operatorname{Geo}(p)$ ([[Distribucion Geometrica]]), en promedio $\frac{1}{p} \approx 3.04$ ofertas.
+> 2. El precio de venta es una oferta **sabiendo** que pasó de \$50 000. Por la pérdida de memoria, el exceso sobre \$50 000 es otra vez $\operatorname{Exp}(\lambda)$, así que $P(\text{precio} > 55\,000) = e^{-5/45} \approx 0.895$.
+> 3. Por lo mismo, el precio promedio es $50\,000 + 45\,000 = 95\,000$: lo que ya se superó no cuenta, y el exceso promedio sigue siendo la media.
+
 La suma de exponenciales indep. con la misma tasa es una [[Distribucion Gamma|gamma]], y la mediana y la simulación de la exponencial están en [[Cuantiles]] y [[Metodo de la Transformada Inversa]].
 
 <section data-footnotes class="footnotes"><h2 class="sr-only" id="footnote-label">Notas</h2>
 <ol>
 <li id="user-content-fn-inline-1">
 
-Luis Rincón, *Introducción a la probabilidad*, cap. 3, §3.9 (pp. 253–257). <a href="#user-content-fnref-inline-1" data-footnote-backref class="data-footnote-backref internal">↩</a>
+Luis Rincón, *Introducción a la probabilidad*, cap. 3, §3.9 (pp. 253–257) y Ejs. 371–383. <a href="#user-content-fnref-inline-1" data-footnote-backref class="data-footnote-backref internal">↩</a>
 
 </li>
 </ol>

@@ -1,5 +1,5 @@
 ---
-modified: 2026-11-17T22:20:24Z
+modified: 2026-11-18T16:59:22Z
 title: "Moda"
 publish: true
 type: zettel
@@ -45,7 +45,7 @@ Que sea un conjunto no es un tecnicismo: aparece con distribuciones muy sencilla
 > $$
 > f(0) = f(5) = \tfrac{1}{32}, \qquad f(1) = f(4) = \tfrac{5}{32}, \qquad f(2) = f(3) = \tfrac{10}{32}.
 > $$
-> El máximo se alcanza en $2$ y en $3$: la moda es $\{ 2, 3 \}$.
+> El máximo se alcanza en $2$ y en $3$: la moda es $\{ 2, 3 \}$. En general la moda de $\operatorname{Bin}(n,p)$ es $\lfloor (n+1)p \rfloor$, con dos modas cuando $(n+1)p$ es entero (aquí $6 \cdot \frac{1}{2} = 3$), ver [[Distribucion Binomial]].
 
 > [!example]- **Ejemplo 3.** (Densidad con joroba)
 >

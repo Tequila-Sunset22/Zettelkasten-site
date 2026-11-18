@@ -1,5 +1,5 @@
 ---
-modified: 2026-11-18T03:33:21Z
+modified: 2026-11-18T16:57:55Z
 title: "Distribución Geométrica"
 publish: true
 type: zettel
@@ -48,20 +48,32 @@ de forma que $X$ toma valores $0,1,2,\dots$
 > 2. $G(t) = \dfrac{p}{1 - qt}$ para $\lvert t \rvert < \frac{1}{q}$.
 > 3. $\displaystyle \operatorname{E} (X) = \frac{q}{p}$
 > 4. $\displaystyle \operatorname{Var} (X) = \frac{q}{p^{2}}$
+> 5. $M(t) = \dfrac{p}{1 - qe^{t}}$ para $t < -\ln q$.
+> 6. ([[Moda]]) $f$ es decreciente, así que la moda es $0$: el valor más probable es no fallar nunca.
 
 > [!proof]- **Proof.**
 >
 > 1. $X \geq x$ sii los primeros $x$ ensayos son fracasos: $q^{x}$. (O sumando la serie geométrica $\sum_{k \geq x} pq^{k} = \frac{pq^{x}}{1-q}$.) $\blacksquare$
 > 2. $\sum_{x \geq 0} t^{x}pq^{x} = \frac{p}{1 - qt}$, serie geométrica. $\blacksquare$
-> 3. $G'(t) = \frac{pq}{(1-qt)^{2}}$, ent. $\operatorname{E}(X) = G'(1) = \frac{pq}{p^{2}} = \frac{q}{p}$ ([[Funcion Generadora de Probabilidad]]). $\blacksquare$
+> 3. $G'(t) = \frac{pq}{(1-qt)^{2}}$, ent. $\operatorname{E}(X) = G'(1) = \frac{pq}{p^{2}} = \frac{q}{p}$ ([[Funcion Generadora de Probabilidad]]). O con la fórmula del área de [[Esperanza]]: $\operatorname{E}(X) = \sum_{x \geq 0} P(X > x) = \sum_{x \geq 0} q^{x+1} = \frac{q}{p}$. $\blacksquare$
 > 4. $G''(1) = \frac{2pq^{2}}{p^{3}} = \frac{2q^{2}}{p^{2}}$, y
 > $$
 > \operatorname{Var}(X) = G''(1) + G'(1) - G'(1)^{2} = \frac{2q^{2}}{p^{2}} + \frac{q}{p} - \frac{q^{2}}{p^{2}} = \frac{q^{2} + pq}{p^{2}} = \frac{q}{p^{2}}. \tag*{$\blacksquare$}
 > $$
+> 5. $M(t) = G(e^{t})$, que converge si $qe^{t} < 1$. $\blacksquare$
+> 6. $f(x+1) = q\,f(x) < f(x)$. $\blacksquare$
 
 > [!example]- **Ejemplo 1.**
 >
 > Con un dado, ¿cuántos tiros fallamos antes del primer $6$? $X \sim \operatorname{Geo}(\frac{1}{6})$, $\operatorname{E}(X) = 5$, y $P(X \geq 10) = \left( \frac{5}{6} \right)^{10} \approx 0.16$: en una de cada seis rachas fallamos al menos diez veces.
+
+> [!example]- **Ejemplo 2.** (Turnos alternados)
+>
+> Dos personas lanzan por turnos una moneda justa; gana la primera que saque sol. Si $X \sim \operatorname{Geo}(\frac{1}{2})$ es el núm. de fracasos antes del primer sol, gana la primera persona sii $X$ es par:
+> $$
+> P(X \text{ par}) = \sum_{k \geq 0} \frac{1}{2}\left( \frac{1}{4} \right)^{k} = \frac{1/2}{1 - 1/4} = \frac{2}{3}.
+> $$
+> Ir primero vale el doble que ir segundo.
 
 ### Pérdida de memoria
 
@@ -88,7 +100,7 @@ La suma de $r$ geométricas indep. es la [[Distribucion Binomial Negativa|binomi
 <ol>
 <li id="user-content-fn-inline-1">
 
-Luis Rincón, *Introducción a la probabilidad*, cap. 3, §3.4 (pp. 221–226). <a href="#user-content-fnref-inline-1" data-footnote-backref class="data-footnote-backref internal">↩</a>
+Luis Rincón, *Introducción a la probabilidad*, cap. 3, §3.4 (pp. 221–226) y Ejs. 309–321. <a href="#user-content-fnref-inline-1" data-footnote-backref class="data-footnote-backref internal">↩</a>
 
 </li>
 </ol>

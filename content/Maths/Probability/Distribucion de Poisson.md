@@ -1,5 +1,5 @@
 ---
-modified: 2026-11-18T03:32:08Z
+modified: 2026-11-18T17:04:40Z
 title: "Distribución de Poisson"
 publish: true
 type: zettel
@@ -39,12 +39,20 @@ Sea $X$ el núm. de ocurrencias en el intervalo de tiempo dado. $X$ puede tomar 
 > 1. $G(t) = e^{-\lambda(1-t)}$ y $M(t) = e^{\lambda(e^{t} - 1)}$.
 > 2. $\operatorname{E} (X) = \lambda$
 > 3. $\operatorname{Var} (X) = \lambda$
+> 4. ([[Moda]]) $\frac{f(x+1)}{f(x)} = \frac{\lambda}{x+1}$, así que la moda es $\lfloor \lambda \rfloor$; si $\lambda$ es entero hay dos modas, $\lambda - 1$ y $\lambda$.
+> 5. $\operatorname{E}(X^{n}) = \lambda\sum_{k=0}^{n-1}\binom{n-1}{k}\operatorname{E}(X^{k})$ para $n \geq 1$.
 
 > [!proof]- **Proof.**
 >
 > 1. $G(t) = \sum_{x} t^{x}e^{-\lambda}\frac{\lambda^{x}}{x!} = e^{-\lambda}e^{\lambda t}$, y $M(t) = G(e^{t})$. $\blacksquare$
 > 2. $G'(t) = \lambda G(t)$, ent. $\operatorname{E}(X) = G'(1) = \lambda$ ([[Funcion Generadora de Probabilidad]]). $\blacksquare$
 > 3. $G''(1) = \lambda^{2}$, ent. $\operatorname{Var}(X) = \lambda^{2} + \lambda - \lambda^{2} = \lambda$. $\blacksquare$
+> 4. $f(x+1) \geq f(x)$ sii $x + 1 \leq \lambda$: $f$ crece hasta $\lfloor \lambda \rfloor$ y luego decrece, con empate entre $\lambda - 1$ y $\lambda$ si $\lambda$ es entero. $\blacksquare$
+> 5. Con $y = x - 1$ y el binomio de Newton,
+> $$
+> \operatorname{E}(X^{n}) = \sum_{x \geq 1} x^{n-1}\,x\,e^{-\lambda}\frac{\lambda^{x}}{x!} = \lambda\sum_{y \geq 0} (y+1)^{n-1}e^{-\lambda}\frac{\lambda^{y}}{y!} = \lambda\operatorname{E}(X+1)^{n-1},
+> $$
+> y se desarrolla $(X+1)^{n-1} = \sum_{k}\binom{n-1}{k}X^{k}$. Así, $\operatorname{E}(X^{2}) = \lambda(1 + \lambda)$, $\operatorname{E}(X^{3}) = \lambda(1 + 3\lambda + \lambda^{2})$, etc. $\blacksquare$
 
 > [!example]- **Ejemplo 1.**
 >
@@ -97,6 +105,37 @@ El segundo es el que justifica la Idea Intuitiva y por qué la Poisson aparece e
 >
 > Un libro de $500$ páginas tiene $300$ erratas repartidas al azar. ¿Proba. de que una página tenga al menos dos? Cada errata cae en esa página con proba. $\frac{1}{500}$, así que el núm. es $\operatorname{Bin}(300, \frac{1}{500}) \approx \operatorname{Poisson}(0.6)$, y $P(X \geq 2) \approx 1 - e^{-0.6}(1 + 0.6) \approx 0.122$.
 
+### Adelgazamiento de Poisson
+
+Si de los eventos de una Poisson nos quedamos solo con algunos, al azar e independientemente (las llamadas que sí se contestan, los clientes que sí compran), el resultado sigue siendo Poisson, con la tasa reducida.
+
+> [!tip|idea]- **Idea Intuitiva.**
+>
+> Quedarse con cada evento con proba. $p$ es como partir el intervalo en pedacitos con proba. $\frac{\lambda}{n}\cdot p$ de un evento "conservado" en cada uno: es otra vez la construcción de la Poisson, con $\lambda p$.
+
+> [!theorem] **Proposición.** (Adelgazamiento de Poisson)
+>
+> Sean $N \sim \operatorname{Poisson}(\lambda)$ y $X_{1}, X_{2}, \dots$ indep. $\operatorname{Ber}(p)$, todas indep. de $N$, y $X = \sum_{i=1}^{N} X_{i}$ (con $X = 0$ si $N = 0$). Ent. $X \sim \operatorname{Poisson}(\lambda p)$.
+
+> [!proof]- **Proof.**
+>
+> **Borrador.** Condicionando en $N = n$, $X$ es $\operatorname{Bin}(n,p)$; la f.g.p. de una suma de un núm. aleatorio de sumandos es la composición $G_{N}(G_{X_{1}}(t))$.
+>
+> **Proof.** Por proba. total sobre los valores de $N$ ([[Probablidad Total]]) y la indep. de $N$ con las $X_{i}$,
+> $$
+> \begin{align}
+> & G_{X}(t) = \operatorname{E}(t^{X}) = \dots \\[0.5em]
+> \dots &= \sum_{n=0}^{\infty} P(N = n)\operatorname{E}(t^{X_{1} + \dots + X_{n}}) \\[0.5em]
+> &= \sum_{n=0}^{\infty} P(N = n)\,(1 - p + pt)^{n} = G_{N}(1 - p + pt) \tag{indep.} \\[0.5em]
+> &= e^{-\lambda(1 - (1 - p + pt))} = e^{-\lambda p(1 - t)}
+> \end{align}
+> $$
+> que es la f.g.p. de $\operatorname{Poisson}(\lambda p)$. Por la caracterización, $X \sim \operatorname{Poisson}(\lambda p)$. $\blacksquare$
+
+> [!example]- **Ejemplo 3.**
+>
+> A un conmutador llegan llamadas $\operatorname{Poisson}(4)$ por hora, y cada una se contesta con proba. $0.3$, indep. Las llamadas contestadas en una hora son $\operatorname{Poisson}(1.2)$, y $P(\text{ninguna contestada}) = e^{-1.2} \approx 0.301$.
+
 > [!observation]+ **Observación.**
 >
 > Si los eventos llegan con tasa $\lambda$ y los tiempos entre llegadas son exponenciales indep., el núm. de eventos en $[0, t]$ es $\operatorname{Poisson}(\lambda t)$: es la conexión entre Poisson, [[Distribucion Exponencial|exponencial]] y [[Distribucion Gamma|gamma]] (proceso de Poisson).
@@ -105,7 +144,7 @@ El segundo es el que justifica la Idea Intuitiva y por qué la Poisson aparece e
 <ol>
 <li id="user-content-fn-inline-1">
 
-Luis Rincón, *Introducción a la probabilidad*, cap. 3, §3.7 (pp. 238–247). <a href="#user-content-fnref-inline-1" data-footnote-backref class="data-footnote-backref internal">↩</a>
+Luis Rincón, *Introducción a la probabilidad*, cap. 3, §3.7 (pp. 238–247) y Ejs. 342–355. <a href="#user-content-fnref-inline-1" data-footnote-backref class="data-footnote-backref internal">↩</a>
 
 </li>
 </ol>

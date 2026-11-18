@@ -1,5 +1,5 @@
 ---
-modified: 2026-11-13T23:34:20Z
+modified: 2026-11-17T21:38:33Z
 title: "Espacio de Probabilidad"
 publish: true
 type: zettel
@@ -11,97 +11,66 @@ tags:
 cssclasses: 
  - romana
 ---
-> [!theorem] **Definición.** (Espacio de Probabildad)
+> [!theorem] **Definición.** (Espacio de Probabilidad)
 >
-> Un **espacio de probablidad** es un espacio de medida finita cuya medida total es estrictamente igual a la unidad. Se define como la terna $(\Omega,\mathcal{F},P)$:
-> - **Espacio Muestal:** $\Omega \neq \varnothing$
+> Un **espacio de probabilidad** es un espacio de medida finita cuya medida total es igual a la unidad. Se define como la terna $(\Omega,\mathcal{F},P)$:
+> - **Espacio Muestral:** $\Omega \neq \varnothing$
 > - $\sigma$**-álgebra de Eventos:** $\mathcal{F}$
 > - **Medida de Probabilidad:** $P(A)$
 
-> [!theorem] **Definición.** (Espacio Muestral) [Samplig Space]
+> [!theorem] **Definición.** (Espacio Muestral) [Sample Space]
 >
 > El espacio muestral de un experimento aleatorio es el conjunto de todos los posibles resultados del experimento, denotado $\Omega$. A un resultado particular del experimento se le denota $\omega$.
 
-La $\sigma$*-álgebra de eventos*<sup><a href="#user-content-fn-inline-1" id="user-content-fnref-inline-1" data-footnote-ref class="internal">1</a></sup> es una familia de subconjuntos de $\Omega$ que cumple con tres propiedades. Funciona como ***aduana*** para restrigir $\operatorname{dom}P$ a solo conjuntos tratables, como en el caso de conjuntos discretos o de infinitos pequeños.
+La $\sigma$*-álgebra de eventos*<sup><a href="#user-content-fn-inline-1" id="user-content-fnref-inline-1" data-footnote-ref class="internal">1</a></sup> es una familia de subconjuntos de $\Omega$ que cumple con tres propiedades. Funciona como ***aduana*** para restringir $\operatorname{dom}P$ a solo conjuntos tratables. Si $\Omega$ es finito o numerable no hace falta (podemos tomar $\mathcal{F} = \mathcal{P}(\Omega)$), pero si $\Omega$ es no numerable, como $[0,1]$, no se le puede asignar una probabilidad coherente a **todos** sus subconjuntos, y hay que quedarse con una familia más chica.
 
-La *medida de probablidad*<sup><a href="#user-content-fn-inline-2" id="user-content-fnref-inline-2" data-footnote-ref class="internal">2</a></sup> es una funcíon $P: \mathcal{F\to \mathbb{R}}$ que asigna cada *evento* en $\mathcal{F}$ un número real, y tiene que cumplir con tres axiomas. 
+La *medida de probabilidad*<sup><a href="#user-content-fn-inline-2" id="user-content-fnref-inline-2" data-footnote-ref class="internal">2</a></sup> es una función $P: \mathcal{F} \to \mathbb{R}$ que asigna a cada *evento* en $\mathcal{F}$ un número real, y tiene que cumplir con tres axiomas. 
 
 > [!Info]- **Nota!**
 >
 > - Un **experimento aleatorio** $\mathcal{E}$ aunque no lo parezca, también tiene su definición formal fenomenológica:
-> 	- *Replicabilidad:* $\mathcal{E}$ puede ser repetido infinitamente bajo condiciones iniciales identicas.
-> 	- *Indeterminismo:* El resultado $\omega$ de una ejecución individual de $\mathcal{E}$ es impredecible *a priori*. Ningun modelo determinista puede asegurar cuál será el resultado de la siguiente iteración.
-> 	- *Exhaustividad:* Se conoce el conjunto de todos los resultados posbiles de experimento, esto es $\Omega$.
-> 	- *Estabilidad de Frecuencias:* Si $\mathcal{E}$ se repite $n$-veces con $n\to \infty$, la frecuencia relativa con la que ocurre un evento $A \in \mathcal{F}$ tiende a estabilizarse alrededor de un límite constante, lo que designa a $P(A)$.
-> - Un **resultado** o **resultado elemental** $\omega$ es el desenlace más básico, indivisible y específico de un *experimento aleatorio*. Es claro que $\omega \in \Omega$. Los resultados elementales son mutuamente excluyentes (*si ocurre uno, es imposible que ocurra otra simultáneamente en la misma iteración del experimento*).
+> 	- *Replicabilidad:* $\mathcal{E}$ puede ser repetido infinitamente bajo condiciones iniciales idénticas.
+> 	- *Indeterminismo:* El resultado $\omega$ de una ejecución individual de $\mathcal{E}$ es impredecible *a priori*. Ningún modelo determinista puede asegurar cuál será el resultado de la siguiente iteración.
+> 	- *Exhaustividad:* Se conoce el conjunto de todos los resultados posibles del experimento, esto es $\Omega$.
+> 	- *Estabilidad de Frecuencias:* Si $\mathcal{E}$ se repite $n$-veces con $n\to \infty$, la frecuencia relativa con la que ocurre un evento $A \in \mathcal{F}$ tiende a estabilizarse alrededor de un límite constante, lo que designa a $P(A)$. Ojo: esto es la *interpretación* frecuentista de $P$, no parte de la definición formal; en el enfoque axiomático (Kolmogórov) se **demuestra** a partir de los axiomas, y es la ley de los grandes números.
+> - Un **resultado** o **resultado elemental** $\omega$ es el desenlace más básico, indivisible y específico de un *experimento aleatorio*. Es claro que $\omega \in \Omega$. Los resultados elementales son mutuamente excluyentes (*si ocurre uno, es imposible que ocurra otro simultáneamente en la misma iteración del experimento*).
 > - Un **evento** $A$ es una agrupación de resultados, denotados $A_{1},A_{2},A_{3},\dots$ Por definición, $A \subseteq \Omega$ y $A \in \mathcal{F}$.
-> 	- **Ej.** Sea $\Omega = \{ \omega_{1},w_{2},\dots,w_{n} \}$ y sea $A = \{ w_{2},w_{4},w_{8} \}$.
-> 	Es a los *eventos* a los que la función $P$ les asigna un número, $P(A)$. $P(\omega)$ es incorrecto.
-> - El par $(\Omega,\mathcal{F})$ contituye de manera independiente un **espacio medible**.
+> 	- **Ej.** Sea $\Omega = \{ \omega_{1},\omega_{2},\dots,\omega_{n} \}$ y sea $A = \{ \omega_{2},\omega_{4},\omega_{8} \}$.
+> 	Es a los *eventos* a los que la función $P$ les asigna un número, $P(A)$. $P(\omega)$ es incorrecto: lo correcto es $P(\{ \omega \})$, la proba. del evento que solo contiene a $\omega$.
+> - El par $(\Omega,\mathcal{F})$ constituye de manera independiente un **espacio medible**.
 
-Muyyy en sintesis,
+Muyyy en síntesis,
 - $\Omega:=$ Conjunto de posibles resultados
 - $\mathcal{F}:=$ Conjunto de posibles eventos
 - $P :=$ Función que da probabilidades
 
-> [!observation]+ **Observación**
->
-> - El complemento es respecto a $\Omega$
-> $$
-> A^{c} = \Omega \setminus A
-> $$
-> - Como $\Omega \in \mathcal{F}$
-> $$
-> \begin{align}
-> &\implies \Omega^{c} \in \mathcal{F} \\
-> &\implies \varnothing \in \mathcal{F}
-> \end{align}
-> $$
-> - Cualquier $\sigma$-álgebra, $\mathcal{F}$ es subconjunto del potencia
-> $$
-> \mathcal{F} \subseteq \mathcal{P}(\Omega)
-> $$
-> - $\mathcal{F}_{0} = \{ \Omega, \varnothing \}.$ Conocida como $\sigma$-álgebra cero o trivial
+Las propiedades básicas de $\mathcal{F}$ (que $\varnothing \in \mathcal{F}$, cerradura bajo intersecciones, etc.) están en [[Sigma-algebra de eventos]].
 
-
-> [!example]- **Ejemplo 1.** (Medida clásica)<sup><a href="#user-content-fn-inline-3" id="user-content-fnref-inline-3" data-footnote-ref class="internal">3</a></sup>
+> [!example]- **Ejemplo 1.** (Medida clásica)
 >
-> Para la Medida de probabilidad clasica, se necesita que $\Omega$ sea finito.
-> > [!theorem] **Definición.** (Medida clásica)
-> >
-> > $$
-> > P[A] = \frac{\lvert A \rvert }{\lvert \Omega \rvert }
-> > $$
-> 
-> También se suele escribir
-> $$
-> P[A] = \frac{\# \text{Casos favorables}}{\# \text{Casos totales}}
-> $$
-> ¿Cuándo usar la medida clásica?
-> - $\Omega$ es finito
-> - Suponemos que cada elemento de $\Omega$ tiene la misma probabilidad
+> Si $\Omega$ es finito y todos sus elementos son igual de probables, $P[A] = \frac{\lvert A \rvert}{\lvert \Omega \rvert}$: casos favorables entre casos totales. Los detalles, y por qué cumple los axiomas, en [[Medida de Probabilidad Clasica]].
 
 > [!example]- **Ejemplo 2.** (Medida Frecuentista)
 >
-> Necesitamos que se realice el experimento algunas veces 
+> Necesitamos que se realice el experimento muchas veces. Si en $n$ repeticiones el evento $A$ ocurre $n_{A}$ veces, su **frecuencia relativa** es $\frac{n_{A}}{n}$, y la idea frecuentista es
 > > [!theorem] **Definición.** (Medida Frecuentista)
 > >
 > > $$
-> > P[A] = \frac{\# \text{obs. de A}}{\# \text{experimentos}}
+> > P[A] = \lim_{ n \to \infty } \frac{n_{A}}{n}
 > > $$
 > Ejemplo. Lanzar una moneda:
 > - Experimentos $= \{ S, S, S, S, S ,A, S, A , A, A\}$ 
-> $P[S] = 6/10$ y $P[A] = 4/10$
+> $\frac{n_{S}}{n} = \frac{6}{10}$ y $\frac{n_{A}}{n} = \frac{4}{10}$. Con solo $10$ lanzamientos esto es una **estimación** de $P[S]$, no $P[S]$: con otros $10$ lanzamientos saldría otro número.
 
 > [!example]- **Ejemplo 3.** (Medida Geométrica)
 >
-> Útil cuando se tienen demasiados eventos en consideración. Supongamos que $\Omega$ es **no-numerable**. Definimos
+> Útil cuando $\Omega$ es una región del plano (**no numerable**) y todos sus puntos son "igual de probables". Definimos
 > $$
 > P[A] = \frac{\text{Área } (A) }{\text{Área }(\Omega)}
 > $$
-> Donde $\text{Área }(\Omega) < \infty$
-> En está medida, la probablidad depende del tamaño $\lvert A \rvert$, de hecho, termina de ser una generalización de la *medida clásica*.
-> Tiene una consecuencia interesante, para todo punto $x$ su probabilidad es $0$
+> Donde $0 < \text{Área }(\Omega) < \infty$.
+> En esta medida, la probabilidad depende del tamaño (área) de $A$: es el análogo continuo de la *medida clásica*, con "contar" cambiado por "medir área".
+> Tiene una consecuencia interesante, para todo punto $x$ su probabilidad es $0$, pues un punto tiene área $0$.
 > 
 
 <section data-footnotes class="footnotes"><h2 class="sr-only" id="footnote-label">Notas</h2>
@@ -114,11 +83,6 @@ Muyyy en sintesis,
 <li id="user-content-fn-inline-2">
 
 [[Medida de Probabilidad]] <a href="#user-content-fnref-inline-2" data-footnote-backref class="data-footnote-backref internal">↩</a>
-
-</li>
-<li id="user-content-fn-inline-3">
-
-[[Medida de Probabilidad Clasica]] <a href="#user-content-fnref-inline-3" data-footnote-backref class="data-footnote-backref internal">↩</a>
 
 </li>
 </ol>

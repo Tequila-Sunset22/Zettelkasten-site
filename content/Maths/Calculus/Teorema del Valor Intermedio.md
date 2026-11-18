@@ -1,5 +1,5 @@
 ---
-modified: 2026-11-15T04:12:34Z
+modified: 2026-11-17T21:59:52Z
 title: "Teorema del Valor Intermedio"
 publish: true
 type: zettel
@@ -12,7 +12,7 @@ tags:
 cssclasses:
   - romana
 ---
-> [!tip|idea]- **Idea Intuitiva.** (Bisección)
+> [!tip|idea]- **Idea Intuitiva.**
 >
 > Si $f$ cambia de signo en $[a,b]$, partimos $[a,b]$ a la mitad y nos quedamos con la mitad donde $f$ sigue cambiando de signo. Repitiendo, los intervalos se encogen a un punto $c$, y por continuidad $f(c)$ no puede ser ni positivo ni negativo.
 

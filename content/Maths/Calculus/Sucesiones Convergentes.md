@@ -1,5 +1,5 @@
 ---
-modified: 2026-11-15T04:12:09Z
+modified: 2026-11-17T21:59:52Z
 title: "Sucesiones Convergentes"
 publish: true
 type: zettel
@@ -15,7 +15,7 @@ Queremos formalizar la idea de que una sucesión $\{ a_{n} \}$ "se acerca" a un 
 
 > No importa qué tan cerca de $L$ nos pidan estar, a partir de cierto término la sucesión ya nunca se sale.
 
-> [!tip|idea]+ **Idea Intuitiva.** (El uso de $\varepsilon$)
+> [!tip|idea]+ **Idea Intuitiva.**
 >
 > Por propiedades de valor absoluto,
 > $$

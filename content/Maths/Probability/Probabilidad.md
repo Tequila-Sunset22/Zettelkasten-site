@@ -1,5 +1,5 @@
 ---
-modified: 2026-11-17T15:40:54Z
+modified: 2026-11-18T16:48:25Z
 title: "Probabilidad"
 publish: true
 type: moc
@@ -20,58 +20,66 @@ Como previo es extremadamente importante saber conjuntos y dominar propiedades.
 
 ## [[Combinatoria]]
 El *análisis combinatorio* juega un papel importante en el juego de la probabilidad.
-[[Ejercicios combinato]]
 ## [[Espacio de Probabilidad]]
-- [[Sigma-algebra de eventos]]
-  - [[Sigma-algebra de Borel]]
-- [[Medida de Probabilidad]]
-	- [[Propiedades de la Medida de Probabilidad]]
-	- [[Cartas de Poker]]
-- [[Probabilidad Condicional e Independiente]]
-	- [[Propiedades de la Proba Independiente]]
+- [[Sigma-algebra de eventos]] (propiedades de cerradura, $\mathcal{P}(\Omega)$ y la trivial)
+  - [[Sigma-algebra de Borel]] ($\sigma$-álgebra generada, intervalos y puntos)
+- [[Medida de Probabilidad]] (axiomas de Kolmogórov, propiedades básicas)
+	- [[Propiedades de la Medida de Probabilidad]] (inclusión-exclusión, Boole, Bonferroni, $\vartriangle$)
+	- [[Medida de Probabilidad Clasica]]
+		- [[Cartas de Poker]]
+- [[Probabilidad Condicional]] (es medida de probabilidad, regla de la multiplicación)
+- [[Independencia de Eventos]] (complementos, independencia de $n$ eventos)
+	- [[Eventos Independientes vs. Ajenos]] (cuándo son las dos cosas, los cuatro casos, depende de $P$)
 - [[Probablidad Total]]
 - [[Teorema de Bayes]]
+- [[Continuidad de la Probabilidad]] (límites de eventos monótonos)
 
 
 ## [[Variable Aleatoria]]
-- [[Variable Aleatoria Discreta y Funcion de Densidad de Proba]]
-- [[Variable Aleatoria Continua y Funcion de Densidad de Proba]]
-- [[Funcion de Distribucion Acumulada]]
-- [[Cambio de Variable Aleatoria]]
-- [[Independencia de Variables Aleatorias]]
+- [[Funcion de Masa de Probabilidad]] (función de probabilidad, soporte)
+- [[Funcion de Distribucion Acumulada]] (propiedades, calcular con $F$, discreta y mixta)
+- [[Funcion de Densidad de Probabilidad]] (y función de distribución continua)
+- [[Cambio de Variable Aleatoria]] (caso discreto y continuo, no monótono)
+- [[Independencia de Variables Aleatorias]] (discretas y continuas)
 
 A continuación, a cualquier v.a. se le puede calcular las siguientes cantidades númericas, las cuales revelan características de la v.a. o de su distribución.
 
-- [[Esperanza]]
-- [[Varianza]]
-- [[Momentos]]
-- [[Cuantiles]]
-- [[Moda]]
-- [[Funcion Generadora de Probabilidad]]
-- [[Funcion Generadora de Momentos]]
+- [[Esperanza]] (estadístico inconsciente, linealidad, independencia, fórmula del área)
+	- [[Desigualdad de Jensen]] (recta de soporte, $1/X$, media geométrica)
+- [[Varianza]] (propiedades, suma de independientes, $\bar{X}$, mejor predicción)
+- [[Momentos]] (centrales y absolutos, existencia, simetría)
+- [[Cuantiles]] (existencia, caso continuo, mediana, función cuantil)
+	- [[Metodo de la Transformada Inversa]] (simulación, $F(X)$ uniforme)
+- [[Moda]] (existencia, moda contra mediana contra media)
+- [[Funcion Generadora de Probabilidad]] (inversión, momentos factoriales, sumas indep.)
+- [[Funcion Generadora de Momentos]] (momentos derivando, sumas indep., caracterización)
 
 - [[Falacias]]
 falacia del apostador
 
-#### [[Distribuciones de Probabilidad]]
+#### [[Distribuciones de Probabilidad]] (mapa de relaciones)
 Distribuciones Discretas:
-- [[Distribucion Uniforme Discreta]]
-- [[Distribucion de Bernoulli]]
-- [[Distribucion Binomial]]
-- [[Distribucion Geometrica]]
-- [[Distribucion Binomial Negativa]]
-- [[Distribucion Hipergeometrica]]
-- [[Distribucion de Poisson]]
+- [[Distribucion Uniforme Discreta]] (valores consecutivos)
+- [[Distribucion de Bernoulli]] (indicadora de un evento)
+- [[Distribucion Binomial]] (suma de Bernoullis, f.g.m., suma de binomiales)
+- [[Distribucion Geometrica]] (pérdida de memoria)
+- [[Distribucion Binomial Negativa]] (suma de geométricas, $F$ con la binomial)
+- [[Distribucion Hipergeometrica]] (Vandermonde, corrección por población finita)
+- [[Distribucion de Poisson]] (suma, límite de la binomial)
 
 Distribuciones Continuas:
-- [[Distribucion Uniforme Continua]]
-- [[Distribucion Exponencial]]
-- [[Distribucion Beta]]
-- [[Distribucion Weibull]]
-- [[Distribucion Normal]]
-- [[Distribucion ji-cuadrada]]
-- [[Distribucion t]]
-- [[Distribucion F]]
+- [[Distribucion Uniforme Continua]] (propiedades, transformación lineal)
+- [[Distribucion Exponencial]] (pérdida de memoria, parte entera geométrica)
+- [[Distribucion Gamma]] (Erlang, sumas, relación con Poisson)
+	- [[Funcion Gamma]] ($\Gamma(n+1) = n!$, $\Gamma(\frac{1}{2}) = \sqrt{ \pi }$)
+- [[Distribucion Beta]] (forma según $a$ y $b$, cociente de gammas)
+	- [[Funcion Beta]] (relación con $\Gamma$, propiedades)
+- [[Distribucion Weibull]] (relación con la exponencial, tasa de falla)
+- [[Distribucion Normal]] (estandarización, $\Phi$ y $z_{\alpha}$, sumas, cotas de la cola, lognormal)
+	- [[Integral Gaussiana]]
+- [[Distribucion ji-cuadrada]] ($Z^{2}$, sumas de cuadrados, varianza muestral)
+- [[Distribucion t]] (momentos, Cauchy, $\bar{X}$ con $S$, convergencia a la normal)
+- [[Distribucion F]] (momentos, recíproco y tablas, $t^{2}$)
 
 **Profesor:** Daniel Cervantes Filoteo
 

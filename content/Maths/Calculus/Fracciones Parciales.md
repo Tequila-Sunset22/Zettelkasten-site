@@ -1,5 +1,5 @@
 ---
-modified: 2026-11-15T17:19:27Z
+modified: 2026-11-17T21:59:52Z
 title: "Fracciones Parciales"
 publish: true
 type: zettel
@@ -23,7 +23,7 @@ Sean $f,g \in \mathbb{R}[x]$ polinomios. Denotamos $\operatorname{gr}(f)$ al gra
 > $$
 > el polinomio $q$ se integra directo y a $\frac{r}{g}$ ya le aplican los casos de abajo.
 
-> [!tip|idea]- **Idea Intuitiva.** (Caso 1)
+> [!tip|idea]- **Idea Intuitiva.**
 >
 > Si logramos reescribir $\displaystyle \frac{f(x)}{g(x)}$ como una comb. lineal de fracciones con denominadores lineales, podemos integrar de manera muy sencilla funciones de la forma $A\displaystyle \int  \frac{1}{x-x_{0}} \, dx$, los cuales son igual a $\displaystyle \sum_{i=1}^{n} A_{i}\log \lvert x-x_{i} \rvert + C$
 
@@ -46,7 +46,7 @@ Sean $f,g \in \mathbb{R}[x]$ polinomios. Denotamos $\operatorname{gr}(f)$ al gra
 > \int \frac{dx}{x^{2}-1} = \frac{1}{2}\log\left| x-1 \right| - \frac{1}{2}\log\left| x+1 \right| + C = \frac{1}{2}\log\left| \frac{x-1}{x+1} \right| + C
 > $$
 
-> [!tip|idea]- **Idea Intuitiva.** (Caso 2)
+> [!tip|idea]- **Idea Intuitiva.**
 >
 > Similar al caso anterior, solo que ahora tendremos también potencias de denominadores lineales en nuestra comb. lineal. Así que, además de $\log$, aparecen integrales $\int \frac{dx}{(x-x_{0})^{i}} = \frac{(x-x_{0})^{1-i}}{1-i}$ para $i \geq 2$.
 

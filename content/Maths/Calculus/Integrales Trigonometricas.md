@@ -1,5 +1,5 @@
 ---
-modified: 2026-11-15T18:07:51Z
+modified: 2026-11-17T21:59:52Z
 title: "Integrales Trigonométricas"
 publish: true
 type: zettel
@@ -15,7 +15,7 @@ Aquí van las pruebas. La tabla rápida de todas está en [[Fomulasos de Derivad
 
 Para cada función vamos en el mismo orden: potencias $1$, $2$ y $3$; luego la **fórmula de reducción** para $n \geq 2$ (que baja la potencia de $n$ a $n-2$ y, aplicada varias veces, resuelve cualquier potencia); y al final la integral de su **inversa**.
 
-> [!tip|idea]- **Idea Intuitiva.** (Fórmulas de reducción)
+> [!tip|idea]- **Idea Intuitiva.**
 >
 > Para $\int f^{n}$ no buscamos una fórmula cerrada para cada $n$: buscamos escribirla en términos de $\int f^{n-2}$. Aplicándola una y otra vez, la potencia baja de dos en dos hasta llegar a $\int f$ o a $\int f^{0} = x$, que ya conocemos. Las de $\sin$, $\cos$, $\sec$, $\csc$ salen por partes (son integrales cíclicas); las de $\tan$, $\cot$, con la identidad pitagórica.
 

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 730 370" width="100%" style="max-width:730px;font-family:serif">
+<rect x="40" y="50" width="260" height="260" style="fill:none;stroke:#8a8a8a;stroke-width:1.5"/>
+<text x="170.0" y="28.0" text-anchor="middle" font-size="16" style="fill:#8a8a8a">independientes</text>
+<text x="292.0" y="70.0" text-anchor="end" font-size="16" font-style="italic" style="fill:#8a8a8a">Ω</text>
+<rect x="40" y="50" width="104.0" height="260" style="fill:#2a9d8f;fill-opacity:0.18"/>
+<rect x="40" y="180.0" width="260" height="130.0" style="fill:#e76f51;fill-opacity:0.18"/>
+<rect x="40" y="180.0" width="104.0" height="130.0" style="fill:none;stroke:#8a8a8a;stroke-width:1.5;stroke-dasharray:5 4"/>
+<text x="92.0" y="102.0" text-anchor="middle" font-size="18" font-style="italic" style="fill:#2a9d8f">A</text>
+<text x="227.2" y="245.0" text-anchor="middle" font-size="18" font-style="italic" style="fill:#e76f51">B</text>
+<text x="92.0" y="250.0" text-anchor="middle" font-size="14" font-style="italic" style="fill:#8a8a8a">A ∩ B</text>
+<text x="92.0" y="330.0" text-anchor="middle" font-size="13" style="fill:#2a9d8f">P(A) = 0.4</text>
+<text x="306.0" y="249.0" text-anchor="start" font-size="13" style="fill:#e76f51">P(B) = 0.5</text>
+<text x="170.0" y="354.0" text-anchor="middle" font-size="14" font-style="italic" style="fill:#8a8a8a">P(A ∩ B) = 0.2 = P(A) P(B)</text>
+<rect x="390" y="50" width="260" height="260" style="fill:none;stroke:#8a8a8a;stroke-width:1.5"/>
+<text x="520.0" y="28.0" text-anchor="middle" font-size="16" style="fill:#8a8a8a">ajenos</text>
+<text x="642.0" y="70.0" text-anchor="end" font-size="16" font-style="italic" style="fill:#8a8a8a">Ω</text>
+<rect x="390" y="50" width="104.0" height="260" style="fill:#2a9d8f;fill-opacity:0.18"/>
+<rect x="533.0" y="50" width="117.0" height="260" style="fill:#e76f51;fill-opacity:0.18"/>
+<text x="442.0" y="180.0" text-anchor="middle" font-size="18" font-style="italic" style="fill:#2a9d8f">A</text>
+<text x="591.5" y="180.0" text-anchor="middle" font-size="18" font-style="italic" style="fill:#e76f51">B</text>
+<text x="442.0" y="330.0" text-anchor="middle" font-size="13" style="fill:#2a9d8f">P(A) = 0.4</text>
+<text x="591.5" y="330.0" text-anchor="middle" font-size="13" style="fill:#e76f51">P(B) = 0.45</text>
+<text x="520.0" y="354.0" text-anchor="middle" font-size="14" font-style="italic" style="fill:#8a8a8a">P(A ∩ B) = 0 ≠ 0.18 = P(A) P(B)</text>
+</svg>

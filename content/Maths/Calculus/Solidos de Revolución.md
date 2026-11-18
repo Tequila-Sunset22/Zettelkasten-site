@@ -1,5 +1,5 @@
 ---
-modified: 2026-11-15T20:21:33Z
+modified: 2026-11-17T20:06:25Z
 title: "Sólidos de Revolución"
 publish: true
 type: zettel
@@ -144,6 +144,12 @@ Notemos que, como $c_{k}$ y $d_{k}$ no son necesariamente el mismo punto, esta n
 Un área es necesariamente positiva, por lo que añadimos v.a. a $f(x)$.
 
 
+> [!tip|idea]+ **Idea Intuitiva.**
+>
+> Aproximamos la curva con una poligonal, como para la longitud de arco. Cada segmento, al girar alrededor del eje $x$, barre un **cono truncado** (una banda inclinada, no un cilindro), cuya área ya conocemos: $\pi(f(x_{k}) + f(x_{k+1}))$ por el largo del segmento. Al refinar, las bandas se pegan a la superficie.
+>
+> <img src="/videos/superficie-x.avif" alt="center" width="720" loading="lazy">
+
 > [!theorem] **Definición.** (Área de una superficie de revolución sobre el eje X)
 >
 > El área de la superficie de revolución generada por la gráfica de $f:[a,b]\to \mathbb{R}$, con $f'$ continua, es,
@@ -157,6 +163,12 @@ Un área es necesariamente positiva, por lo que añadimos v.a. a $f(x)$.
 > Sabemos que $\int_{a}^{b} \sqrt{1+f'(x)^{2}} \, dx$ es la longitud de la gráfica de $f(x)$.
 > Así, observamos que la fórmula del área de una superficie de revolución generaliza de alguna manera el concepto de área de un cilindro recto con base circular.
 > En efecto, si $f(x) = r$ constante, entonces $f'(x) = 0$ y $\displaystyle 2\pi \int_{a}^{b} r \, dx = 2\pi r (b-a) = 2\pi r h$.
+
+> [!tip|idea]+ **Idea Intuitiva.**
+>
+> Lo mismo, pero girando alrededor del eje vertical: ahora cada banda tiene **radio** $x_{k}$ (la distancia al eje $Y$), no $f(x_{k})$. Por eso en el formulazo aparece $\left| x \right|$ en lugar de $\left| f(x) \right|$.
+>
+> <img src="/videos/superficie-y.avif" alt="center" width="720" loading="lazy">
 
 > [!theorem] **Corolario.** (Área de una superficie de revolución sobre el eje Y)
 >

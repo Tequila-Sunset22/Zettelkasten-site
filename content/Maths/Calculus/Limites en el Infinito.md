@@ -1,5 +1,5 @@
 ---
-modified: 2026-11-15T04:47:33Z
+modified: 2026-11-17T21:59:52Z
 title: "Límites en el Infinito"
 publish: true
 type: zettel
@@ -15,7 +15,7 @@ cssclasses:
 
 >*"Si me das un margen de error diminuto $\varepsilon$ alrededor de la recta $y=L$, siempre puedo encontrar un punto $N$ en el eje $X$ a partir del cual toda la gráfica queda atrapada dentro de ese tubo horizontal para siempre"*
 
-> [!tip|idea]+ **Idea Intuitiva.** (El tubo $\varepsilon$)
+> [!tip|idea]+ **Idea Intuitiva.**
 >
 > Es la banda $\varepsilon$ de las [[Sucesiones Convergentes|sucesiones convergentes]], pero ahora $x$ recorre todos los reales: al angostar el tubo, el $N$ a partir del cual la gráfica ya no se sale se recorre a la derecha.
 >

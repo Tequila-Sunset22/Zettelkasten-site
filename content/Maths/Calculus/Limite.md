@@ -1,5 +1,5 @@
 ---
-modified: 2026-11-15T04:47:33Z
+modified: 2026-11-17T21:59:52Z
 title: "Límite"
 publish: true
 type: zettel
@@ -18,7 +18,7 @@ Lo siguiente es el desarrollo de una noción intuitiva de la definición de lím
 
 Entonces proponemos un $\varepsilon$, una distancia próxima a $l$, y para ese $\varepsilon$ deberíamos encontrar una distancia $\delta$ en el eje $X$ que la valide.
 
-> [!tip|idea]+ **Idea Intuitiva.** (La banda $\varepsilon$ y la franja $\delta$)
+> [!tip|idea]+ **Idea Intuitiva.**
 >
 > Nos dan una banda horizontal de radio $\varepsilon$ alrededor de $l$; nosotros respondemos con una franja vertical de radio $\delta$ alrededor de $a$ tal que, dentro de la franja (quitando $x = a$), la gráfica no se sale de la banda. Mientras más angosta la banda, más angosta la franja. Lo que valga $f(a)$, o si siquiera existe, no importa.
 >

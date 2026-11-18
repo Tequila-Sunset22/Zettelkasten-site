@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" width="100%" style="max-width:720px;font-family:serif">
+<ellipse cx="200" cy="180" rx="165" ry="140" style="fill:none;stroke:#8a8a8a;stroke-width:1.5"/>
+<text x="70.0" y="60.0" text-anchor="middle" font-size="18" font-style="italic" style="fill:#8a8a8a">Ω</text>
+<path d="M 60,215 C 120,175 260,190 352,205 C 345,260 290,315 200,320 C 120,318 70,280 60,215 Z" style="fill:#2a9d8f;fill-opacity:0.18;stroke:#2a9d8f;stroke-width:1.2;stroke-dasharray:5 4"/>
+<text x="205.0" y="300.0" text-anchor="middle" font-size="15" font-style="italic" style="fill:#2a9d8f">(X ≤ x)</text>
+<line x1="600" y1="330" x2="600" y2="30" style="stroke:#8a8a8a;stroke-width:1.5"/>
+<text x="610.0" y="35.0" text-anchor="start" font-size="16" font-style="italic" style="fill:#8a8a8a">ℝ</text>
+<line x1="588" y1="210" x2="612" y2="210" style="stroke:#e76f51;stroke-width:2"/>
+<text x="618.0" y="215.0" text-anchor="start" font-size="16" font-style="italic" style="fill:#e76f51">x</text>
+<line x1="600" y1="210" x2="600" y2="330" style="stroke:#2a9d8f;stroke-width:4;stroke-opacity:0.6"/>
+<text x="618.0" y="275.0" text-anchor="start" font-size="14" font-style="italic" style="fill:#2a9d8f">(−∞, x]</text>
+<circle cx="120" cy="120" r="4.5" style="fill:#8a8a8a"/>
+<path d="M 126,120 C 240,95 480,60 594,80" style="fill:none;stroke:#8a8a8a;stroke-width:1;stroke-opacity:0.55"/>
+<circle cx="600" cy="80" r="3.5" style="fill:#8a8a8a"/>
+<circle cx="200" cy="90" r="4.5" style="fill:#8a8a8a"/>
+<path d="M 206,90 C 320,65 480,40 594,60" style="fill:none;stroke:#8a8a8a;stroke-width:1;stroke-opacity:0.55"/>
+<circle cx="600" cy="60" r="3.5" style="fill:#8a8a8a"/>
+<circle cx="290" cy="130" r="4.5" style="fill:#8a8a8a"/>
+<path d="M 296,130 C 410,105 480,100 594,120" style="fill:none;stroke:#8a8a8a;stroke-width:1;stroke-opacity:0.55"/>
+<circle cx="600" cy="120" r="3.5" style="fill:#8a8a8a"/>
+<circle cx="250" cy="165" r="4.5" style="fill:#8a8a8a"/>
+<path d="M 256,165 C 370,140 480,160 594,180" style="fill:none;stroke:#8a8a8a;stroke-width:1;stroke-opacity:0.55"/>
+<circle cx="600" cy="180" r="3.5" style="fill:#8a8a8a"/>
+<circle cx="110" cy="245" r="4.5" style="fill:#2a9d8f"/>
+<path d="M 116,245 C 230,220 480,230 594,250" style="fill:none;stroke:#2a9d8f;stroke-width:1;stroke-opacity:0.55"/>
+<circle cx="600" cy="250" r="3.5" style="fill:#2a9d8f"/>
+<circle cx="170" cy="270" r="4.5" style="fill:#2a9d8f"/>
+<path d="M 176,270 C 290,245 480,270 594,290" style="fill:none;stroke:#2a9d8f;stroke-width:1;stroke-opacity:0.55"/>
+<circle cx="600" cy="290" r="3.5" style="fill:#2a9d8f"/>
+<circle cx="250" cy="250" r="4.5" style="fill:#2a9d8f"/>
+<path d="M 256,250 C 370,225 480,220 594,240" style="fill:none;stroke:#2a9d8f;stroke-width:1;stroke-opacity:0.55"/>
+<circle cx="600" cy="240" r="3.5" style="fill:#2a9d8f"/>
+<circle cx="310" cy="230" r="4.5" style="fill:#2a9d8f"/>
+<path d="M 316,230 C 430,205 480,280 594,300" style="fill:none;stroke:#2a9d8f;stroke-width:1;stroke-opacity:0.55"/>
+<circle cx="600" cy="300" r="3.5" style="fill:#2a9d8f"/>
+<circle cx="150" cy="200" r="4.5" style="fill:#2a9d8f"/>
+<path d="M 156,200 C 270,175 480,205 594,225" style="fill:none;stroke:#2a9d8f;stroke-width:1;stroke-opacity:0.55"/>
+<circle cx="600" cy="225" r="3.5" style="fill:#2a9d8f"/>
+<text x="420.0" y="40.0" text-anchor="middle" font-size="18" font-style="italic" style="fill:#8a8a8a">X</text>
+</svg>

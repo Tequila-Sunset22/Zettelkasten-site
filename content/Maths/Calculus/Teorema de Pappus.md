@@ -1,5 +1,5 @@
 ---
-modified: 2026-11-15T20:20:59Z
+modified: 2026-11-17T19:44:06Z
 title: "Teorema de Pappus"
 publish: true
 type: zettel
@@ -56,4 +56,4 @@ El teorema anterior es para **superficies** (una curva que gira). Hay uno gemelo
 
 > [!observation]+ **Observación.**
 >
-> Se usa en los dos sentidos: si conocemos el centroide, sale el volumen (el [[Toroide]]: $V = 2\pi a\cdot \pi r^{2}$); y si conocemos el volumen, sale el centroide ($\bar{y} = \frac{V}{2\pi A}$). Ejercicios 7, 18 y 26 de [[Tarea III Calculo II]].
+> Se usa en los dos sentidos: si conocemos el centroide, sale el volumen (el [[Toroide]]: $V = 2\pi a\cdot \pi r^{2}$); y si conocemos el volumen, sale el centroide ($\bar{y} = \frac{V}{2\pi A}$).

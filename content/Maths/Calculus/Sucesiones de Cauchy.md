@@ -1,5 +1,5 @@
 ---
-modified: 2026-11-15T04:47:33Z
+modified: 2026-11-17T21:59:52Z
 title: "Sucesiones de Cauchy"
 publish: true
 type: zettel
@@ -13,7 +13,7 @@ cssclasses:
 ---
 Para usar la definición de convergencia necesitamos conocer el límite $L$. La idea de Cauchy es pedir que los términos se acerquen **entre sí**, sin mencionar a $L$.
 
-> [!tip|idea]+ **Idea Intuitiva.** (La ventana $\varepsilon$)
+> [!tip|idea]+ **Idea Intuitiva.**
 >
 > En lugar de una banda alrededor de $L$, pedimos que a partir de $N$ todos los términos quepan en una ventana de alto $\varepsilon$: cualesquiera dos están a menos de $\varepsilon$ entre sí. Al angostar la ventana, $N$ se recorre a la derecha.
 >

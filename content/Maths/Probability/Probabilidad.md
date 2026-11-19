@@ -1,5 +1,5 @@
 ---
-modified: 2026-11-18T16:59:22Z
+modified: 2026-11-18T22:46:14Z
 title: "Probabilidad"
 publish: true
 type: moc
@@ -50,14 +50,14 @@ A continuación, a cualquier v.a. se le puede calcular las siguientes cantidades
 - [[Momentos]] (centrales y absolutos, existencia, simetría)
 - [[Cuantiles]] (existencia, caso continuo, mediana, función cuantil)
 	- [[Metodo de la Transformada Inversa]] (simulación, $F(X)$ uniforme)
-- [[Moda]] (existencia, moda contra mediana contra media)
+- [[Moda]] (existencia, moda vs. mediana vs. media)
 - [[Funcion Generadora de Probabilidad]] (inversión, momentos factoriales, sumas indep.)
 - [[Funcion Generadora de Momentos]] (momentos derivando, sumas indep., caracterización)
 
 - [[Falacias]] (del apostador, condicional al revés, Monty Hall, cumpleaños, San Petersburgo)
 
-#### [[Distribuciones de Probabilidad]] (mapa de relaciones)
-Distribuciones Discretas:
+### [[Distribuciones de Probabilidad]] (mapa de relaciones)
+#### Distribuciones Discretas:
 - [[Distribucion Uniforme Discreta]] (valores consecutivos)
 - [[Distribucion de Bernoulli]] (indicadora de un evento)
 - [[Distribucion Binomial]] (suma de Bernoullis, f.g.m., suma de binomiales)
@@ -66,7 +66,7 @@ Distribuciones Discretas:
 - [[Distribucion Hipergeometrica]] (Vandermonde, población finita, límite binomial)
 - [[Distribucion de Poisson]] (suma, límite de la binomial, adelgazamiento)
 
-Distribuciones Continuas:
+#### Distribuciones Continuas:
 - [[Distribucion Uniforme Continua]] (propiedades, transformación lineal)
 	- [[Metodo de Monte Carlo]] (estimar $\pi$, error $\sigma/\sqrt{ n }$, integrales)
 - [[Distribucion Exponencial]] (pérdida de memoria, parte entera geométrica, coche en venta)

@@ -1,5 +1,5 @@
 ---
-modified: 2026-11-17T22:20:24Z
+modified: 2026-11-18T22:41:50Z
 title: "Probabilidad Total"
 publish: true
 type: zettel
@@ -27,6 +27,7 @@ Hay múltiples definiciones, dependiendo de la materia. Para Proba 1:
 > [!tip|idea]+ **Idea Intuitiva.**
 >
 > Cada escenario $B_{i}$ es una franja de ancho $P(B_{i})$, y dentro de ella $A$ ocupa una fracción $P(A \mid B_{i})$. $P(A)$ es la suma de esos pedazos. En la animación, el ejemplo de los ayudantes.
+> 
 > <img src="/videos/bayes-franjas.avif" alt="center" width="720" loading="lazy">
 
 > [!theorem] **Teorema.** (Probabilidad Total)

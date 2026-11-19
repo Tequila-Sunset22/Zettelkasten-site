@@ -1,5 +1,5 @@
 ---
-modified: 2026-11-17T22:20:24Z
+modified: 2026-11-18T22:50:45Z
 title: "Distribución Normal"
 publish: true
 type: zettel
@@ -99,11 +99,20 @@ Con $X = \mu + \sigma Z$, todo lo de $X$ se reduce a calcularlo para $Z$:
 >
 > Para $X \sim \operatorname{N}(0, \sigma^{2})$: $\operatorname{E}(X^{4}) = 3\sigma^{4}$ y $\operatorname{E}(X^{6}) = 15\sigma^{6}$, mientras que $\operatorname{E}(X^{2001}) = 0$.
 
-### Calcular con $\Phi$
+### F.D.A. $\Phi$
 
-$\Phi(x) = \int_{-\infty}^{x}\phi(z)\,dz$ **no** tiene forma cerrada (la integral gaussiana solo se puede calcular sobre toda la recta), así que se usan tablas o la computadora. Con la estandarización basta una sola tabla para todas las normales:
+Sea $Z \sim \operatorname{N}(0, 1)$ llamada **distribución normal estándar**. La función de distribución acumulada de $Z$, denotada,
+$$
+\Phi(z) = \int_{-\infty}^{z}\phi(t)\,dt
+$$
+donde $\phi(z)$ es la f.d.p. de $Z$ (*la altura de la curva en ese punto*).
 
-> [!theorem] **Proposición.**
+> [!observation]+ **Observación.**
+>
+> - $\Phi$ es exclusiva de una *distribución normal estándar* ($X \sim N(0,1)$), para poder describir la FDA de cualquier distribución normal ($X\sim \operatorname{N}(\mu,\sigma^{2})$) tenemos que **estandarizar**.
+> - Se observa directamente que **no** tiene forma cerrada (la integral gaussiana solo se puede calcular sobre toda la recta), así que se usan tablas o la computadora ([[Metodos numericos de Integracion|métodos numéricos]]). Con la estandarización basta una sola tabla para todas las normales:
+
+> [!theorem] **Proposición.** (FDA para $X \sim \operatorname{N}(\mu, \sigma^{2})$)
 >
 > Sea $X \sim \operatorname{N}(\mu, \sigma^{2})$ y $a < b$. Ent.
 > 1. $\displaystyle P(a < X < b) = \Phi\left( \frac{b-\mu}{\sigma} \right) - \Phi\left( \frac{a-\mu}{\sigma} \right)$.
@@ -114,7 +123,14 @@ $\Phi(x) = \int_{-\infty}^{x}\phi(z)\,dz$ **no** tiene forma cerrada (la integra
 > 1. Los eventos $\{ a < X < b \}$ y $\left\{ \frac{a-\mu}{\sigma} < Z < \frac{b-\mu}{\sigma} \right\}$ son el mismo, con $Z = \frac{X-\mu}{\sigma}$ estándar, y $F_{Z} = \Phi$ es continua. $\blacksquare$
 > 2. Como $-Z$ también es estándar, $\Phi(-x) = P(Z \leq -x) = P(-Z \geq x) = P(Z \geq x) = 1 - \Phi(x)$. $\blacksquare$
 
-El inciso 2 es por qué las tablas solo traen $x \geq 0$.
+El inciso $(ii)$ es por qué las tablas solo traen $x \geq 0$:
+
+> [!Info]+ **Tablas aquí!**
+> 
+> ![[Tabla Normal Intervalo.jpg]]
+> 
+> ![[Tabla Normal Acumulada por la izq..jpeg]]
+> 
 
 > [!example]- **Ejemplo 2.** (Con la tabla)
 >
@@ -178,7 +194,7 @@ La propiedad que hace a la normal tan cómoda en estadística: sumar normales in
 >
 > Se suman las **varianzas**, no las desviaciones estándar. Con el Corolario de la estandarización, por inducción: si $X_{1}, \dots, X_{n}$ son indep. $\operatorname{N}(\mu, \sigma^{2})$, el promedio $\bar{X} = \frac{1}{n}\sum X_{i} \sim \operatorname{N}\left( \mu, \frac{\sigma^{2}}{n} \right)$: promediar $n$ mediciones reduce el error típico por $\sqrt{ n }$.
 
-### Qué tan rápido decae la cola
+### ¿Qué tan rápido decae la cola?
 
 "Casi nada de probabilidad lejos de $\mu$" se puede hacer preciso: la cola $1 - \Phi(x)$ se comporta como $\frac{\phi(x)}{x}$.
 

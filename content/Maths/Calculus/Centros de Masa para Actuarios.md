@@ -1,5 +1,5 @@
 ---
-modified: 2026-11-15T17:23:16Z
+modified: 2026-11-18T22:31:18Z
 title: "Centros de Masa (Actuarios)"
 publish: true
 type: zettel
@@ -15,11 +15,14 @@ Dado un vector de puntos $\{ x_{1},\dots,x_{n} \}$ con vector asociado de masas 
 
 > [!observation]+ **Observación.**
 >
-> Si $\displaystyle m_{i} = \frac{1}{n}\  \ \forall i, \ \ \sum_{i=1}^{n} m_{i}x_{i} = \frac{1}{n}\sum_{i=1}^{n} x_{i}$
+> Si $\displaystyle m_{i} = \frac{1}{n}\  \ \forall i \implies\ \ \sum_{i=1}^{n} m_{i}x_{i} = \frac{1}{n}\sum_{i=1}^{n} x_{i}$
 > Esto no es más que un **promedio** (aritmético); en general, $\bar{x}$ (abajo) es un **promedio ponderado**.
 > Notemos que en este caso $\sum_{i=1}^{n} m_{i} = 1$, por lo que el momento y el centro de masa coinciden.
 
-También definimos al centro de masa (o centroide, si las masas son iguales) como $\displaystyle \bar{x} = \frac{\displaystyle \sum_{i=1}^{n} m_{i}x_{i}}{\sum_{i=1}^{n} m_{i}}$
+También definimos al centro de masa (o centroide, si las masas son iguales) como 
+$$
+\bar{x} = \frac{\displaystyle \sum_{i=1}^{n} m_{i}x_{i}}{\displaystyle\sum_{i=1}^{n} m_{i}}
+$$
 
 > [!observation]+ **Observación.**
 >
@@ -43,7 +46,10 @@ $\displaystyle f(x) = \begin{cases} p_{i} & x = x_{i} \\ 0  & \text{ o.c. }\end{
 
 > [!observation]+ **Observación.**
 >
-> Como $\sum p_{i} = 1$, las probabilidades son "masas normalizadas" ($\mu_{i} = p_{i}$), así que la esperanza **es** el centro de masa: $\operatorname{E}[X] = \bar{x}$. En el caso continuo, $f$ hace el papel de una densidad de masa y $\operatorname{E}[X] = \int x f(x)\,dx$ es el centro de masa de una varilla con esa densidad.
+> Como $\sum p_{i} = 1$, las probabilidades son "masas normalizadas" ($\mu_{i} = p_{i}$), así que la esperanza **es** el centro de masa: $\operatorname{E}[X] = \bar{x}$. Lo único que cambia respecto a [[Centros de Masa para Físicos|los físicos]] es la masa total: ellos tienen una cualquiera $M$ y dividen el momento entre $M$; aquí la masa total es $1$, así que el momento respecto al origen **ya es** el centro. Con las masas $3, 1, 2$ en $x = 1, 3, 6$ del ejemplo de los físicos ($M = 6$), dividir entre $M$ da las probabilidades $\frac{1}{2}, \frac{1}{6}, \frac{1}{3}$: los números cambian, pero la forma y el punto de equilibrio no.
+> 
+> ![[fisicos-vs-actuarios.svg|center|600]]
+> En el caso continuo, $f$ hace el papel de una densidad de masa y $\operatorname{E}[X] = \int x f(x)\,dx$ es el centro de masa de una varilla con esa densidad.
 
 > [!example]- Ejemplo.
 >

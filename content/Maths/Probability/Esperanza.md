@@ -1,5 +1,5 @@
 ---
-modified: 2026-11-17T22:20:24Z
+modified: 2026-11-18T22:38:38Z
 title: "Esperanza"
 publish: true
 type: zettel
@@ -15,8 +15,11 @@ Una v.a. toma muchos valores, cada uno con su probabilidad. Para resumirla en un
 
 > [!tip|idea]+ **Idea Intuitiva.**
 >
-> $\operatorname{E}(X)$ es el centro de masa de la distribución: con una masa $f(x)$ en cada valor $x$, el apoyo que equilibra la barra está en $\operatorname{E}(X)$ (ver [[Centros de Masa para Físicos]]).
-> <img src="/videos/centroide-discreto.avif" alt="center" width="720" loading="lazy">
+> $\operatorname{E}(X)$ es el valor en el que se estabiliza el promedio de muchas observaciones de $X$. En la animación $X$ tiene densidad $f(x) = 2x$ en $(0,1)$ (Ejemplo 1.2): cada punto es una observación, cae al azar bajo la curva (más donde $f$ es alta) y su coordenada $x$ es el valor observado; $\bar{x}_{n}$ es el promedio de las primeras $n$ y el segmento rojo lo que le falta para llegar a $\operatorname{E}(X) = \frac{2}{3}$.
+>
+> <img src="/videos/esperanza-promedio.avif" alt="center" width="720" loading="lazy">
+>
+> Como fórmula es un centro de masa (con $f$ como densidad de masa total $1$, ver [[Centros de Masa para Actuarios]]); lo probabilístico es que ese número es al que tienden los promedios.
 
 > [!Info]- **Nota!** (Esperanza, media y promedio)
 >
@@ -64,11 +67,10 @@ Muchas veces queremos la esperanza de $Y = \varphi(X)$. Por def. tendríamos $\o
 >
 > **Borrador.** En el caso discreto, cada valor $y$ de $Y$ junta la probabilidad de todos los $x$ con $\varphi(x) = y$; se reagrupa la suma por $x$.
 >
-> **Proof.** 1. Por el cambio de v.a. discreta, $f_{Y}(y) = \sum_{x \in \varphi^{-1}(y)} f_{X}(x)$. Ent.
+> **Proof.** 1. Por el cambio de v.a. discreta, $\displaystyle f_{Y}(y) = \sum_{x \in \varphi^{-1}(y)} f_{X}(x)$. Ent.
 > $$
 > \begin{align}
-> & \operatorname{E}(Y) \\[0.5em]
-> &= \sum_{y} y \sum_{x \in \varphi^{-1}(y)} f_{X}(x) = \sum_{y} \sum_{x \in \varphi^{-1}(y)} \varphi(x) f_{X}(x) \\[0.5em]
+> \operatorname{E}(Y) &= \sum_{y} y \sum_{x \in \varphi^{-1}(y)} f_{X}(x) = \sum_{y} \sum_{x \in \varphi^{-1}(y)} \varphi(x) f_{X}(x) \\[0.5em]
 > &= \sum_{x} \varphi(x) f_{X}(x) \tag{reagrupando}
 > \end{align}
 > $$

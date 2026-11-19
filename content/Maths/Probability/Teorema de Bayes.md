@@ -1,5 +1,5 @@
 ---
-modified: 2026-11-17T22:20:24Z
+modified: 2026-11-18T22:40:48Z
 title: "Teorema de Bayes"
 publish: true
 type: zettel
@@ -18,6 +18,7 @@ La [[Probablidad Total|probabilidad total]] va de las causas al efecto: si sé q
 > [!tip|idea]+ **Idea Intuitiva.**
 >
 > Si ocurrió $B$, se juntan los pedazos sombreados de todas las franjas; la proba. de cada escenario es la fracción que aporta su pedazo.
+> 
 > <img src="/videos/bayes-franjas.avif" alt="center" width="720" loading="lazy">
 
 > [!theorem] **Teorema.** (Teorema de Bayes)

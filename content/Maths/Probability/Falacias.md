@@ -1,5 +1,5 @@
 ---
-modified: 2026-11-18T16:49:08Z
+modified: 2026-11-18T17:37:35Z
 title: "Falacias"
 publish: true
 type: zettel
@@ -37,7 +37,7 @@ La falacia suele venir de una mala lectura de la ley de los grandes números: "l
 
 > [!tip|idea]+ **Idea Intuitiva.**
 >
-> La frecuencia de águilas se acerca a $\frac{1}{2}$, pero la diferencia entre águilas y la mitad de los volados no se cierra: anda dentro de una banda $\pm\frac{\sqrt{ n }}{2}$ que crece. Lo que se va a $0$ es esa diferencia **dividida entre $n$**.
+> Con $S_{n}$ = núm. de águilas en $n$ volados, $S_{n} - \frac{n}{2}$ es cuántas águilas "sobran" respecto a la mitad, y $\#\text{águilas} - \#\text{soles} = 2\left( S_{n} - \frac{n}{2} \right)$. Su tamaño típico es su desviación estándar, $\frac{\sqrt{ n }}{2}$ (la banda punteada), que **crece**: el atraso no se cierra. Lo que se va a $0$ es ese atraso **dividido entre $n$**, i.e. la frecuencia menos $\frac{1}{2}$, cuyo tamaño típico es $\frac{1}{2\sqrt{ n }}$.
 > ![[falacia-apostador.svg|center|650]]
 
 > [!theorem] **Proposición.**
@@ -49,11 +49,11 @@ La falacia suele venir de una mala lectura de la ley de los grandes números: "l
 
 > [!proof]- **Proof.**
 >
-> $\operatorname{Var}(S_{n}) = n\cdot\frac{1}{2}\cdot\frac{1}{2}$ ([[Distribucion Binomial]]), recorrer no cambia la varianza, y $\operatorname{Var}(cX) = c^{2}\operatorname{Var}(X)$ con $c = \frac{1}{n}$ ([[Varianza]]). $\blacksquare$
+> $\operatorname{Var}(S_{n}) = n\cdot\frac{1}{2}\cdot\frac{1}{2}$ ([[Distribucion Binomial]]), recorrer no cambia la varianza, y $\operatorname{Var}(cX) = c^{2}\operatorname{Var}(X)$ con $c = \frac{1}{n}$ ([[Varianza]]). Sacando raíz, las desviaciones estándar son $\frac{\sqrt{ n }}{2}$ y $\frac{1}{2\sqrt{ n }}$. $\blacksquare$
 
 > [!example]- **Ejemplo 1.**
 >
-> En $10\,000$ volados, la frecuencia de águilas típicamente queda a $\pm 0.005$ de $\frac{1}{2}$ (una desviación estándar), pero el **número** de águilas queda típicamente a $\pm 50$ de $5000$. Un "atraso" de $50$ soles es normal, y nada lo obliga a cerrarse.
+> En $10\,000$ volados, la frecuencia de águilas típicamente queda a $\pm\frac{1}{2\sqrt{ 10\,000 }} = \pm 0.005$ de $\frac{1}{2}$, pero el **número** de águilas queda típicamente a $\pm\frac{\sqrt{ 10\,000 }}{2} = \pm 50$ de $5000$, i.e. unas $100$ águilas más (o menos) que soles. Un atraso así es normal, y nada lo obliga a cerrarse.
 
 ### Leer la condicional al revés
 

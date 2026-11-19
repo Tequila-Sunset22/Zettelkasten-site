@@ -1,5 +1,5 @@
 ---
-modified: 2026-11-17T22:20:24Z
+modified: 2026-11-18T22:36:04Z
 title: "Distribución t"
 publish: true
 type: zettel
@@ -20,6 +20,7 @@ Si $X_{1}, \dots, X_{n}$ son normales con media $\mu$ y conocemos $\sigma$, esta
 > [!tip|idea]+ **Idea Intuitiva.**
 >
 > Campana como la normal estándar, pero con colas más pesadas: estimar $\sigma$ con $S$ agrega incertidumbre. Con $n$ grande $S \approx \sigma$ y la $t$ se pega a la normal. Abajo, $t(n)$ en rojo para $n = 1, 2, 4, 8, 30$ contra $\operatorname{N}(0,1)$ punteada.
+>
 > <img src="/videos/t-a-normal.avif" alt="center" width="720" loading="lazy">
 
 > [!theorem] **Definición.** ($t(n)$)

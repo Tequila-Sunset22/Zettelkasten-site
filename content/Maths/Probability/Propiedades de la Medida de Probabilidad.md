@@ -1,5 +1,5 @@
 ---
-modified: 2026-11-17T22:20:24Z
+modified: 2026-11-18T22:43:31Z
 title: "Propiedades de la Medida de Probabilidad"
 publish: true
 type: zettel
@@ -30,8 +30,7 @@ Para dos eventos ya sabemos que $P(A \cup B) = P(A) + P(B) - P(A \cap B)$: la in
 > Para tres eventos,
 > $$
 > \begin{align}
-> & P[A\cup B\cup C] \\[0.5em]
-> &= P[A] + P[B] +P[C] \\[0.5em]
+> P[A\cup B\cup C] &= P[A] + P[B] +P[C] \\[0.5em]
 > &\quad - P[A \cap B] -P[A\cap C] - P[B\cap C] \\[0.5em]
 > &\quad + P[A\cap B\cap C]
 > \end{align}
